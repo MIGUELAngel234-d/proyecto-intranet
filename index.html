@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Internet UAM-I</title>
+    <link rel="stylesheet" href="estilos/styles.css">
+</head>
+<body>
+
+    <!-- Parte del header: se encuentra el logo, el nombre del proyecto y el menu -->
+    <header class="full-header">
+        <div class="header-content">
+            <div class="logo-container">
+                <img src="recursos/imagenes/logos/UAM.png" alt="Logo UAM-I">
+                <h2>Internet UAM-I</h2>
+            </div>
+
+            <nav>
+                <a onclick="cargarPagina('inicio')">Inicio</a>
+                <a onclick="cargarPagina('acerca')">Acerca</a>
+                <a onclick="cargarPagina('informacion')">Información</a>
+                
+                <div class="dropdown">
+                    <a class="dropbtn">Proyectos</a>
+                    <div class="dropdown-content">
+                        <a href="https://sdr.uami.mx" target="_blank">SDR-UAMI</a>
+                        <a href="https://mosyneti.org" target="_blank">MOSYNETI</a>
+                    </div>
+                </div>
+
+                <a onclick="cargarPagina('galeria')">Galería</a>
+                <a onclick="cargarPagina('contacto')">Contacto</a>
+            </nav>
+        </div>
+    </header>
+    <main id="contenido"></main>
+    
+
+    <!-- Pie de página -->
+    <footer class="footer-uami-container">
+        <div class="footer-container">
+            
+            <div class="footer-column">
+                <div class="footer-brand-title"> 
+                    <h3>COMUNITARIA</h3>
+                </div>
+                <p>Un IntraNetComunitaria</p>
+            </div>
+
+            <div class="footer-column">
+                <h3>Navegación</h3>
+                <ul>
+                    <li><a href="#">Inicio</a></li>
+                    <li><a href="#">Servicios</a></li>
+                    <li><a href="#">Conócenos</a></li>
+                    <li><a href="#">Proyectos</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-column">
+                <h3>Contacto</h3>
+                <div class="contacto-info-box">
+                    <p>📍 Ciudad de México, MX</p>
+                    <p>📍 Tlalpan, C.P. 14387</p>
+                    <p>📧 contacto@izt.uam.mx</p>
+                    <p>📞 +52 55 XXXX XXXX</p>
+                </div>
+            </div>
+            
+            <img src="recursos/imagenes/logos/UAM.png" alt="Logo" class="uam-footer-logo" onerror="this.style.display='none'">
+
+        </div>
+
+        <div class="legal-bottom">
+            <p>&copy; 2026 Comunitaria - Innovación y Desarrollo Social</p>
+        </div>
+    </footer>
+
+    <script src="scripts/secciones.js"></script>
+</body>
+</html>

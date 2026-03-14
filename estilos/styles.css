@@ -1,0 +1,340 @@
+/* RESET BÁSICO */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #fff;
+    overflow-x: hidden;
+}
+
+/* --- HEADER (Franja completa) --- */
+header {
+    background-color: #000; /* Color negro que cruza toda la pantalla */
+    width: 100%;
+    border-bottom: 1px solid #222; /* Línea gris muy oscura al final del negro */
+}
+
+/* CONTENEDOR INTERNO - Centra el logo y menú */
+.header-content {
+    max-width: 1100px; 
+    margin: 0 auto; /* Centra el bloque de 1100px */
+    display: flex;
+    justify-content: space-between; /* Logo a la izquierda, menú a la derecha */
+    align-items: stretch; /* Estira todo para que el submenú pegue al ras */
+    padding: 0 20px;
+    height: 70px; /* Alto fijo de la franja negra */
+}
+/* --- LOGO Y TÍTULO --- */
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 13px; /* Separación entre el dibujo y el texto */
+}
+
+.logo-container img {
+    height: 45px; /* Tamaño del logo */
+}
+
+.logo-container h2 {
+    font-size: 18px; 
+    font-weight: 700;
+    letter-spacing: -0.5px;
+    /* Degradado: empieza verde oscuro y termina en tu verde claro */
+    background: linear-gradient(to right, #2a6d62, #49b3a2); 
+    -webkit-background-clip: text; /* Recorta el degradado a la forma de la letra */
+    background-clip: text;
+    color: transparent; /* Hace la letra invisible para que se vea el degradado */
+    -webkit-font-smoothing: antialiased;
+}
+
+/* --- NAV --- */
+nav {
+    display: flex;
+    align-items: stretch; /* Hace que los botones midan los 70px de alto */
+    gap: 24px; /* Distancia entre cada palabra del menú */
+}
+
+nav a, .dropbtn {
+    display: flex;
+    align-items: center; /* Centra el texto verticalmente */
+    color: white;
+    text-decoration: none;
+    font-size: 12px; 
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease; /* Suaviza el cambio de color al pasar el mouse */
+}
+
+nav a:hover, .dropdown:hover .dropbtn {
+    color: #49b3a2;
+}
+
+/* --- DROPDOWN (Menú desplegable) --- */
+.dropdown {
+    position: relative;
+    display: flex; 
+}
+
+/* CAJA DEL SUBMENÚ */
+.dropdown-content {
+    display: none; /* Oculto por defecto */
+    position: absolute;
+    background-color: #111; /* Negro casi total para el fondo del submenú */
+    min-width: 160px;
+    top: 100%; /* Empieza exactamente donde termina el header (al ras) */
+    left: 0;
+    border-radius: 0 0 4px 4px; /* Redondea solo las esquinas de abajo */
+    z-index: 10; /* Se pone por encima de cualquier otro contenido */
+    box-shadow: 0px 8px 16px rgba(0,0,0,0.5); /* Sombra para dar profundidad */
+    overflow: hidden;
+}
+
+.dropdown-content a {
+    display: block; /* Un link debajo de otro */
+    padding: 12px 15px;
+    font-size: 14px;
+    font-weight: 400;
+    width: 100%;
+}
+
+/* Efecto al pasar el mouse en el submenú */
+.dropdown-content a:hover {
+    background-color: #49b3a2; /* Fondo verde */
+    color: #000; /* Letra negra para que resalte */
+}
+
+/* MUESTRA EL SUBMENÚ AL TOCAR 'PROYECTOS' */
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropbtn {
+    padding: 0; 
+    margin: 0;
+    height: 100%;
+}
+
+/* Espaciado para el contenido inyectado (se puede modificar desde aqui)*/
+main#contenido {
+    min-height: 60vh; 
+    max-width: 1100px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+/* =========================================
+   SECCIÓN ACERCA DE NOSOTROS (INYECTADA)
+   ========================================= */
+
+/* Contenedor principal: extiende el fondo a toda la pantalla y define colores */
+.seccion-acerca {
+    --bg-acerca: #0d1f18;
+    --primary-acerca: #2d6a4f;
+    --secondary-acerca: #52b788;
+    --accent-acerca: #95d5b2;
+    --glass-bg: rgba(45, 106, 79, 0.1);
+    --glass-border: rgba(82, 183, 136, 0.2);
+    font-family: 'Outfit', sans-serif;
+    color: #f0fdf4;
+    position: relative;
+
+    margin-top: -40px; 
+    margin-bottom: -40px;
+
+    margin-left: calc(-50vw + 50%);
+    margin-right: calc(-50vw + 50%);
+    width: auto;
+    min-height: 100vh;
+    padding: 80px 0;
+    overflow: hidden;
+}
+
+/* Capa de fondo con degradado radial */
+.background-gradient-acerca {
+    position: absolute;
+    top: 0; left: 0; 
+    width: 100%; height: 100%;
+    background: radial-gradient(circle at 50% 50%, #1b4332 0%, #081c15 100%);
+    z-index: 0;
+}
+
+/* Limitador de ancho interno para alinear con el header */
+.seccion-acerca .about-container {
+    position: relative;
+    z-index: 1;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Encabezado: centra el titulo y subtitulo */
+.seccion-acerca .about-hero {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.seccion-acerca .about-hero h1 {
+    font-size: 3.5rem;
+    margin-bottom: 15px;
+}
+
+/* Efecto de texto con degradado */
+.seccion-acerca .gradient-text {
+    background: linear-gradient(135deg, var(--primary-acerca), var(--accent-acerca));
+    -webkit-background-clip: text; 
+    color: transparent;
+}
+
+/* Grid de dos columnas para texto e imagen */
+.seccion-acerca .about-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    align-items: start;
+}
+
+/* Tarjeta con efecto de cristal (Glassmorphism) */
+.seccion-acerca .glass-card {
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    border-radius: 20px;
+    padding: 35px;
+    backdrop-filter: blur(12px);
+    text-align: justify;
+}
+
+.seccion-acerca .glass-card p {
+    margin-bottom: 1.5rem;
+    color: #cbd5e1;
+    font-size: 1.05rem;
+}
+
+/* Contenedor y estilo de la imagen lateral */
+.seccion-acerca .image-content {
+    display: flex;
+    justify-content: center;
+}
+
+.seccion-acerca .about-image {
+    width: 100%;
+    max-width: 550px;
+    border-radius: 20px;
+    border: 1px solid var(--glass-border);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+}
+
+/* Animaciones de entrada */
+.seccion-acerca .animate-fade-in { animation: fadeIn 1s ease-out; }
+.seccion-acerca .animate-slide-up { animation: slideUp 1s ease-out; }
+.seccion-acerca .delay-200 { animation-delay: 0.2s; animation-fill-mode: backwards; }
+.seccion-acerca .delay-300 { animation-delay: 0.3s; animation-fill-mode: backwards; }
+
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+@keyframes slideUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+
+/* Adaptación para dispositivos móviles */
+@media (max-width: 850px) {
+    .seccion-acerca .about-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+    .seccion-acerca .about-hero h1 {
+        font-size: 2.5rem;
+    }
+}
+
+/* --- FOOTER UNIFICADO -- */
+
+.footer-uami-container {
+    background-color: #000000; 
+    color: #ffffff;
+    padding-top: 40px;
+    width: 100%;
+    font-family: 'Segoe UI', Tahoma, sans-serif;
+    margin-top: 0;
+}
+
+.footer-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding: 0 20px;
+    gap: 20px; /* Espacio entre columnas */
+}
+
+.footer-column {
+    flex: 1;
+    min-width: 230px; /* Las columnas se vuelven mas anchas o pequeñas */
+    padding: 25px;
+    border-radius: 17px;
+    transition: all 0.4s ease;
+}
+
+/* Efecto Hover solo en las columnas del footer */
+.footer-column:hover {
+    background: rgba(45, 106, 79, 0.1);
+    transform: translateY(-5px);
+}
+
+.footer-column h3 {
+    color: #40916c; 
+    font-size: 17px;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+}
+
+.footer-column ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-column ul li {
+    margin-bottom: 12px;
+}
+
+.footer-column a {
+    color: #bbbbbb;
+    text-decoration: none;
+    transition: 0.3s;
+    font-size: 14px;
+    font-weight: 100;
+}
+
+.footer-column a:hover {
+    color: #95d5b2;
+    padding-left: 10px;
+}
+
+.uam-footer-logo {
+    width: 90px;
+    height: auto;
+    object-fit: contain;
+    align-self: center;
+}
+
+.legal-bottom {
+    margin-top: 40px;
+    padding: 25px;
+    text-align: center;
+    background-color: #050505;
+    border-top: 1px solid #2d6a4f;
+}
+
+.legal-bottom p {
+    font-size: 0.85rem;
+    color: #666;
+}
+
+/* Ajuste Celulares */
+@media (max-width: 768px) {
+    .footer-content-wrapper {
+        flex-direction: column;
+        text-align: center;
+    }
+}
