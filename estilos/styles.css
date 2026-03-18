@@ -127,6 +127,318 @@ main#contenido {
 }
 
 /* =========================================
+   SECCIÓN INICIO (INYECTADA)
+   ========================================= */
+
+.seccion-inicio {
+    --primary-inicio: #2d6a4f;
+    --secondary-inicio: #52b788;
+    --accent-inicio: #95d5b2;
+    --glass-bg-inicio: rgba(45, 106, 79, 0.1);
+    --glass-border-inicio: rgba(82, 183, 136, 0.2);
+
+    min-height: 100vh;
+    padding: 80px 0;
+    
+    font-family: 'Outfit', sans-serif;
+    position: relative;
+
+    margin-top: -40px;    /* Elimina el margen superior de 40px del main#contenido */
+    margin-bottom: -40px;
+    /* Ajuste para que se pegue a los bordes como hicimos con Acerca De */
+    margin-left: calc(-50vw + 50%);
+    margin-right: calc(-50vw + 50%);
+    width: auto;
+    position: relative;
+    overflow: hidden;
+}
+
+.seccion-inicio main {
+    position: relative;
+    z-index: 1;
+    max-width: 1100px; /* Esto alinea el texto con el header */
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Fondo degradado fijo detrás del contenido de Inicio */
+.background-gradient-inicio {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: radial-gradient(circle at 50% 50%, #1b4332 0%, #081c15 100%);
+    z-index: -1;
+}
+
+/* HERO SECTION */
+.seccion-inicio .hero-section {
+    min-height: 80vh;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 2rem;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.seccion-inicio .hero-content {
+     flex: 1; z-index: 10; 
+}
+
+.seccion-inicio .status-text {
+    display: flex; /* Usamos flex para alinear todo perfecto */
+    align-items: center;
+    gap: 8px; /* Espacio fijo entre los elementos */
+    color: #ffffff;
+    font-size: 0.8rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+    letter-spacing: 1px;
+}
+
+.seccion-inicio h1 {
+    font-size: 3rem;
+    line-height: 1;
+    margin-bottom: 1.5rem;
+    color: #ffffff !important;
+    font-weight: 600;
+}
+
+
+.seccion-inicio .gradient-text {
+    background: linear-gradient(135deg, #49b3a2, #95d5b2);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent !important;
+    display: block;
+}
+
+.seccion-inicio .hero-content p {
+    font-size: 1.1rem;
+    color: #94a3b8;
+    max-width: 450px;
+    margin-bottom: 2rem;
+    line-height: 1.4;
+}
+
+/* BOTONES */
+.seccion-inicio .btn-secondary {
+    display: inline-block;
+    padding: 1rem 2rem;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 14px;
+    border: 2px solid var(--glass-border-inicio);
+    color: white;
+    transition: all 0.3s ease;
+}
+
+.seccion-inicio .btn-secondary:hover {
+    background: var(--glass-bg-inicio);
+    border-color: var(--primary-inicio);
+}
+
+/* MASCOTA */
+.seccion-inicio .hero-visual { flex: 1; display: flex; justify-content: center; }
+.seccion-inicio .hero-visual img { 
+    max-width: 100%;
+    height: clamp(250px, 35vw, 300px); 
+    object-fit: contain; /* Evita que la imagen se estire feo */
+    filter: drop-shadow(0 0 30px rgba(45, 106, 79, 0.6));
+    pointer-events: none;
+    user-select: none;
+    transition: all 0.2s ease-out;
+}
+
+/* SDR-UAMI CARD */
+.seccion-inicio .features-section {
+    padding: 4rem 2rem;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.seccion-inicio .features-section h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+    color: var(--accent-inicio);
+}
+
+.seccion-inicio .glass-card-inicio {
+    background: var(--glass-bg-inicio);
+    border: 1px solid var(--glass-border-inicio);
+    border-radius: 20px;
+    padding: 2.5rem;
+    backdrop-filter: blur(10px);
+    text-align: justify;
+    line-height: 1.8;
+    color: #cbd5e1;
+}
+
+/* GALERÍA */
+.seccion-inicio .gallery-section {
+    padding: 6rem 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.seccion-inicio .gallery-section h2 {
+    text-align: center;
+    font-size: 2.8rem;
+    margin-bottom: 1rem;
+    color: #ffffff;
+    font-weight: 700;
+}
+
+.seccion-inicio .gallery-section p {
+    text-align: center;
+    color: #94a3b8;
+    margin-bottom: 3rem;
+    font-size: 1.1rem;
+}
+
+.seccion-inicio .gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+    padding: 1rem;
+}
+
+.seccion-inicio .gallery-item {
+    border-radius: 15px;
+    overflow: hidden;
+    background: var(--glass-bg-inicio);
+    border: 1px solid var(--glass-border-inicio);
+    position: relative;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.seccion-inicio .gallery-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(45, 106, 79, 0.4);
+}
+
+.seccion-inicio .gallery-image-wrapper {
+    position: relative;
+    width: 100%;
+    height: 250px;
+    overflow: hidden;
+}
+
+.seccion-inicio .gallery-image-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.seccion-inicio .gallery-item:hover .gallery-image-wrapper img {
+    transform: scale(1.1);
+}
+
+.seccion-inicio .gallery-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    /* Degradado oscuro para que el texto resalte */
+    background: linear-gradient(to top, rgba(13, 31, 24, 0.95), transparent);
+    padding: 1.5rem;
+    color: white;
+    transform: translateY(100%);
+    transition: transform 0.3s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+.seccion-inicio .gallery-item:hover .gallery-overlay {
+    transform: translateY(0);
+}
+
+/* ESTILOS DE LOS TEXTOS DENTRO DE LAS FOTOS */
+.seccion-inicio .gallery-overlay h3 {
+    font-size: 1.25rem;
+    margin-bottom: 0.25rem;
+    color: var(--accent-inicio); /* Usa el color verde claro */
+    font-weight: 600;
+}
+
+.seccion-inicio .gallery-overlay p {
+    font-size: 0.9rem;
+    color: #e2e8f0;
+    text-align: left; /* Para que no herede el centrado del h2 principal */
+    margin: 0;
+}
+
+.seccion-inicio .puntos-animados {
+    display: inline-block;
+    width: 1.5ch; /* Ancho fijo igual a 3 caracteres aprox */
+    text-align: left;
+    overflow: hidden;
+    white-space: nowrap;
+    animation: escritura-fija 2s steps(4, end) infinite;
+}
+
+@keyframes escritura-fija {
+    from { width: 0; }
+    to { width: 1.5ch; } /* Se llena el espacio sin empujar lo que sigue */
+}
+
+@keyframes float-inicio {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+}
+
+/* RESPONSIVE: Cuando la pantalla es pequeña (Celulares/Tablets) */
+@media (max-width: 768px) {
+    .seccion-inicio .hero-section {
+        flex-direction: column; 
+        text-align: center;
+        padding: 4rem 1.5rem; /* Más espacio arriba y abajo en móviles */
+        gap: 30px;
+    }
+
+    .seccion-inicio .hero-content {
+        order: 2;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .seccion-inicio .hero-content p {
+        margin-left: auto; /* Centra el bloque del párrafo */
+        margin-right: auto;
+        font-size: 1rem; /* Un poquito más chico en móvil ayuda a la lectura */
+    }
+
+    .seccion-inicio .hero-visual {
+        height: auto;
+        width: 70%;
+        margin-bottom: 5px;
+        max-height: 300px;
+    }
+
+    .seccion-inicio .hero-visual img {
+        /* 1. Quitamos cualquier límite anterior */
+        max-height: none !important; 
+        
+        /* 2. Definimos un ancho que se vea bien en celulares */
+        width: 65% !important; /* Prueba con 65% u 80% si la quieres más grande */
+        
+        /* 3. Aseguramos que mantenga la proporción */
+        height: auto !important; 
+        
+        /* 4. Un margen para que no pegue con el texto de abajo */
+        margin-bottom: 20px;
+    }
+}
+
+
+/* =========================================
    SECCIÓN ACERCA DE NOSOTROS (INYECTADA)
    ========================================= */
 
@@ -222,16 +534,12 @@ main#contenido {
 .seccion-acerca .about-image {
     width: 100%;
     max-width: 550px;
+    height: 330px;
     border-radius: 20px;
     border: 1px solid var(--glass-border);
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
 }
 
-/* Animaciones de entrada */
-.seccion-acerca .animate-fade-in { animation: fadeIn 1s ease-out; }
-.seccion-acerca .animate-slide-up { animation: slideUp 1s ease-out; }
-.seccion-acerca .delay-200 { animation-delay: 0.2s; animation-fill-mode: backwards; }
-.seccion-acerca .delay-300 { animation-delay: 0.3s; animation-fill-mode: backwards; }
 
 @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
 @keyframes slideUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
@@ -337,4 +645,33 @@ main#contenido {
         flex-direction: column;
         text-align: center;
     }
+}
+
+@keyframes float-inicio {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+}
+
+/* Animaciones de entrada */
+.animate-float {
+    animation: float-inicio 6s ease-in-out infinite;
+}
+
+
+.animate-fade-in { 
+    animation: fadeIn 1s ease-out; 
+}
+
+.animate-slide-up { 
+    animation: slideUp 1s ease-out; 
+}
+
+.delay-200 { 
+    animation-delay: 0.2s; 
+    animation-fill-mode: backwards; 
+}
+
+.delay-300 { 
+    animation-delay: 0.3s; 
+    animation-fill-mode: backwards; 
 }
