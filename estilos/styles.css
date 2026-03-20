@@ -7,17 +7,30 @@
 
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #fff;
+    background-color: #081c15;
     overflow-x: hidden;
 }
 
 /* --- HEADER (Franja completa) --- */
 header {
-    background-color: #000; /* Color negro que cruza toda la pantalla */
+    background-color: rgba(0, 0, 0, 1); /* negro sólido */
     width: 100%;
-    border-bottom: 1px solid #222; /* Línea gris muy oscura al final del negro */
-}
+    border-bottom: 1px solid #222;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
 
+    backdrop-filter: blur(0px); /* sin blur arriba */
+    -webkit-backdrop-filter: blur(0px);
+
+    transition: all 0.3s ease;
+}
+header.scrolled {
+    background-color: rgba(0, 0, 0, 0.75); /* ligeramente transparente */
+    
+    backdrop-filter: blur(10px); /* ahora sí aparece el glass */
+    -webkit-backdrop-filter: blur(10px);
+}
 /* CONTENEDOR INTERNO - Centra el logo y menú */
 .header-content {
     max-width: 1100px; 
@@ -454,7 +467,7 @@ main#contenido {
     color: #f0fdf4;
     position: relative;
 
-    margin-top: -40px; 
+    margin-top: 0; 
     margin-bottom: -40px;
 
     margin-left: calc(-50vw + 50%);
