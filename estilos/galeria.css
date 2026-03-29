@@ -1,0 +1,273 @@
+/* Reset CSS exclusivo para elementos dentro de la página de galería */
+.galeria-page * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* 100% de altura solo para el body de la galería */
+body.galeria-page {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    position: relative;
+}
+
+/* Marca de agua de fondo */
+body.galeria-page::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url('../Recursos/Imagenes/Logos/logoIntranet.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    opacity: 0.15;
+    z-index: -1;
+    will-change: transform;
+    transform: translateZ(0);
+}
+
+/**
+ * CONTENEDOR PRINCIPAL
+ Estilos para el título de la galería */
+.titulos {
+    text-align: center;
+    /* Centra el texto en la pagina */
+    font-size: 3rem;
+    /* Tamaño de letra bastante grande */
+    color: #333333;
+    /* Color gris oscuro/negro */
+    margin-top: 40px;
+    /* Separación desde arriba de la pagina */
+    margin-bottom: 30px;
+    /* Separación entre el titulo y las fotos */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    /* Un tipo de letra moderno */
+
+    /* Degradado de color en las letras */
+    background: linear-gradient(to right, #212426, #92a39f);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    /* Sombra suave para darle un efecto 3D simple */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+
+    /* Text transform para que sea en MAYUSCULAS */
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    /* Espacio entre cada letra */
+}
+
+
+
+
+.container {
+    max-width: 1200px;
+    /* Limita el crecimiento horizontal en pantallas grandes */
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+
+    /* Define que la primera fila siempre tenga una altura de 250px */
+    grid-template-rows: 250px;
+
+    grid-gap: 20px;
+    /* Espacio de separación entre celdas (filas y columnas) */
+    padding: 100px 0;
+    /* Espacio interno arriba y abajo (100px), 0 a los lados */
+}
+
+/**
+ * Ajusta las imágenes para que se adapten a sus contenedores
+ */
+.box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* Recorta la imagen para llenar el espacio sin deformarse */
+
+    max-height: 250px;
+    /* evitar que el navegador se sature calculando cómo recortar la imagen en resoluciones grandes*/
+}
+
+/**
+ * SELECCIÓN DE ELEMENTOS ESPECÍFICOS
+ */
+.box:nth-child(1),
+.box:nth-child(4) {
+    grid-column-start: span 1;
+    /* La primera caja y cuarta ocupa solo 1 columna */
+}
+
+/**
+ * DISEÑO RESPONSIVO 
+ */
+@media(max-width: 791px) {
+    .container {
+        padding: 30px;
+        grid-template-columns: repeat(1, 1fr);
+    }
+}
+
+/* =============
+   ESTILOS PARA EL LIGHTBOX (Caja de Luz con JavaScript)
+   Estas reglas controlan como se ve la imagen agrandada y su fondo
+   ============= */
+
+/* El contenedor principal 
+   Es la "caja negra" que cubrirá toda la pantalla.
+*/
+.lightbox {
+    /* Estado inicial: Invisible, el JavaScript lo cambiará a 'flex' para mostrarlo */
+    display: none;
+
+    /* position: fixed asegura que el modal persiga al usuario aunque haga scroll */
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    /* 100vw y 100vh significa 100% del Ancho y Alto de la pantalla visible (Viewport) */
+    width: 100vw;
+    height: 100vh;
+
+    /* Fondo negro con 90% de opacidad (rgba: Red, Green, Blue, Alpha/Transparencia) */
+    background-color: rgba(0, 0, 0, 0.9);
+
+    /* z-index altísimo garantiza que esta caja negra tape la navbar, logos, footer, etc. */
+    z-index: 1000;
+
+    /* Cuando se muestre (display: flex), esto centrará la foto horizontal y verticalmente */
+    justify-content: center;
+    align-items: center;
+
+    /* Le agregamos una animación (definida abajo) para que no aparezca de golpe */
+    animation: fadeIn 0.4s ease;
+}
+
+/* (.lightbox-contenido)
+   Esta regla afecta solo a la etiqueta 'img' dentro de la caja negra.
+*/
+.lightbox-contenido {
+    /* La foto nunca será más ancha ni más alta que el 90% de la pantalla */
+    max-width: 90%;
+    max-height: 90%;
+
+    /* object-fit: contain asegura que la foto se encoja proporcionalmente sin cortarse 
+       ni deformarse*/
+    object-fit: contain;
+
+    /* Le agregamos una sombra negra suave alrededor para darle un aspecto 3D o elevado */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+
+    /* Suavizamos apenitas las esquinas de la foto (opcional, por estética) */
+    border-radius: 15px;
+}
+
+/* 
+   Es el boton de la X.
+*/
+.btn-cerrar {
+    /* absolute lo saca del flujo normal para poder moverlo libremente dentro de su padre */
+    position: absolute;
+    top: 20px;
+    /* A 20 pixeles del techo */
+    right: 40px;
+    /* A 40 pixeles de la pared derecha */
+
+    color: #f1f1f1;
+    /* Un blanco ligeramente grisáceo */
+    font-size: 50px;
+    font-weight: bold;
+
+    /* cursor: pointer hace que la flecha del mouse cambie a la manita*/
+    cursor: pointer;
+
+    /* transition hace que el efecto hover de abajo sea suave (tarda 0.3 segundos) */
+    transition: 0.3s;
+}
+
+/* EFECTO HOVER DEL BOTÓN CERRAR
+*/
+.btn-cerrar:hover,
+.btn-cerrar:focus {
+    color: #bbb;
+    /* Se oscurece un poco más el color */
+    text-decoration: none;
+
+    /* transform: scale hace que la X crezca un 10% de su tamaño para hacerlo interactivo */
+    transform: scale(1.1);
+}
+
+/* Botones de navegacion (anterior - siguiente)*/
+.btn-nav {
+    position: absolute;
+    top: 50%;
+    /* Justo en el medio verticalmente */
+    transform: translateY(-50%);
+    /* Centrado matemático exacto */
+    background: rgba(0, 0, 0, 0.5);
+    /* Fondo negro semitransparente */
+    color: white;
+    border: none;
+    font-size: 40px;
+    padding: 15px 20px;
+    cursor: pointer;
+    transition: 0.3s;
+    user-select: none;
+    /* Evita que el usuario seleccione el texto de la flecha azul por accidente */
+    border-radius: 5px;
+    /* Esquinas un poco redondas */
+}
+
+.btn-nav:hover {
+    background: rgba(0, 0, 0, 0.9);
+    /* Más oscuro cuando pasas el ratón */
+    transform: translateY(-50%) scale(1.1);
+    /* Crece un poquito */
+}
+
+.btn-prev {
+    left: 20px;
+    /* Separado 20px del borde izquierdo */
+}
+
+.btn-next {
+    right: 20px;
+    /* Separado 20px del borde derecho */
+}
+
+
+/*  
+   Estilos se aplican a las fotos chiquitas 
+*/
+.foto-amplia {
+    /* Obliga a que cambie a la "manita" para saber que
+       que SÍ se le puede dar clic a las fotos */
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+/* Efecto al pasar el mause por lsa fotos */
+.foto-amplia:hover {
+    /* Al poner el mouse encima, la foto se hace un 20% transparente*/
+    opacity: 0.8;
+}
+
+/* Animacion de entrada
+   Aquí se 'programa' la animación que usamos en la regla .lightbox principal.
+   Va desde 0% de opacidad (transparente) hasta 100% de opacidad (visible completo).
+*/
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}

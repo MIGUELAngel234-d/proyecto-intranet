@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <!--Pagina responsive-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galería de Guatemala</title>
+    <!-- Hoja de estilos global -->
+    <link rel="stylesheet" href="../../estilos/styles.css">
+    <!-- Hoja de estilos específica de las galerias -->
+    <link rel="stylesheet" href="../../estilos/galeria.css">
+</head>
+
+<body class="galeria-page">
+
+    <!--Titulo de la galeria-->
+    <h1 class="titulos">Viaje Guatemala</h1>
+
+    <div class="container">
+        <!--Imagagenes de la galeria de viaje Guatemala-->
+        <!-- uso de lazy loading ,  indica al navegador que no descargue ni renderice la imagen a menos 
+        que el usuario esté a punto de verla-->
+        <div class="box">
+            <img src="../../recursos/Galeria/Guatemala/Guat (1).webp" alt="Guatemala 1" loading="lazy"
+                class="foto-amplia">
+        </div>
+
+        <div class="box">
+            <img src="../../recursos/Galeria/Guatemala/Guat (2).webp" alt="Guatemala 2" loading="lazy"
+                class="foto-amplia">
+        </div>
+
+        <div class="box">
+            <img src="../../recursos/Galeria/Guatemala/Guat (3).webp" alt="Guatemala 3" loading="lazy"
+                class="foto-amplia">
+        </div>
+
+        <div class="box">
+            <img src="../../recursos/Galeria/Guatemala/Guat (4).webp" alt="Guatemala 4" loading="lazy"
+                class="foto-amplia">
+        </div>
+
+        <div class="box">
+            <img src="../../recursos/Galeria/Guatemala/Guat (5).webp" alt="Guatemala 5" loading="lazy"
+                class="foto-amplia">
+        </div>
+
+        <div class="box">
+            <img src="../../recursos/Galeria/Guatemala/Guat (6).webp" alt="Guatemala 6" loading="lazy"
+                class="foto-amplia">
+        </div>
+
+        <div class="box">
+            <img src="../../recursos/Galeria/Guatemala/Guat (7).webp" alt="Guatemala 7" loading="lazy"
+                class="foto-amplia">
+        </div>
+
+        <div class="box">
+            <img src="../../recursos/Galeria/Guatemala/Guat (8).webp" alt="Guatemala 8" loading="lazy"
+                class="foto-amplia">
+        </div>
+
+        <div class="box">
+            <img src="../../recursos/Galeria/Guatemala/Guat (9).webp" alt="Guatemala 9" loading="lazy"
+                class="foto-amplia">
+        </div>
+
+        <div class="box">
+            <img src="../../recursos/Galeria/Guatemala/Guat (10).webp" alt="Guatemala 10" loading="lazy"
+                class="foto-amplia">
+        </div>
+
+        <div class="box">
+            <img src="../../recursos/Galeria/Guatemala/Guat (11).webp" alt="Guatemala 11" loading="lazy"
+                class="foto-amplia">
+        </div>
+
+        <!-- primara forma de hacer 
+        <div class="box">
+            <img src="../Recursos/Imagenes/Galeria/Guatemala/Guat (1).webp " alt="">
+        </div>
+
+        <div class="box">
+            <img src="../Recursos/Imagenes/Galeria/Guatemala/Guat (2).webp " alt="">
+        </div>
+
+        <div class="box">
+            <img src="../Recursos/Imagenes/Galeria/Guatemala/Guat (3).webp " alt="">
+        </div>
+
+        <div class="box">
+            <img src="../Recursos/Imagenes/Galeria/Guatemala/Guat (4).webp " alt="">
+        </div>
+
+        <div class="box">
+            <img src="../Recursos/Imagenes/Galeria/Guatemala/Guat (5).webp " alt="">
+        </div>
+
+        <div class="box">
+            <img src="../Recursos/Imagenes/Galeria/Guatemala/Guat (6).webp " alt="">
+        </div>
+
+        <div class="box">
+            <img src="../Recursos/Imagenes/Galeria/Guatemala/Guat (7).webp " alt="">
+        </div>
+
+        <div class="box">
+            <img src="../Recursos/Imagenes/Galeria/Guatemala/Guat (8).webp " alt="">
+        </div>
+
+        <div class="box">
+            <img src="../Recursos/Imagenes/Galeria/Guatemala/Guat (9).webp " alt="">
+        </div>
+
+        <div class="box">
+            <img src="../Recursos/Imagenes/Galeria/Guatemala/Guat (10).webp " alt="">
+        </div>
+
+        <div class="box">
+            <img src="../Recursos/Imagenes/Galeria/Guatemala/Guat (11).webp " alt="">
+        </div>
+        -->
+    </div>
+
+    <!-- 
+    ======================
+    MODAL DEL LIGHTBOX (CAJA DE LUZ)
+    =====================
+    -->
+    <div id="lightbox" class="lightbox">
+        <!-- BOTÓN X PARA CERRAR -->
+        <span class="btn-cerrar">&times;</span>
+
+        <!-- BOTÓN PARA FOTO ANTERIOR -->
+        <button class="btn-nav btn-prev">&#10094;</button>
+
+        <!-- FOTO GRANDE -->
+        <img class="lightbox-contenido" id="img-modal" src="" alt="Imagen ampliada">
+
+        <!-- BOTÓN PARA FOTO SIGUIENTE -->
+        <button class="btn-nav btn-next">&#10095;</button>
+    </div>
+    <!-- FIN DEL MODAL DEL LIGHTBOX -->
+
+    <!-- Script externo para manejar el Lightbox y sus animaciones -->
+    <script src="../../scripts/galeria.js"></script>
+
+</body>
+
+</html>
