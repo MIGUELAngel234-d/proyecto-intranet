@@ -322,10 +322,10 @@ main#contenido {
 .seccion-inicio .gallery-item {
     border-radius: 15px;
     overflow: hidden;
-    background: var(--glass-bg-inicio);
-    border: 1px solid var(--glass-border-inicio);
     position: relative;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: block; /* Asegura que el enlace ocupe todo el espacio */
+    text-decoration: none;
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s ease;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
 }
 
@@ -358,12 +358,14 @@ main#contenido {
     left: 0;
     width: 100%;
     /* Degradado oscuro para que el texto resalte */
-    background: linear-gradient(to top, rgba(13, 31, 24, 0.95), transparent);
+    background: linear-gradient(to top, rgba(8, 28, 21, 0.95), rgba(8, 28, 21, 0.4) 70%, transparent);
     padding: 1.5rem;
     color: white;
-    transform: translateY(100%);
-    transition: transform 0.3s ease-in-out;
+    transform: translateY(101%); /* Pequeño ajuste para esconderlo mejor */
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     display: flex;
+    backdrop-filter: blur(4px); /* Efecto cristalino */
+    -webkit-backdrop-filter: blur(4px);
     flex-direction: column;
     justify-content: flex-end;
 }
