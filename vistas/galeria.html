@@ -1,17 +1,81 @@
-<section>
+<!DOCTYPE html>
+<html lang="es">
 
-<h1>Galería</h1>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galerías - Internet UAM-I</title>
+    <link rel="stylesheet" href="../estilos/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;500;700&display=swap" rel="stylesheet">
+</head>
 
-<p>
-Imágenes de las comunidades, talleres e instalaciones de red.
-</p>
+<body>
+    <!-- HEADER -->
+    <header class="full-header">
+        <div class="header-content">
+            <div class="logo-container">
+                <img src="../recursos/imagenes/logos/UAM.png" alt="Logo UAM-I">
+                <h2>Internet UAM-I</h2>
+            </div>
+            <nav>
+                <a href="../index.html">Inicio</a>
+                <a href="acerca.html">Acerca</a>
+                <a href="informacion.html">Información</a>
+                <div class="dropdown">
+                    <a class="dropbtn">Proyectos</a>
+                    <div class="dropdown-content">
+                        <a href="https://sdr.uami.mx" target="_blank">SDR-UAMI</a>
+                        <a href="https://mosyneti.org" target="_blank">MOSYNETI</a>
+                    </div>
+                </div>
+                <a href="galeria.html">Galería</a>
+                <a href="contacto.html">Contacto</a>
+            </nav>
+        </div>
+    </header>
 
-<p>
-    <a href="../vistas/galerias/galeGuate.html">Ver Galería de fotos de Guatemala</a>
-</p>
-<p>
-    <a href="../vistas/galerias/galeXV.html">Ver Galería XV años</a>
-</p>
+    <!-- CONTENIDO -->
+    <main>
+        <div class="seccion-inicio" style="padding: 100px 0;">
+            <div class="background-gradient-inicio"></div>
+            <section class="gallery-section">
+                <h1 style="text-align: center; color: white; font-size: 3.5rem; margin-bottom: 0.5rem;">
+                    <span class="gradient-text">Galerías</span>
+                </h1>
+                <p style="text-align: center; color: #94a3b8; margin-bottom: 4rem; font-size: 1.2rem;">
+                    Explora momentos, talleres e historia de la Intranet Comunitaria.
+                </p>
 
+                <div class="gallery-grid">
+                    <!-- Guatemala -->
+                    <a href="../vistas/galerias/galeGuate.html" class="gallery-item">
+                        <div class="gallery-image-wrapper">
+                            <img src="../recursos/imagenes/galeria/capacitacion.png" alt="Guatemala">
+                            <div class="gallery-overlay">
+                                <h3>Guatemala</h3>
+                                <p>Capacitación en comunidad de Guatemala.</p>
+                            </div>
+                        </div>
+                    </a>
 
-</section>
+                    <!-- XV Años -->
+                    <a href="../vistas/galerias/galeXV.html" class="gallery-item">
+                        <div class="gallery-image-wrapper">
+                            <img src="../recursos/imagenes/galeria/aniversario.png" alt="XV Años">
+                            <div class="gallery-overlay">
+                                <h3>XV Años</h3>
+                                <p>Celebrando más de una década conectando comunidades.</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    
+</body>
+
+</html>

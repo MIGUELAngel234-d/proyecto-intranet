@@ -10,8 +10,8 @@ const imgModal = document.getElementById("img-modal");
 const btnCerrar = document.querySelector(".btn-cerrar");
 
 // Botones de navegación (Flechas)
-const btnPrev = document.querySelector(".btn-prev"); 
-const btnNext = document.querySelector(".btn-next"); 
+const btnPrev = document.querySelector(".btn-prev");
+const btnNext = document.querySelector(".btn-next");
 
 // LISTA con todas y cada una de las pequeñas fotos (.foto-amplia, nombre para identificar) de la galería
 const imagenes = document.querySelectorAll(".foto-amplia");
@@ -25,10 +25,10 @@ let indiceActual = 0;
 // Aparte de la "img", el forEach también nos regala el "index" (0, 1, 2, 3...) de cada foto al dibujarlas
 arregloImagenes.forEach((img, index) => {
     img.addEventListener("click", function () {
-        
+
         // Cambia el CSS del modal gigante de "none" a "flex" (visible)
         modal.style.display = "flex";
-        
+
         // Le pega el origen y el alt de la foto pequeña a la grande
         imgModal.src = this.src;
         imgModal.alt = this.alt;
@@ -45,28 +45,28 @@ function mostrarImagen(indice) {
     // Si llegamos a la última foto, volvemos a la primera (0)
     if (indice >= arregloImagenes.length) {
         indiceActual = 0;
-    } 
+    }
     // Si retrocedemos mas de la primera foto, vamos a la última del arreglo
     else if (indice < 0) {
         indiceActual = arregloImagenes.length - 1;
-    } 
+    }
     // Si estamos en cualquier foto normal, simplemente actualizamos el contador a ese número
     else {
         indiceActual = indice;
     }
-    
+
     // Le pegamos el origen y el texto de la NUEVA foto al modal grande
     imgModal.src = arregloImagenes[indiceActual].src;
     imgModal.alt = arregloImagenes[indiceActual].alt;
 }
 
 // Escuchamos el clic en la flecha SIGUIENTE
-btnNext.addEventListener("click", function() {
+btnNext.addEventListener("click", function () {
     mostrarImagen(indiceActual + 1); // Le sumamos 1 al contador actual
 });
 
 // Escuchamos el clic en la flecha ANTERIOR
-btnPrev.addEventListener("click", function() {
+btnPrev.addEventListener("click", function () {
     mostrarImagen(indiceActual - 1); // Le restamos 1 al contador actual
 });
 
