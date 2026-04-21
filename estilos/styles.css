@@ -13,73 +13,70 @@ body {
 
 /* --- HEADER (Franja completa) --- */
 header {
-    background-color: rgba(0, 0, 0, 1); /* negro sólido */
+    background-color: rgba(0, 0, 0, 1);
     width: 100%;
     border-bottom: 1px solid #222;
     position: sticky;
     top: 0;
     z-index: 1000;
-
-    backdrop-filter: blur(0px); /* sin blur arriba */
-    -webkit-backdrop-filter: blur(0px);
-
+    backdrop-filter: blur(0px);
+    -webkit-backdrop-filter: blur(0px); /* prefijo para Safari */
     transition: all 0.3s ease;
 }
 header.scrolled {
-    background-color: rgba(0, 0, 0, 0.75); /* ligeramente transparente */
-    
-    backdrop-filter: blur(10px); /* ahora sí aparece el glass */
-    -webkit-backdrop-filter: blur(10px);
+    background-color: rgba(0, 0, 0, 0.75);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px); /* prefijo para Safari */
 }
-/* CONTENEDOR INTERNO - Centra el logo y menú */
+
 .header-content {
     max-width: 1100px; 
-    margin: 0 auto; /* Centra el bloque de 1100px */
+    margin: 0 auto;
     display: flex;
-    justify-content: space-between; /* Logo a la izquierda, menú a la derecha */
-    align-items: stretch; /* Estira todo para que el submenú pegue al ras */
+    justify-content: space-between;
+    align-items: stretch; /* los hijos ocupan los 70px completos para que el submenú salga al ras */
     padding: 0 20px;
-    height: 70px; /* Alto fijo de la franja negra */
+    height: 70px;
 }
+
 /* --- LOGO Y TÍTULO --- */
 .logo-container {
     display: flex;
     align-items: center;
-    gap: 13px; /* Separación entre el dibujo y el texto */
+    gap: 13px;
 }
 
 .logo-container img {
-    height: 45px; /* Tamaño del logo */
+    height: 45px;
 }
 
 .logo-container h2 {
     font-size: 18px; 
     font-weight: 700;
     letter-spacing: -0.5px;
-    /* Degradado: empieza verde oscuro y termina en tu verde claro */
     background: linear-gradient(to right, #2a6d62, #49b3a2); 
-    -webkit-background-clip: text; /* Recorta el degradado a la forma de la letra */
+    -webkit-background-clip: text; /* recorta el degradado a la silueta del texto */
     background-clip: text;
-    color: transparent; /* Hace la letra invisible para que se vea el degradado */
+    color: transparent; /* hace invisible el color para que se vea el degradado de fondo */
     -webkit-font-smoothing: antialiased;
 }
 
 /* --- NAV --- */
 nav {
     display: flex;
-    align-items: stretch; /* Hace que los botones midan los 70px de alto */
-    gap: 24px; /* Distancia entre cada palabra del menú */
+    align-items: stretch; /* los botones heredan el alto del header, área clickeable completa */
+    gap: 24px;
 }
 
 nav a, .dropbtn {
     display: flex;
-    align-items: center; /* Centra el texto verticalmente */
+    align-items: center;
     color: white;
     text-decoration: none;
     font-size: 12px; 
     font-weight: 600;
     cursor: pointer;
-    transition: all 0.3s ease; /* Suaviza el cambio de color al pasar el mouse */
+    transition: all 0.3s ease;
 }
 
 nav a:hover, .dropdown:hover .dropbtn {
@@ -89,46 +86,175 @@ nav a:hover, .dropdown:hover .dropbtn {
 /* --- DROPDOWN (Menú desplegable) --- */
 .dropdown {
     position: relative;
-    display: flex; 
+    display: flex; /* en lugar de inline-block para heredar el stretch del nav */
 }
 
-/* CAJA DEL SUBMENÚ */
 .dropdown-content {
-    display: none; /* Oculto por defecto */
+    display: none;
     position: absolute;
-    background-color: #111; /* Negro casi total para el fondo del submenú */
+    background-color: #111;
     min-width: 160px;
-    top: 100%; /* Empieza exactamente donde termina el header (al ras) */
+    top: 100%; /* se posiciona justo debajo del padre sin calcular píxeles */
     left: 0;
-    border-radius: 0 0 4px 4px; /* Redondea solo las esquinas de abajo */
-    z-index: 10; /* Se pone por encima de cualquier otro contenido */
-    box-shadow: 0px 8px 16px rgba(0,0,0,0.5); /* Sombra para dar profundidad */
+    border-radius: 0 0 4px 4px; /* solo esquinas inferiores, continúa visualmente el header */
+    z-index: 10;
+    box-shadow: 0px 8px 16px rgba(0,0,0,0.5);
     overflow: hidden;
 }
 
 .dropdown-content a {
-    display: block; /* Un link debajo de otro */
+    display: block;
     padding: 12px 15px;
     font-size: 14px;
     font-weight: 400;
     width: 100%;
 }
 
-/* Efecto al pasar el mouse en el submenú */
 .dropdown-content a:hover {
-    background-color: #49b3a2; /* Fondo verde */
-    color: #000; /* Letra negra para que resalte */
+    background-color: #49b3a2;
+    color: #000;
 }
 
-/* MUESTRA EL SUBMENÚ AL TOCAR 'PROYECTOS' */
-.dropdown:hover .dropdown-content {
+.dropdown-content.show {
     display: block;
+}
+
+.dropdown.open .dropbtn::after {
+    transform: rotate(180deg);
+    border-top-color: #49b3a2;
+}
+
+/* Triángulo CSS: tres bordes donde solo el top es visible, los laterales transparentes forman la punta */
+.dropbtn::after {
+    content: ''; 
+    display: inline-block;
+    margin-left: 8px;
+    vertical-align: middle;
+    border-top: 5px solid white;
+    border-right: 5px solid transparent; /* lado derecho invisible */
+    border-left: 5px solid transparent;  /* lado izquierdo invisible */
+    transition: transform 0.3s ease;
+}
+
+.dropdown:hover .dropbtn::after {
+    border-top-color: #49b3a2;
 }
 
 .dropbtn {
     padding: 0; 
     margin: 0;
     height: 100%;
+}
+
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    background: transparent;
+    border: none;
+    gap: 5px;
+}
+
+.menu-toggle .bar {
+    width: 25px;
+    height: 3px;
+    background-color: white;
+    transition: all 0.3s ease;
+}
+
+/* --- RESPONSIVE --- */
+@media (max-width: 850px) {
+
+    .menu-toggle {
+        display: flex;
+        z-index: 1001;
+        align-self: center;
+        margin-right: 10px;
+    }
+
+    nav {
+        display: none; 
+        flex-direction: column;
+        position: fixed; /* fixed para que no se mueva al hacer scroll */
+        top: 70px;       
+        right: 0;        
+        width: 200px;    
+        height: auto; 
+        border-radius: 0 0 0 20px;
+        background: linear-gradient(
+            to left, 
+            rgba(0, 0, 0, 0.9) 0%, 
+            rgba(0, 0, 0, 0.7) 100%
+        );
+        backdrop-filter: blur(15px);
+        -webkit-backdrop-filter: blur(15px); /* prefijo para Safari */
+        padding: 10px 0;
+        align-items: flex-end; 
+        gap: 0;          
+        z-index: 1000;
+        overflow-y: auto;
+        border-left: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    nav.active {
+        display: flex;
+    }
+
+    nav a, .dropbtn {
+        width: 100%;
+        padding: 12px 30px;
+        font-size: 13px; 
+        border-bottom: 1px solid (255, 255, 255, 0.05);
+        justify-content: flex-end; /* texto a la derecha, coherente con el panel que sale desde ahí */
+        text-align: right;
+        background: transparent;
+    } 
+
+    .dropdown {
+        width: 100%;
+        flex-direction: column;
+        align-items: flex-end;
+    }
+
+    .dropdown-content {
+        display: none;
+        position: static; /* empuja el contenido hacia abajo en lugar de superponerse */
+        width: 100%;
+        background-color: rgba(0, 0, 0, 0.3);
+    }
+
+    .dropdown-content a {
+        padding-right: 35px;
+        padding-left: 0;
+        font-size: 12px;
+        transition: all 0.3s ease;
+    }
+
+    .dropdown-content a:hover {
+        background-color: #49b3a2 !important;
+        color: white !important;
+        padding-left: 45px; /* deslizamiento visual al hacer hover, sin JS */
+    }
+
+    .dropdown.open .dropbtn::after {
+        transform: translateY(3px) rotate(180deg); 
+    }    
+
+    .dropbtn::after {
+        order: -1; /* reordena la flecha antes del texto en flex, sin tocar el HTML */
+        margin-right: 8px;
+        transform: translateY(3px);
+    }
+    
+    .dropbtn {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        gap: 10px;
+        width: 100%;
+        padding: 12px 30px;
+        background: transparent;
+    }
 }
 
 /* Espaciado para el contenido inyectado (se puede modificar desde aqui)*/
@@ -570,8 +696,155 @@ main#contenido {
     }
 }
 
-/* --- FOOTER UNIFICADO -- */
 
+/* =========================================
+   SECCIÓN INFORMACIÓN
+   ========================================= */
+.seccion-informacion {
+    --bg-informacion: #0d1f18;
+    --primary-informacion: #2d6a4f;
+    --secondary-informacion: #52b788;
+    --accent-informacion: #95d5b2;
+
+    font-family: 'Outfit', sans-serif;
+    color: #f0fdf4;
+    position: relative;
+
+    /* MISMO TRUCO que usaste en inicio/acerca */
+    margin-top: 0;
+    margin-bottom: -40px;
+    margin-left: calc(-50vw + 50%);
+    margin-right: calc(-50vw + 50%);
+    width: auto;
+
+    min-height: 100vh;
+    padding: 100px 0 60px 0;
+    overflow: hidden;
+}
+
+.seccion-informacion .gradient-text{
+    background: linear-gradient(135deg, #49b3a2, #95d5b2);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent !important;
+}
+
+/* FONDO */
+.background-gradient-informacion {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+
+    /* Ajustado para que se parezca más a tu diseño */
+    background: radial-gradient(circle at 50% 50%, #1b4332 0%, #081c15 100%);
+
+    z-index: 0;
+}
+
+/* CONTENEDOR (igual que acerca) */
+.informacion-container {
+    position: relative;
+    z-index: 1;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* HERO */
+.informacion-hero {
+    max-width: 700px;
+    margin-bottom: 60px;
+}
+
+.informacion-etiqueta {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.8rem;
+    letter-spacing: 2px;
+    font-weight: 600;
+}
+.informacion-hero .informacion-etiqueta {
+    color: #ffd166;
+}
+
+.informacion-etiqueta::before {
+    content: "";
+    width: 30px;
+    height: 2px;
+    background: #ffd166;
+}
+
+/* TÍTULO */
+.informacion-hero h1 {
+    font-size: 3rem;
+    margin-bottom: 15px;
+    color: #ffffff;
+    font-weight: 700;
+}
+
+/* TEXTO */
+.informacion-hero p {
+    font-size: 1.05rem;
+    color: #cbd5e1;
+    max-width: 520px;
+    line-height: 1.6;
+}
+
+/* ESTADÍSTICAS */
+.informacion-stats {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px 80px;
+    border-top: 1px solid rgba(255,255,255,0.08);
+    padding-top: 25px;
+    flex-wrap: wrap;
+}
+
+.stat-item{
+    flex: 0 1 auto;
+    min-width: 120px;
+}
+
+.stat-item h2 {
+    font-size: 1.5rem;
+    color: var(--accent-informacion);
+    margin-bottom: 5px;
+}
+
+.stat-item p {
+    font-size: 0.8rem;
+    color: #64748b;
+    letter-spacing: 1px;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+
+    .seccion-informacion{
+        padding: 60px 0;
+    }
+
+    .informacion-hero h1 {
+        font-size: 2.8rem;
+        line-height: 1.1;
+    }
+
+    .informacion-stats {
+        gap: 30px;
+    }
+
+    @media (max-width: 480px){
+        .informacion-stats{
+            flex-direction: column;
+            align-items: flex-start;
+        }
+    }
+}
+
+
+
+/* --- FOOTER UNIFICADO -- */
 .footer-uami-container {
     background-color: #000000; 
     color: #ffffff;
