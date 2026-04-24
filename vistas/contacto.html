@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contacto - Internet UAM-I</title>
     <link rel="stylesheet" href="../estilos/styles.css">
+    <link rel="stylesheet" href="../estilos/contacto.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;500;700&display=swap" rel="stylesheet">
@@ -38,34 +39,61 @@
 
     <!-- CONTENIDO -->
     <main>
-        <div class="seccion-inicio" style="padding: 100px 0;">
+        <div class="seccion-inicio">
             <div class="background-gradient-inicio"></div>
-            <section class="gallery-section"
-                style="display: flex; flex-direction: row; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 40px; padding: 4rem 2rem;">
-
-                <!-- LADO IZQUIERDO -->
-                <div style="flex: 1; min-width: 300px;">
-                    <!-- HERO: Ajustado a la izquierda -->
-                    <div class="hero-visual animate-float animate-slide-up delay-300"
-                        style="justify-content: flex-start; width: 100%;">
-                        <img src="../recursos/imagenes/logos/lodoPantera.png" alt="Mascota Pantera Negra"
-                            class="animate-float">
-                    </div>
-
-                    <!-- titulo a la izquierda -->
-                    <h1 style="text-align: left; color: white; font-size: 3.5rem; margin-bottom: 0.5rem; width: 100%;">
+            <section class="hero-section">
+                <div class="hero-content animate-slide-up">
+                    <h1 class="animate-fade-in">
                         <span class="gradient-text">Contactanos</span>
                     </h1>
+
+                    <p class="animate-slide-up delay-200"
+                        style="margin-bottom: 2.5rem; font-size: 1.2rem; color: #cbd5e1; max-width: 500px;">
+                        ¡Únete a nuestra comunidad! Síguenos en nuestro canal de YouTube para conocer más de nosotros.
+                    </p>
+
+                    <div class="animate-slide-up delay-300"
+                        style="max-width: 500px; display: flex; justify-content: center;">
+                        <a href="https://www.youtube.com/@uamistreamyoutube9480" target="_blank"
+                            class="tarjeta-youtube">
+                            <span>UAMISTREAM</span>
+                        </a>
+                    </div>
                 </div>
 
-                <!-- LADO DERECHO: Tarjeta de YouTube Vistosa -->
-                <div class="animate-slide-up delay-300"
-                    style="flex: 1; display: flex; justify-content: center; min-width: 300px;">
-                    <a href="https://www.youtube.com/@uamistreamyoutube9480" target="_blank" class="tarjeta-youtube">
-                        <span>UAMISTREAM</span>
+                <div class="hero-visual animate-float animate-slide-up delay-300">
+                    <img src="../recursos/imagenes/logos/lodoPantera.png" alt="Mascota Pantera Negra"
+                        class="animate-float" style="filter: drop-shadow(0 0 30px rgba(45, 106, 79, 0.6));">
+                </div>
+            </section>
+
+            <!-- SECCIÓN MANUALES -->
+            <section class="manuales-section animate-slide-up delay-300">
+                <h2 class="section-title">Manuales y Recursos</h2>
+                <div class="manuales-grid">
+
+                    <!-- Manual 1 (BATMAN) -->
+                    <a href="../recursos/manual/BATMAN CONFIGURACIÓN.docx.pdf" target="_blank" class="tarjeta-manual">
+                        <div class="icon-manual"> 🦇</div>
+                        <h3>Manual B.A.T.M.A.N</h3>
+                        <p>Configuración de red mesh con firmware OpenWrt, usando protocolos B.A.T.M.A.N</p>
+                    </a>
+                    <!-- Manual 2 (Recuperacion Pharos por windows) -->
+                    <a href="../recursos/manual/RECUPERACION DE FIRMWARE.pdf" target="_blank" class="tarjeta-manual">
+                        <div class="icon-manual">🛠️</div>
+                        <h3>Recuperacion de Firmware por medio de windows</h3>
+                        <p>Poder recuperar el firmware de operación de los routers TPLINK CPE220 (Pharos).</p>
+                    </a>
+
+                    <!-- Descarga de programa Tftpd64 -->
+                    <a href="../recursos/descargas/Tftpd64-4.64-setup.exe" download="Tftpd64.exe" class="tarjeta-manual"
+                        onclick="return confirm('¿Deseas descargar el instalador Tftpd64 en tu equipo?');">
+                        <div class="icon-manual">📦</div>
+                        <h3>Descargar programa Tftpd64</h3>
+                        <p>Haz clic aquí para descargar el archivo .exe del programa Tftpd64 para la recuperacion del
+                            firware Pharos.</p>
                     </a>
                 </div>
-
             </section>
         </div>
     </main>
@@ -84,8 +112,8 @@
             <div class="footer-column">
                 <h3>Navegación</h3>
                 <ul>
-                    <li><a href="index.html">Inicio</a></li>
-                    <li><a href="vistas/acerca">Acerca</a></li>
+                    <li><a href="../index.html">Inicio</a></li>
+                    <li><a href="acerca.html">Acerca</a></li>
                     <li><a href="informacion.html">Información</a></li>
                     <li><a href="galeria.html">Galería</a></li>
                 </ul>
@@ -101,7 +129,7 @@
                 </div>
             </div>
 
-            <img src="recursos/imagenes/logos/UAM.png" alt="Logo" class="uam-footer-logo"
+            <img src="../recursos/imagenes/logos/UAM.png" alt="Logo" class="uam-footer-logo"
                 onerror="this.style.display='none'">
         </div>
 
