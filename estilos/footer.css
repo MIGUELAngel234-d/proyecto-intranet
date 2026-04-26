@@ -1,0 +1,165 @@
+/* --- Configuración Global --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #121212;
+    /* Fondo oscuro para el sitio */
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+}
+
+footer {
+    background-color: #000000;
+    /* Negro puro */
+    color: #ffffff;
+    padding-top: 60px;
+    overflow: hidden;
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding: 0 20px;
+    gap: 30px;
+}
+
+/* --- Estilo del Logo y Marca --- */
+.footer-brand {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.logo-img {
+    width: 150px;
+    height: 150px;
+    object-fit: contain;
+    filter: drop-shadow(0 0 8px rgb(255, 255, 255));
+}
+
+/* --- Efecto de Tarjetas Flotantes (Glassmorphism) --- */
+.footer-section {
+    flex: 1;
+    min-width: 280px;
+    padding: 25px;
+    border-radius: 15px;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    border: 1px solid transparent;
+}
+
+.footer-section:hover {
+    background: rgba(45, 106, 79, 0.05);
+    /* Brillo verde sutil al fondo */
+    transform: translateY(-12px);
+    /* La sección sube */
+    border: 1px solid rgba(0, 104, 71, 0.4);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.8), 0 0 20px rgba(0, 104, 71, 0.1);
+}
+
+/* --- Títulos Neón Verde --- */
+.footer-section h3 {
+    color: #40916c;
+    /* Verde brillante */
+    font-size: 1.4rem;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    text-shadow: 0 0 10px rgba(64, 145, 108, 0.5);
+}
+
+.footer-section h3::after {
+    content: '';
+    display: block;
+    width: 45px;
+    height: 3px;
+    background: linear-gradient(90deg, #1b4332, #74c69d);
+    margin-top: 8px;
+    transition: width 0.4s ease;
+}
+
+.footer-section:hover h3::after {
+    width: 80px;
+    /* La línea crece al pasar el mouse */
+}
+
+/* --- Enlaces y Texto --- */
+.footer-section p {
+    line-height: 1.7;
+    color: #cccccc;
+    font-size: 0.95rem;
+}
+
+.footer-section ul {
+    list-style: none;
+}
+
+.footer-section ul li {
+    margin-bottom: 12px;
+}
+
+.footer-section a {
+    color: #bbbbbb;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    display: inline-block;
+}
+
+.footer-section a:hover {
+    color: #95d5b2;
+    transform: translateX(10px);
+    /* Se mueve a la derecha */
+    text-shadow: 0 0 5px rgba(149, 213, 178, 0.5);
+}
+
+/* --- Separador de Luz y Copyright --- */
+.footer-bottom {
+    margin-top: 60px;
+    padding: 30px;
+    text-align: center;
+    background-color: #050505;
+    /* Efecto de haz de luz central */
+    border-top: 1px solid;
+    border-image: linear-gradient(to right, transparent, #2d6a4f, #74c69d, #2d6a4f, transparent) 1;
+}
+
+.footer-bottom p {
+    font-size: 0.85rem;
+    color: #666;
+    letter-spacing: 1px;
+}
+
+/* --- DISEÑO RESPONSIVE (CELULARES) --- */
+@media (max-width: 850px) {
+    .footer-container {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .footer-brand {
+        justify-content: center;
+    }
+
+    .footer-section {
+        width: 100%;
+        max-width: 450px;
+        padding: 20px;
+    }
+
+    .footer-section h3::after {
+        margin: 8px auto 0 auto;
+        /* Centrar línea decorativa */
+    }
+
+    .footer-section a:hover {
+        transform: scale(1.05);
+        /* Cambio de animación para móviles */
+    }
+}
