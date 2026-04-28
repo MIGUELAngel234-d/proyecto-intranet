@@ -2,35 +2,44 @@ import sqlite3
 import hashlib
 
 def encriptar_password(password):
-    #SHA-256 para que la contraseña quede indescifrable
     return hashlib.sha256(password.encode('utf-8')).hexdigest()
 
-#1.crear (o conectarse) al archivo de la base de datos
 conexion = sqlite3.connect('intranet.db')
 cursor = conexion.cursor()
 
-#2.Crear la tabla de administradores (si no existe)
+#Tabla de Administradores
 cursor.execute('''
     CREATE TABLE IF NOT EXISTS administradores (
         id INTEGER PRIMARY KEY AUTOINCREMENT,
         username TEXT UNIQUE NOT NULL,
-        password_hash TEXT NOT NULL
+        password_hash TEXT NOT NULL,
+        es_principal BOOLEAN DEFAULT 0
     )
 ''')
 
-#3.definir el primer usuario administrador 
-usuario = 'admin_uami'      #usuario
-password_plana = 'uami2026' #contraseña
-hash_pass = encriptar_password(password_plana)
+#tabla de Avisos (NUEVA)
+cursor.execute('''
+    CREATE TABLE IF NOT EXISTS avisos (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        titulo TEXT NOT NULL,
+        contenido TEXT NOT NULL,
+        imagen_ruta TEXT,
+        fecha DATETIME DEFAULT CURRENT_TIMESTAMP
+    )
+''')
 
-#4.insertarlo en la base de datos
+#insertamos al administrador intocable
+usuario = 'admin_uami'
+pass_hash = encriptar_password('uami2026')
 try:
-    cursor.execute("INSERT INTO administradores (username, password_hash) VALUES (?, ?)", (usuario, hash_pass))
-    print(f"✅ Exito: Usuario '{usuario}' creado con contraseña '{password_plana}'.")
+    #Le ponemos es_principal = 1 (Verdadero) para que la pagina sepa que a este no se le puede borrar
+    cursor.execute("INSERT INTO administradores (username, password_hash, es_principal) VALUES (?, ?, 1)", (usuario, pass_hash))
+    print("Usuario principal creado.")
 except sqlite3.IntegrityError:
-    print(f"⚠️ El usuario '{usuario}' ya existe en la base de datos.")
+    #Si ya existe, actualizamos su estatus a principal por si acaso
+    cursor.execute("UPDATE administradores SET es_principal = 1 WHERE username = ?", (usuario,))
+    print("Usuario principal ya existía y fue asegurado.")
 
-#guardar cambios y cerrar
 conexion.commit()
 conexion.close()
-print("📂 Base de datos lista. Se ha creado el archivo 'intranet.db'")
+print("📂 Base de datos actualizada con éxito.")

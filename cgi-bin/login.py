@@ -54,12 +54,10 @@ try:
                     #==========================================
                     #se entrega la cookie (el gafete para moverse como administrador y vovler)
                     #================================
-                    # 1.le decimos al navegador que guarde la galleta secreta "admin_uami=true"
                     print("Set-Cookie: admin_uami=true; Path=/; SameSite=Lax")
-                    # 2.se imprime la cabecera normal
                     print("Content-Type: text/html; charset=utf-8\n\n")
-                    # 3.se muestra la pantalla de exito
-                    servir_archivo('login_exito.html')
+                    # Redirigimos al nuevo dashboard usando JavaScript
+                    print("<script>window.location.href='/cgi-bin/dashboard.py';</script>")
                 else:
                     #si falla, se imprime la cabecera normal SIN Cookie
                     print("Content-Type: text/html; charset=utf-8\n\n")
