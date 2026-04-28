@@ -18,6 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (menuToggle && navMenu) { // Verifica existencia de los elementos
         menuToggle.addEventListener('click', () => {
             navMenu.classList.toggle('active'); // Muestra/oculta menú
+            menuToggle.classList.toggle('active');
         });
     }
 

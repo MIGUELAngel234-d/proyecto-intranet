@@ -64,6 +64,7 @@
     font-size: 0.8rem;
     letter-spacing: 2px;
     font-weight: 600;
+    margin-bottom: 20px;
 }
 .informacion-hero .informacion-etiqueta {
     color: #ffd166;
@@ -140,6 +141,74 @@
             flex-direction: column;
             align-items: flex-start;
         }
+    }
+}
+
+
+/* =========================================
+   SECCIÓN: ¿QUÉ ES UNA INTRANET?
+   ========================================= */
+.intranet-info {
+    margin-top: 80px;
+    padding-bottom: 20px;
+}
+
+.intranet-info h2 {
+    font-size: 1.7rem;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 25px !important;
+}
+
+.intranet-cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin-top: 2px;
+}
+
+.intranet-card {
+    background: rgba(45, 106, 79, 0.10);
+    border: 1px solid rgba(82, 183, 136, 0.15);
+    border-radius: 16px;
+    padding: 28px 30px;
+    transition: background 0.3s ease, border-color 0.3s ease;
+}
+
+.intranet-card:hover {
+    background: rgba(45, 106, 79, 0.18);
+    border-color: rgba(82, 183, 136, 0.30);
+}
+
+.intranet-card.full-width {
+    grid-column: 1 / -1;
+}
+
+.intranet-card h3 {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #52b788;
+    margin-bottom: 14px;
+}
+
+.intranet-card p {
+    font-size: 0.95rem;
+    color: #cbd5e1;
+    line-height: 1.75;
+    font-weight: 300;
+}
+
+@media (max-width: 768px) {
+    .intranet-cards {
+        grid-template-columns: 1fr;
+    }
+
+    .intranet-card.full-width {
+        grid-column: 1;
+    }
+
+    .intranet-info h2 {
+        font-size: 1.7rem;
     }
 }
 
@@ -295,19 +364,18 @@
 }
 
 .concepto-item {
-    display: flex;
-    align-items: center;
-    padding: 30px 0;
+    display: grid;
+    grid-template-columns: 60px 0.5fr 1fr; /*La segunda propiedad disminuye o aumenta el ancho de la columna*/
+    align-items: stretch;
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     transition: background 0.3s ease;
 }
 
 /* EFECTO HOVER PARA LOS ITEMS */
 .concepto-item:hover {
-    background-color: rgba(45, 106, 79, 0.1); /* Un tono verde muy tenue */
-    border-left: 3px solid #49b3a2; /* Agrega una pequeña barrita de color a la izquierda */
+    background-color: rgba(45, 106, 79, 0.1); 
+    border-left: 3px solid #49b3a2; 
     padding-left: 10px;
-    /*cursor: pointer; /* Cambia el cursor a la manita */
 }
 
 /* Opcional: Si quieres que el número también resalte al pasar el cursor */
@@ -326,16 +394,33 @@
 /* Estilo para los números a la izquierda */
 .concepto-numero {
     font-size: 0.9rem;
-    color: #49b3a2; /* Color verde agua de tu paleta */
+    color: #49b3a2; 
     font-weight: 700;
     min-width: 60px;
     opacity: 0.6;
+    padding: 30px 0;
 }
 
 .concepto-info {
     display: flex;
     flex-direction: column;
     gap: 12px;
+    padding: 30px 40px 30px 0;
+    padding-right: 40px;
+    border-right: 1px solid rgba(255, 255, 255, 0.08);
+    justify-content: center;
+}
+
+.concepto-desc {
+    padding: 30px 0 30px 40px;
+    padding-left: 40px;
+    font-size: 0.92rem;
+    color: #94a3b8;
+    font-weight: 300;
+    line-height: 1.7;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .concepto-info h3 {
@@ -343,6 +428,35 @@
     color: #ffffff;
     font-weight: 600;
     letter-spacing: 0.5px;
+}
+
+/* LEER MÁS */
+.concepto-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    margin-top: 14px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #64748b;
+    cursor: pointer;
+    transition: color 0.2s ease;
+    width: fit-content;
+}
+
+.concepto-link::after {
+    content: '→';
+    transition: transform 0.2s ease;
+}
+
+.concepto-item:hover .concepto-link {
+    color: #52b788;
+}
+
+.concepto-item:hover .concepto-link::after {
+    transform: translateX(4px);
 }
 
 /* BADGES (Etiquetas de colores) */
@@ -377,17 +491,47 @@
     color: #b1a7f0;
 }
 
-/* AJUSTES RESPONSIVE */
+/*RESPONSIVE */
 @media (max-width: 768px) {
     .conceptos-header h2 {
         font-size: 2rem;
     }
-    
+
     .concepto-item {
-        padding: 20px 0;
+        grid-template-columns: 60px 1fr;
+        grid-template-rows: auto auto;
+        padding: 15px 0;
     }
-    
+
+
+    .concepto-numero {
+        grid-column: 1;
+        grid-row: 1 / 3;  
+        align-self: start;
+        padding: 20px 0;  
+    }
+
+
+    .concepto-info {
+        grid-column: 2;
+        grid-row: 1;
+        border-right: none;
+        padding-right: 0;
+        padding: 20px 0 8px 0;
+    }
+
+    .concepto-desc {
+        grid-column: 2;
+        grid-row: 2;
+        padding: 0 0 20px 0; 
+        margin-top: 10px;
+        font-size: 1.1rem;
+    }
+
     .concepto-info h3 {
         font-size: 1.2rem;
+    }
+    .concepto-link {
+        font-size: 0.8rem;
     }
 }

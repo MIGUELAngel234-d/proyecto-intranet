@@ -36,7 +36,7 @@ header.scrolled {
     justify-content: space-between;
     align-items: stretch; /* los hijos ocupan los 70px completos para que el submenú salga al ras */
     padding: 0 20px;
-    height: 70px;
+    height: 86px;
 }
 
 /* --- LOGO Y TÍTULO --- */
