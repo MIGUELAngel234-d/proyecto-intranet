@@ -18,11 +18,10 @@ header{
     z-index: 1000;
 }
 
-/* carousel */
 .carousel{
     width: 100vw;
     height: 100vh;
-    margin-top: -50px;
+    margin-top: 20px; 
     overflow: hidden;
     position: relative;
 }
@@ -193,7 +192,6 @@ header{
     color: #000;
 }
 
-/* time running */
 .carousel .timeRunning{
     position: absolute;
     z-index: 1000;
@@ -203,6 +201,7 @@ header{
     left: 0;
     top: 0;
     animation: runningTime 7s linear 1 forwards;
+    display: none;
 }
 
 @keyframes runningTime {

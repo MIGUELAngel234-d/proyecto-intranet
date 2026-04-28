@@ -79,7 +79,7 @@ header.scrolled {
     -webkit-font-smoothing: antialiased;
 }
 
-/* --- NAV --- */
+/* --- NAV --- */   
 nav {
     display: flex;
     align-items: stretch;
