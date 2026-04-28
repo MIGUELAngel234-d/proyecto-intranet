@@ -5,7 +5,7 @@ var nextBtn = document.querySelector('.next'),
     item = document.querySelectorAll('.item'),
     runningTime = document.querySelector('.carousel .timeRunning') 
 
-let timeRunning = 3000 
+let timeRunning = 1200 
 let timeAutoNext = 7000
 
 nextBtn.onclick = function(){
