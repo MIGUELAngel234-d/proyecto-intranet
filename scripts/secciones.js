@@ -1,12 +1,19 @@
+
+//correcion para blindarlo
 // Detecta scroll en la ventana
 window.addEventListener("scroll", () => {
     const header = document.querySelector("header"); // Selecciona header
 
-    if (window.scrollY > 50) { // Verifica desplazamiento vertical
-        header.classList.add("scrolled"); // Agrega clase al bajar
-    } else {
-        header.classList.remove("scrolled"); // Quita clase al subir
-    }
+    //validamos si la pagina si tiene header ,entonces hacemos el efecto
+    if (header) {
+        if (window.scrollY > 50) { // Verifica desplazamiento vertical
+            header.classList.add("scrolled"); // Agrega clase al bajar
+        } else {
+            header.classList.remove("scrolled"); // Quita clase al subir
+        }
+
+    } 
+    
 });
 
 
