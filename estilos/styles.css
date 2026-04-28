@@ -279,12 +279,11 @@ main#contenido {
 
     min-height: 100vh;
     padding: 80px 0;
-
+    
     font-family: 'Outfit', sans-serif;
     position: relative;
 
-    margin-top: -40px;
-    /* Elimina el margen superior de 40px del main#contenido */
+    margin-top: -40px;    /* Elimina el margen superior de 40px del main#contenido */
     margin-bottom: -40px;
     /* Ajuste para que se pegue a los bordes como hicimos con Acerca De */
     margin-left: calc(-50vw + 50%);
@@ -297,8 +296,7 @@ main#contenido {
 .seccion-inicio main {
     position: relative;
     z-index: 1;
-    max-width: 1100px;
-    /* Esto alinea el texto con el header */
+    max-width: 1100px; /* Esto alinea el texto con el header */
     margin: 0 auto;
     padding: 0 20px;
 }
@@ -306,10 +304,8 @@ main#contenido {
 /* Fondo degradado fijo detrás del contenido de Inicio */
 .background-gradient-inicio {
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
     background: radial-gradient(circle at 50% 50%, #1b4332 0%, #081c15 100%);
     z-index: -1;
 }
@@ -327,16 +323,13 @@ main#contenido {
 }
 
 .seccion-inicio .hero-content {
-    flex: 1;
-    z-index: 10;
+     flex: 1; z-index: 10; 
 }
 
 .seccion-inicio .status-text {
-    display: flex;
-    /* Usamos flex para alinear todo perfecto */
+    display: flex; /* Usamos flex para alinear todo perfecto */
     align-items: center;
-    gap: 8px;
-    /* Espacio fijo entre los elementos */
+    gap: 8px; /* Espacio fijo entre los elementos */
     color: #ffffff;
     font-size: 0.8rem;
     font-weight: bold;
@@ -388,17 +381,11 @@ main#contenido {
 }
 
 /* MASCOTA */
-.seccion-inicio .hero-visual {
-    flex: 1;
-    display: flex;
-    justify-content: center;
-}
-
-.seccion-inicio .hero-visual img {
+.seccion-inicio .hero-visual { flex: 1; display: flex; justify-content: center; }
+.seccion-inicio .hero-visual img { 
     max-width: 100%;
-    height: clamp(250px, 35vw, 300px);
-    object-fit: contain;
-    /* Evita que la imagen se estire feo */
+    height: clamp(250px, 35vw, 300px); 
+    object-fit: contain; /* Evita que la imagen se estire feo */
     filter: drop-shadow(0 0 30px rgba(45, 106, 79, 0.6));
     pointer-events: none;
     user-select: none;
@@ -463,8 +450,7 @@ main#contenido {
     border-radius: 15px;
     overflow: hidden;
     position: relative;
-    display: block;
-    /* Asegura que el enlace ocupe todo el espacio */
+    display: block; /* Asegura que el enlace ocupe todo el espacio */
     text-decoration: none;
     transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s ease;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
@@ -502,12 +488,10 @@ main#contenido {
     background: linear-gradient(to top, rgba(8, 28, 21, 0.95), rgba(8, 28, 21, 0.4) 70%, transparent);
     padding: 1.5rem;
     color: white;
-    transform: translateY(101%);
-    /* Pequeño ajuste para esconderlo mejor */
+    transform: translateY(101%); /* Pequeño ajuste para esconderlo mejor */
     transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     display: flex;
-    backdrop-filter: blur(4px);
-    /* Efecto cristalino */
+    backdrop-filter: blur(4px); /* Efecto cristalino */
     -webkit-backdrop-filter: blur(4px);
     flex-direction: column;
     justify-content: flex-end;
@@ -521,23 +505,20 @@ main#contenido {
 .seccion-inicio .gallery-overlay h3 {
     font-size: 1.25rem;
     margin-bottom: 0.25rem;
-    color: var(--accent-inicio);
-    /* Usa el color verde claro */
+    color: var(--accent-inicio); /* Usa el color verde claro */
     font-weight: 600;
 }
 
 .seccion-inicio .gallery-overlay p {
     font-size: 0.9rem;
     color: #e2e8f0;
-    text-align: left;
-    /* Para que no herede el centrado del h2 principal */
+    text-align: left; /* Para que no herede el centrado del h2 principal */
     margin: 0;
 }
 
 .seccion-inicio .puntos-animados {
     display: inline-block;
-    width: 1.5ch;
-    /* Ancho fijo igual a 3 caracteres aprox */
+    width: 1.5ch; /* Ancho fijo igual a 3 caracteres aprox */
     text-align: left;
     overflow: hidden;
     white-space: nowrap;
@@ -545,36 +526,21 @@ main#contenido {
 }
 
 @keyframes escritura-fija {
-    from {
-        width: 0;
-    }
-
-    to {
-        width: 1.5ch;
-    }
-
-    /* Se llena el espacio sin empujar lo que sigue */
+    from { width: 0; }
+    to { width: 1.5ch; } /* Se llena el espacio sin empujar lo que sigue */
 }
 
 @keyframes float-inicio {
-
-    0%,
-    100% {
-        transform: translateY(0);
-    }
-
-    50% {
-        transform: translateY(-20px);
-    }
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
 }
 
 /* RESPONSIVE: Cuando la pantalla es pequeña (Celulares/Tablets) */
 @media (max-width: 768px) {
     .seccion-inicio .hero-section {
-        flex-direction: column;
+        flex-direction: column; 
         text-align: center;
-        padding: 4rem 1.5rem;
-        /* Más espacio arriba y abajo en móviles */
+        padding: 4rem 1.5rem; /* Más espacio arriba y abajo en móviles */
         gap: 30px;
     }
 
@@ -586,11 +552,9 @@ main#contenido {
     }
 
     .seccion-inicio .hero-content p {
-        margin-left: auto;
-        /* Centra el bloque del párrafo */
+        margin-left: auto; /* Centra el bloque del párrafo */
         margin-right: auto;
-        font-size: 1rem;
-        /* Un poquito más chico en móvil ayuda a la lectura */
+        font-size: 1rem; /* Un poquito más chico en móvil ayuda a la lectura */
     }
 
     .seccion-inicio .hero-visual {
@@ -602,15 +566,14 @@ main#contenido {
 
     .seccion-inicio .hero-visual img {
         /* 1. Quitamos cualquier límite anterior */
-        max-height: none !important;
-
+        max-height: none !important; 
+        
         /* 2. Definimos un ancho que se vea bien en celulares */
-        width: 65% !important;
-        /* Prueba con 65% u 80% si la quieres más grande */
-
+        width: 65% !important; /* Prueba con 65% u 80% si la quieres más grande */
+        
         /* 3. Aseguramos que mantenga la proporción */
-        height: auto !important;
-
+        height: auto !important; 
+        
         /* 4. Un margen para que no pegue con el texto de abajo */
         margin-bottom: 20px;
     }
@@ -633,7 +596,7 @@ main#contenido {
     color: #f0fdf4;
     position: relative;
 
-    margin-top: 0;
+    margin-top: 0; 
     margin-bottom: -40px;
 
     margin-left: calc(-50vw + 50%);
@@ -647,10 +610,8 @@ main#contenido {
 /* Capa de fondo con degradado radial */
 .background-gradient-acerca {
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+    top: 0; left: 0; 
+    width: 100%; height: 100%;
     background: radial-gradient(circle at 50% 50%, #1b4332 0%, #081c15 100%);
     z-index: 0;
 }
@@ -678,7 +639,7 @@ main#contenido {
 /* Efecto de texto con degradado */
 .seccion-acerca .gradient-text {
     background: linear-gradient(135deg, var(--primary-acerca), var(--accent-acerca));
-    -webkit-background-clip: text;
+    -webkit-background-clip: text; 
     color: transparent;
 }
 
@@ -722,27 +683,8 @@ main#contenido {
 }
 
 
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-    }
-
-    to {
-        opacity: 1;
-    }
-}
-
-@keyframes slideUp {
-    from {
-        opacity: 0;
-        transform: translateY(30px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+@keyframes slideUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
 
 /* Adaptación para dispositivos móviles */
 @media (max-width: 850px) {
@@ -750,16 +692,18 @@ main#contenido {
         grid-template-columns: 1fr;
         text-align: center;
     }
-
     .seccion-acerca .about-hero h1 {
         font-size: 2.5rem;
     }
 }
 
-/* --- FOOTER UNIFICADO -- */
 
+
+
+
+/* --- FOOTER UNIFICADO -- */
 .footer-uami-container {
-    background-color: #000000;
+    background-color: #000000; 
     color: #ffffff;
     padding-top: 40px;
     width: 100%;
@@ -774,14 +718,12 @@ main#contenido {
     justify-content: space-between;
     flex-wrap: wrap;
     padding: 0 20px;
-    gap: 20px;
-    /* Espacio entre columnas */
+    gap: 20px; /* Espacio entre columnas */
 }
 
 .footer-column {
     flex: 1;
-    min-width: 230px;
-    /* Las columnas se vuelven mas anchas o pequeñas */
+    min-width: 230px; /* Las columnas se vuelven mas anchas o pequeñas */
     padding: 25px;
     border-radius: 17px;
     transition: all 0.4s ease;
@@ -794,7 +736,7 @@ main#contenido {
 }
 
 .footer-column h3 {
-    color: #40916c;
+    color: #40916c; 
     font-size: 17px;
     margin-bottom: 20px;
     text-transform: uppercase;
@@ -851,15 +793,8 @@ main#contenido {
 }
 
 @keyframes float-inicio {
-
-    0%,
-    100% {
-        transform: translateY(0);
-    }
-
-    50% {
-        transform: translateY(-20px);
-    }
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
 }
 
 /* Animaciones de entrada */
@@ -868,17 +803,17 @@ main#contenido {
 }
 
 
-.animate-fade-in {
-    animation: fadeIn 1s ease-out;
+.animate-fade-in { 
+    animation: fadeIn 1s ease-out; 
 }
 
-.animate-slide-up {
-    animation: slideUp 1s ease-out;
+.animate-slide-up { 
+    animation: slideUp 1s ease-out; 
 }
 
-.delay-200 {
-    animation-delay: 0.2s;
-    animation-fill-mode: backwards;
+.delay-200 { 
+    animation-delay: 0.2s; 
+    animation-fill-mode: backwards; 
 }
 
 .delay-300 {

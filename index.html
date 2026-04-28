@@ -4,7 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Inicio - Internet UAM-I</title>
+    <title>Inicio - Intranet UAM-I</title>
+
+    <!--Icono logo-->
+    <link rel="icon" href="recursos/imagenes/logos/logoIntranet.png"  type="image/png" >
 
     <!-- CSS -->
     <link rel="stylesheet" href="estilos/styles.css">
@@ -23,10 +26,16 @@
         <div class="header-content">
             <div class="logo-container">
                 <img src="recursos/imagenes/logos/UAM.png" alt="Logo UAM-I">
-                <h2>Internet UAM-I</h2>
+                <h2>Intranet UAM-I</h2>
             </div>
 
-            <nav>
+            <button class="menu-toggle" id="mobile-menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+
+            <nav id="nav_menu">
                 <a href="index.html">Inicio</a>
                 <a href="vistas/acerca.html">Acerca</a>
                 <a href="vistas/informacion.html">Información</a>
