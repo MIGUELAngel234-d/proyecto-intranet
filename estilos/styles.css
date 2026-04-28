@@ -61,7 +61,7 @@ header.scrolled {
     -webkit-font-smoothing: antialiased;
 }
 
-/* --- NAV --- */
+/* --- NAV --- */   
 nav {
     display: flex;
     align-items: stretch; /* los botones heredan el alto del header, área clickeable completa */
