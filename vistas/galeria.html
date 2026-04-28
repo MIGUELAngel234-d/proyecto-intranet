@@ -5,6 +5,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Galerías - Internet UAM-I</title>
+    <!--Icono logo-->
+    <link rel="icon" href="../recursos/imagenes/logos/logoIntranet.png"  type="image/png" >
+
+
     <link rel="stylesheet" href="../estilos/styles.css">
     <link rel="stylesheet" href="../estilos/footer.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -18,12 +22,20 @@
         <div class="header-content">
             <div class="logo-container">
                 <img src="../recursos/imagenes/logos/UAM.png" alt="Logo UAM-I">
-                <h2>Internet UAM-I</h2>
+                <h2>Intranet UAM-I</h2>
             </div>
-            <nav>
+
+            <button class="menu-toggle" id="mobile-menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+
+            <nav id="nav_menu">
                 <a href="../index.html">Inicio</a>
                 <a href="acerca.html">Acerca</a>
                 <a href="informacion.html">Información</a>
+                
                 <div class="dropdown">
                     <a class="dropbtn">Proyectos</a>
                     <div class="dropdown-content">
@@ -31,6 +43,7 @@
                         <a href="https://mosyneti.org" target="_blank">MOSYNETI</a>
                     </div>
                 </div>
+
                 <a href="galeria.html">Galería</a>
                 <a href="contacto.html">Contacto</a>
             </nav>

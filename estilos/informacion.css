@@ -1,0 +1,537 @@
+/* =========================================
+   SECCIÓN INFORMACIÓN
+   ========================================= */
+.seccion-informacion {
+    --bg-informacion: #0d1f18;
+    --primary-informacion: #2d6a4f;
+    --secondary-informacion: #52b788;
+    --accent-informacion: #95d5b2;
+
+    font-family: 'Outfit', sans-serif;
+    color: #f0fdf4;
+    position: relative;
+
+    /* MISMO TRUCO que usaste en inicio/acerca */
+    margin-top: 0;
+    margin-bottom: -40px;
+    margin-left: calc(-50vw + 50%);
+    margin-right: calc(-50vw + 50%);
+    width: auto;
+
+    min-height: 100vh;
+    padding: 100px 0 60px 0;
+    overflow: hidden;
+}
+
+.seccion-informacion .gradient-text{
+    background: linear-gradient(135deg, #49b3a2, #95d5b2);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent !important;
+}
+
+/* FONDO */
+.background-gradient-informacion {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+
+    /* Ajustado para que se parezca más a tu diseño */
+    background: radial-gradient(circle at 50% 50%, #1b4332 0%, #081c15 100%);
+
+    z-index: 0;
+}
+
+/* CONTENEDOR (igual que acerca) */
+.informacion-container {
+    position: relative;
+    z-index: 1;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* HERO */
+.informacion-hero {
+    max-width: 700px;
+    margin-bottom: 60px;
+}
+
+.informacion-etiqueta {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.8rem;
+    letter-spacing: 2px;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+.informacion-hero .informacion-etiqueta {
+    color: #ffd166;
+}
+
+.informacion-etiqueta::before {
+    content: "";
+    width: 30px;
+    height: 2px;
+    background: #ffd166;
+}
+
+/* TÍTULO */
+.informacion-hero h1 {
+    font-size: 3rem;
+    margin-bottom: 15px;
+    color: #ffffff;
+    font-weight: 700;
+}
+
+/* TEXTO */
+.informacion-hero p {
+    font-size: 1.05rem;
+    color: #cbd5e1;
+    max-width: 520px;
+    line-height: 1.6;
+}
+
+/* ESTADÍSTICAS */
+.informacion-stats {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px 80px;
+    border-top: 1px solid rgba(255,255,255,0.08);
+    padding-top: 25px;
+    flex-wrap: wrap;
+}
+
+.stat-item{
+    flex: 0 1 auto;
+    min-width: 120px;
+}
+
+.stat-item h2 {
+    font-size: 1.5rem;
+    color: var(--accent-informacion);
+    margin-bottom: 5px;
+}
+
+.stat-item p {
+    font-size: 0.8rem;
+    color: #64748b;
+    letter-spacing: 1px;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+
+    .seccion-informacion{
+        padding: 60px 0;
+    }
+
+    .informacion-hero h1 {
+        font-size: 2.8rem;
+        line-height: 1.1;
+    }
+
+    .informacion-stats {
+        gap: 30px;
+    }
+
+    @media (max-width: 480px){
+        .informacion-stats{
+            flex-direction: column;
+            align-items: flex-start;
+        }
+    }
+}
+
+
+/* =========================================
+   SECCIÓN: ¿QUÉ ES UNA INTRANET?
+   ========================================= */
+.intranet-info {
+    margin-top: 80px;
+    padding-bottom: 20px;
+}
+
+.intranet-info h2 {
+    font-size: 1.7rem;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 25px !important;
+}
+
+.intranet-cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin-top: 2px;
+}
+
+.intranet-card {
+    background: rgba(45, 106, 79, 0.10);
+    border: 1px solid rgba(82, 183, 136, 0.15);
+    border-radius: 16px;
+    padding: 28px 30px;
+    transition: background 0.3s ease, border-color 0.3s ease;
+}
+
+.intranet-card:hover {
+    background: rgba(45, 106, 79, 0.18);
+    border-color: rgba(82, 183, 136, 0.30);
+}
+
+.intranet-card.full-width {
+    grid-column: 1 / -1;
+}
+
+.intranet-card h3 {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #52b788;
+    margin-bottom: 14px;
+}
+
+.intranet-card p {
+    font-size: 0.95rem;
+    color: #cbd5e1;
+    line-height: 1.75;
+    font-weight: 300;
+}
+
+@media (max-width: 768px) {
+    .intranet-cards {
+        grid-template-columns: 1fr;
+    }
+
+    .intranet-card.full-width {
+        grid-column: 1;
+    }
+
+    .intranet-info h2 {
+        font-size: 1.7rem;
+    }
+}
+
+
+
+
+/* --- FOOTER UNIFICADO -- */
+.footer-uami-container {
+    background-color: #000000; 
+    color: #ffffff;
+    padding-top: 40px;
+    width: 100%;
+    font-family: 'Segoe UI', Tahoma, sans-serif;
+    margin-top: 0;
+}
+
+.footer-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding: 0 20px;
+    gap: 20px; /* Espacio entre columnas */
+}
+
+.footer-column {
+    flex: 1;
+    min-width: 230px; /* Las columnas se vuelven mas anchas o pequeñas */
+    padding: 25px;
+    border-radius: 17px;
+    transition: all 0.4s ease;
+}
+
+/* Efecto Hover solo en las columnas del footer */
+.footer-column:hover {
+    background: rgba(45, 106, 79, 0.1);
+    transform: translateY(-5px);
+}
+
+.footer-column h3 {
+    color: #40916c; 
+    font-size: 17px;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+}
+
+.footer-column ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-column ul li {
+    margin-bottom: 12px;
+}
+
+.footer-column a {
+    color: #bbbbbb;
+    text-decoration: none;
+    transition: 0.3s;
+    font-size: 14px;
+    font-weight: 100;
+}
+
+.footer-column a:hover {
+    color: #95d5b2;
+    padding-left: 10px;
+}
+
+.uam-footer-logo {
+    width: 90px;
+    height: auto;
+    object-fit: contain;
+    align-self: center;
+}
+
+.legal-bottom {
+    margin-top: 40px;
+    padding: 25px;
+    text-align: center;
+    background-color: #050505;
+    border-top: 1px solid #2d6a4f;
+}
+
+.legal-bottom p {
+    font-size: 0.85rem;
+    color: #666;
+}
+
+/* Ajuste Celulares */
+@media (max-width: 768px) {
+    .footer-content-wrapper {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+
+@keyframes float-inicio {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+}
+
+/* Animaciones de entrada */
+.animate-float {
+    animation: float-inicio 6s ease-in-out infinite;
+}
+
+
+.animate-fade-in { 
+    animation: fadeIn 1s ease-out; 
+}
+
+.animate-slide-up { 
+    animation: slideUp 1s ease-out; 
+}
+
+.delay-200 { 
+    animation-delay: 0.2s; 
+    animation-fill-mode: backwards; 
+}
+
+.delay-300 { 
+    animation-delay: 0.3s; 
+    animation-fill-mode: backwards; 
+}
+
+
+/* =========================================
+   APARTADO: CONCEPTOS CLAVE
+   ========================================= */
+
+.conceptos-clave {
+    margin-top: 80px;
+    padding-bottom: 60px;
+}
+
+.conceptos-header h2 {
+    font-size: 2.5rem;
+    color: #ffffff;
+    margin: 15px 0;
+    font-weight: 700;
+}
+
+.conceptos-header p:last-child {
+    color: #94a3b8;
+    font-size: 1.1rem;
+    margin-bottom: 40px;
+}
+
+/* LISTA DE ITEMS */
+.conceptos-lista {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.concepto-item {
+    display: grid;
+    grid-template-columns: 60px 0.5fr 1fr; /*La segunda propiedad disminuye o aumenta el ancho de la columna*/
+    align-items: stretch;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    transition: background 0.3s ease;
+}
+
+/* EFECTO HOVER PARA LOS ITEMS */
+.concepto-item:hover {
+    background-color: rgba(45, 106, 79, 0.1); 
+    border-left: 3px solid #49b3a2; 
+    padding-left: 10px;
+}
+
+/* Opcional: Si quieres que el número también resalte al pasar el cursor */
+.concepto-item:hover .concepto-numero {
+    opacity: 1;
+    color: #95d5b2; /* Color un poco más brillante al pasar el cursor */
+    transition: all 0.3s ease;
+}
+
+/* Opcional: Un ligero desplazamiento hacia la derecha */
+.concepto-item:hover .concepto-info {
+    transform: translateX(10px);
+    transition: transform 0.3s ease;
+}
+
+/* Estilo para los números a la izquierda */
+.concepto-numero {
+    font-size: 0.9rem;
+    color: #49b3a2; 
+    font-weight: 700;
+    min-width: 60px;
+    opacity: 0.6;
+    padding: 30px 0;
+}
+
+.concepto-info {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding: 30px 40px 30px 0;
+    padding-right: 40px;
+    border-right: 1px solid rgba(255, 255, 255, 0.08);
+    justify-content: center;
+}
+
+.concepto-desc {
+    padding: 30px 0 30px 40px;
+    padding-left: 40px;
+    font-size: 0.92rem;
+    color: #94a3b8;
+    font-weight: 300;
+    line-height: 1.7;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.concepto-info h3 {
+    font-size: 1.4rem;
+    color: #ffffff;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+/* LEER MÁS */
+.concepto-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    margin-top: 14px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #64748b;
+    cursor: pointer;
+    transition: color 0.2s ease;
+    width: fit-content;
+}
+
+.concepto-link::after {
+    content: '→';
+    transition: transform 0.2s ease;
+}
+
+.concepto-item:hover .concepto-link {
+    color: #52b788;
+}
+
+.concepto-item:hover .concepto-link::after {
+    transform: translateX(4px);
+}
+
+/* BADGES (Etiquetas de colores) */
+.badge {
+    display: inline-block;
+    width: fit-content;
+    padding: 4px 12px;
+    border-radius: 4px;
+    font-size: 0.7rem;
+    font-weight: 800;
+    letter-spacing: 1px;
+}
+
+/* Colores específicos de tu captura */
+.badge-redes {
+    background-color: rgba(45, 106, 79, 0.3);
+    color: #52b788;
+}
+
+.badge-radio {
+    background-color: rgba(255, 209, 102, 0.15);
+    color: #ffd166;
+}
+
+.badge-sistema {
+    background-color: rgba(73, 179, 162, 0.15);
+    color: #95d5b2;
+}
+
+.badge-politica {
+    background-color: rgba(141, 134, 201, 0.2);
+    color: #b1a7f0;
+}
+
+/*RESPONSIVE */
+@media (max-width: 768px) {
+    .conceptos-header h2 {
+        font-size: 2rem;
+    }
+
+    .concepto-item {
+        grid-template-columns: 60px 1fr;
+        grid-template-rows: auto auto;
+        padding: 15px 0;
+    }
+
+
+    .concepto-numero {
+        grid-column: 1;
+        grid-row: 1 / 3;  
+        align-self: start;
+        padding: 20px 0;  
+    }
+
+
+    .concepto-info {
+        grid-column: 2;
+        grid-row: 1;
+        border-right: none;
+        padding-right: 0;
+        padding: 20px 0 8px 0;
+    }
+
+    .concepto-desc {
+        grid-column: 2;
+        grid-row: 2;
+        padding: 0 0 20px 0; 
+        margin-top: 10px;
+        font-size: 1.1rem;
+    }
+
+    .concepto-info h3 {
+        font-size: 1.2rem;
+    }
+    .concepto-link {
+        font-size: 0.8rem;
+    }
+}
