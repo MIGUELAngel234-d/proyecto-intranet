@@ -13,45 +13,56 @@ body {
 
 /* --- HEADER (Franja completa) --- */
 header {
-    background-color: rgba(0, 0, 0, 1); /* negro sólido */
+    background-color: rgba(0, 0, 0, 1);
+    /* negro sólido */
     width: 100%;
     border-bottom: 1px solid #222;
     position: sticky;
     top: 0;
     z-index: 1000;
 
-    backdrop-filter: blur(0px); /* sin blur arriba */
+    backdrop-filter: blur(0px);
+    /* sin blur arriba */
     -webkit-backdrop-filter: blur(0px);
 
     transition: all 0.3s ease;
 }
 
 header.scrolled {
-    background-color: rgba(0, 0, 0, 0.75); /* ligeramente transparente */
-    
-    backdrop-filter: blur(10px); /* ahora sí aparece el glass */
+    background-color: rgba(0, 0, 0, 0.75);
+    /* ligeramente transparente */
+
+    backdrop-filter: blur(10px);
+    /* ahora sí aparece el glass */
     -webkit-backdrop-filter: blur(10px);
 }
+
 /* CONTENEDOR INTERNO - Centra el logo y menú */
 .header-content {
-    max-width: 1100px; 
-    margin: 0 auto; /* Centra el bloque de 1100px */
+    max-width: 1100px;
+    margin: 0 auto;
+    /* Centra el bloque de 1100px */
     display: flex;
-    justify-content: space-between; /* Logo a la izquierda, menú a la derecha */
-    align-items: stretch; /* Estira todo para que el submenú pegue al ras */
+    justify-content: space-between;
+    /* Logo a la izquierda, menú a la derecha */
+    align-items: stretch;
+    /* Estira todo para que el submenú pegue al ras */
     padding: 0 20px;
-    height: 70px; /* Alto fijo de la franja negra */
+    height: 70px;
+    /* Alto fijo de la franja negra */
 }
 
 /* --- LOGO Y TÍTULO --- */
 .logo-container {
     display: flex;
     align-items: center;
-    gap: 13px; /* Separación entre el dibujo y el texto */
+    gap: 13px;
+    /* Separación entre el dibujo y el texto */
 }
 
 .logo-container img {
-    height: 45px; /* Tamaño del logo */
+    height: 45px;
+    /* Tamaño del logo */
 }
 
 .logo-container h2 {
@@ -59,30 +70,36 @@ header.scrolled {
     font-weight: 700;
     letter-spacing: -0.5px;
     /* Degradado: empieza verde oscuro y termina en tu verde claro */
-    background: linear-gradient(to right, #2a6d62, #49b3a2); 
-    -webkit-background-clip: text; /* Recorta el degradado a la forma de la letra */
+    background: linear-gradient(to right, #2a6d62, #49b3a2);
+    -webkit-background-clip: text;
+    /* Recorta el degradado a la forma de la letra */
     background-clip: text;
-    color: transparent; /* Hace la letra invisible para que se vea el degradado */
+    color: transparent;
+    /* Hace la letra invisible para que se vea el degradado */
     -webkit-font-smoothing: antialiased;
 }
 
 /* --- NAV --- */
 nav {
     display: flex;
-    align-items: stretch; /* Hace que los botones midan los 70px de alto */
-    gap: 24px; /* Distancia entre cada palabra del menú */
+    align-items: stretch;
+    /* Hace que los botones midan los 70px de alto */
+    gap: 24px;
+    /* Distancia entre cada palabra del menú */
 }
 
 nav a,
 .dropbtn {
     display: flex;
-    align-items: center; /* Centra el texto verticalmente */
+    align-items: center;
+    /* Centra el texto verticalmente */
     color: white;
     text-decoration: none;
     font-size: 12px;
     font-weight: 600;
     cursor: pointer;
-    transition: all 0.3s ease; /* Suaviza el cambio de color al pasar el mouse */
+    transition: all 0.3s ease;
+    /* Suaviza el cambio de color al pasar el mouse */
 }
 
 nav a:hover,
@@ -93,175 +110,55 @@ nav a:hover,
 /* --- DROPDOWN (Menú desplegable) --- */
 .dropdown {
     position: relative;
-    display: flex; 
+    display: flex;
 }
 
+/* CAJA DEL SUBMENÚ */
 .dropdown-content {
-    display: none; /* Oculto por defecto */
+    display: none;
+    /* Oculto por defecto */
     position: absolute;
-    background-color: #111; /* Negro casi total para el fondo del submenú */
+    background-color: #111;
+    /* Negro casi total para el fondo del submenú */
     min-width: 160px;
-    top: 100%; /* Empieza exactamente donde termina el header (al ras) */
+    top: 100%;
+    /* Empieza exactamente donde termina el header (al ras) */
     left: 0;
-    border-radius: 0 0 4px 4px; /* Redondea solo las esquinas de abajo */
-    z-index: 10; /* Se pone por encima de cualquier otro contenido */
-    box-shadow: 0px 8px 16px rgba(0,0,0,0.5); /* Sombra para dar profundidad */
+    border-radius: 0 0 4px 4px;
+    /* Redondea solo las esquinas de abajo */
+    z-index: 10;
+    /* Se pone por encima de cualquier otro contenido */
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.5);
+    /* Sombra para dar profundidad */
     overflow: hidden;
 }
 
 .dropdown-content a {
-    display: block; /* Un link debajo de otro */
+    display: block;
+    /* Un link debajo de otro */
     padding: 12px 15px;
     font-size: 14px;
     font-weight: 400;
     width: 100%;
 }
 
+/* Efecto al pasar el mouse en el submenú */
 .dropdown-content a:hover {
-    background-color: #49b3a2; /* Fondo verde */
-    color: #000; /* Letra negra para que resalte */
+    background-color: #49b3a2;
+    /* Fondo verde */
+    color: #000;
+    /* Letra negra para que resalte */
 }
 
-.dropdown-content.show {
+/* MUESTRA EL SUBMENÚ AL TOCAR 'PROYECTOS' */
+.dropdown:hover .dropdown-content {
     display: block;
-}
-
-.dropdown.open .dropbtn::after {
-    transform: rotate(180deg);
-    border-top-color: #49b3a2;
-}
-
-/* Triángulo CSS: tres bordes donde solo el top es visible, los laterales transparentes forman la punta */
-.dropbtn::after {
-    content: ''; 
-    display: inline-block;
-    margin-left: 8px;
-    vertical-align: middle;
-    border-top: 5px solid white;
-    border-right: 5px solid transparent; /* lado derecho invisible */
-    border-left: 5px solid transparent;  /* lado izquierdo invisible */
-    transition: transform 0.3s ease;
-}
-
-.dropdown:hover .dropbtn::after {
-    border-top-color: #49b3a2;
 }
 
 .dropbtn {
     padding: 0;
     margin: 0;
     height: 100%;
-}
-
-.menu-toggle {
-    display: none;
-    flex-direction: column;
-    cursor: pointer;
-    background: transparent;
-    border: none;
-    gap: 5px;
-}
-
-.menu-toggle .bar {
-    width: 25px;
-    height: 3px;
-    background-color: white;
-    transition: all 0.3s ease;
-}
-
-/* --- RESPONSIVE --- */
-@media (max-width: 850px) {
-
-    .menu-toggle {
-        display: flex;
-        z-index: 1001;
-        align-self: center;
-        margin-right: 10px;
-    }
-
-    nav {
-        display: none; 
-        flex-direction: column;
-        position: fixed; /* fixed para que no se mueva al hacer scroll */
-        top: 70px;       
-        right: 0;        
-        width: 200px;    
-        height: auto; 
-        border-radius: 0 0 0 20px;
-        background: linear-gradient(
-            to left, 
-            rgba(0, 0, 0, 0.9) 0%, 
-            rgba(0, 0, 0, 0.7) 100%
-        );
-        backdrop-filter: blur(15px);
-        -webkit-backdrop-filter: blur(15px); /* prefijo para Safari */
-        padding: 10px 0;
-        align-items: flex-end; 
-        gap: 0;          
-        z-index: 1000;
-        overflow-y: auto;
-        border-left: 1px solid rgba(255, 255, 255, 0.05);
-    }
-
-    nav.active {
-        display: flex;
-    }
-
-    nav a, .dropbtn {
-        width: 100%;
-        padding: 12px 30px;
-        font-size: 13px; 
-        border-bottom: 1px solid (255, 255, 255, 0.05);
-        justify-content: flex-end; /* texto a la derecha, coherente con el panel que sale desde ahí */
-        text-align: right;
-        background: transparent;
-    } 
-
-    .dropdown {
-        width: 100%;
-        flex-direction: column;
-        align-items: flex-end;
-    }
-
-    .dropdown-content {
-        display: none;
-        position: static; /* empuja el contenido hacia abajo en lugar de superponerse */
-        width: 100%;
-        background-color: rgba(0, 0, 0, 0.3);
-    }
-
-    .dropdown-content a {
-        padding-right: 35px;
-        padding-left: 0;
-        font-size: 12px;
-        transition: all 0.3s ease;
-    }
-
-    .dropdown-content a:hover {
-        background-color: #49b3a2 !important;
-        color: white !important;
-        padding-left: 45px; /* deslizamiento visual al hacer hover, sin JS */
-    }
-
-    .dropdown.open .dropbtn::after {
-        transform: translateY(3px) rotate(180deg); 
-    }    
-
-    .dropbtn::after {
-        order: -1; /* reordena la flecha antes del texto en flex, sin tocar el HTML */
-        margin-right: 8px;
-        transform: translateY(3px);
-    }
-    
-    .dropbtn {
-        display: flex;
-        align-items: center;
-        justify-content: flex-end;
-        gap: 10px;
-        width: 100%;
-        padding: 12px 30px;
-        background: transparent;
-    }
 }
 
 /* Espaciado para el contenido inyectado (se puede modificar desde aqui)*/
@@ -762,11 +659,8 @@ main#contenido {
     }
 }
 
-
-
-
-
 /* --- FOOTER UNIFICADO -- */
+
 .footer-uami-container {
     background-color: #000000;
     color: #ffffff;
