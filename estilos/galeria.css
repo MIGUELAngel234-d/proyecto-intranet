@@ -50,7 +50,7 @@ body.galeria-page::before {
     /* Un tipo de letra moderno */
 
     /* Degradado de color en las letras */
-    background: linear-gradient(to right, #212426, #92a39f);
+    background: linear-gradient(to right, #ecfff1, #92a39f);
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
