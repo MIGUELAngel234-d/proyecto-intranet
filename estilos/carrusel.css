@@ -21,7 +21,7 @@ header{
 .carousel{
     width: 100vw;
     height: 100vh;
-    margin-top: 20px; 
+    margin-top: 80px; 
     overflow: hidden;
     position: relative;
 }
