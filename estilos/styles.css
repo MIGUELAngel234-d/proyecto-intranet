@@ -265,6 +265,7 @@ main#contenido {
     padding: 0 20px;
 }
 
+
 /* =========================================
    SECCIÓN INICIO (INYECTADA)
    ========================================= */
@@ -815,7 +816,7 @@ main#contenido {
     animation-fill-mode: backwards; 
 }
 
-.delay-300 { 
-    animation-delay: 0.3s; 
-    animation-fill-mode: backwards; 
+.delay-300 {
+    animation-delay: 0.3s;
+    animation-fill-mode: backwards;
 }
