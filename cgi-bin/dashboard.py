@@ -84,13 +84,24 @@ html += """
             </table>
             
             <h3 style="margin-top: 30px;">Agregar Nuevo</h3>
-            <form action="procesar_admin.py" method="POST">
+            <form action="procesar_admin.py" method="POST" id="form-nuevo-admin">
                 <label>Usuario:</label>
                 <input type="text" name="nuevo_user" required>
+                
                 <label>Contraseña:</label>
-                <input type="password" name="nuevo_pass" required>
+                <input type="password" name="nuevo_pass" id="pass1" required>
+
+                <label>Confirmar Contraseña:</label>
+                <input type="password" name="nuevo_pass_conf" id="pass2" required>
+                
+                <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 20px;">
+                    <input type="checkbox" id="chk-mostrar" style="width: auto; margin: 0;">
+                    <label for="chk-mostrar" style="font-size: 0.9em; color: #94a3b8; cursor: pointer;">👁️ Mostrar contraseñas</label>
+                </div>
+                
                 <button type="submit" class="btn">Guardar Administrador</button>
             </form>
+            
         </div>
 
         <div class="card">
@@ -109,6 +120,29 @@ html += """
             </form>
         </div>
     </div>
+    
+    <script>
+        //logica de mostrar/ocultar
+        const chkMostrar = document.getElementById('chk-mostrar');
+        const pass1 = document.getElementById('pass1');
+        const pass2 = document.getElementById('pass2');
+
+        chkMostrar.addEventListener('change', function() {
+            const tipo = this.checked ? 'text' : 'password';
+            pass1.type = tipo;
+            pass2.type = tipo;
+        });
+
+        //logica de confirmacion antes de enviar
+        const formAdmin = document.getElementById('form-nuevo-admin');
+        formAdmin.addEventListener('submit', function(e) {
+            if (pass1.value !== pass2.value) {
+                e.preventDefault(); // Detiene el envío a Python
+                alert('⚠️ Las contraseñas no coinciden. Por favor, revísalas.');
+            }
+        });
+    </script>
+    
 </body>
 </html>
 """

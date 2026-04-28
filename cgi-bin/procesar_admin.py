@@ -26,24 +26,29 @@ form = urllib.parse.parse_qs(post_data)
 nuevo_user = form.get("nuevo_user", [None])[0]
 nuevo_pass = form.get("nuevo_pass", [None])[0]
 
-#guardar en la base de datos
-if nuevo_user and nuevo_pass:
-    db_path = '../intranet.db'
-    if not os.path.exists(db_path):
-        db_path = 'intranet.db'
+#atrapamos la segunda contraseña
+nuevo_pass_conf = form.get("nuevo_pass_conf", [None])[0]
+
+#guardar en la base de datos (solamente si coinciden las contrasñas )
+if nuevo_user and nuevo_pass and nuevo_pass_conf:
+    if nuevo_pass == nuevo_pass_conf:
+        db_path = '../intranet.db'
+        if not os.path.exists(db_path):
+            db_path = 'intranet.db'
         
-    conexion = sqlite3.connect(db_path)
-    cursor = conexion.cursor()
+        conexion = sqlite3.connect(db_path)
+        cursor = conexion.cursor()
     
-    try:
-        hash_pass = encriptar_password(nuevo_pass)
-        #se guarda con es_principal = 0 (Falso) para que si se pueda borrar despues
-        cursor.execute("INSERT INTO administradores (username, password_hash, es_principal) VALUES (?, ?, 0)", (nuevo_user, hash_pass))
-        conexion.commit()
-    except sqlite3.IntegrityError:
-        pass #si intentan meter un usuario que ya existe, lo ignoramos por ahora
+        try:
+            hash_pass = encriptar_password(nuevo_pass)
+            #se guarda con es_principal = 0 (Falso) para que si se pueda borrar despues
+            cursor.execute("INSERT INTO administradores (username, password_hash, es_principal) VALUES (?, ?, 0)", (nuevo_user, hash_pass))
+            conexion.commit()
+        except sqlite3.IntegrityError:
+            pass #si intentan meter un usuario que ya existe, lo ignoramos 
 
     conexion.close()
+    
 
 # redirigir de vuelta al panel automaticamente
 print("Content-Type: text/html; charset=utf-8\n\n")
