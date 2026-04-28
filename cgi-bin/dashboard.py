@@ -70,7 +70,13 @@ for admin in lista_admins:
     if es_principal:
         html += "<span style='color: #95d5b2;'>Principal (Intocable)</span>"
     else:
-        html += f"<button class='btn btn-danger'>Eliminar</button>"
+        #formulario oculto que manda el id del usuario a eliminar
+        html += f"""
+        <form action="eliminar_admin.py" method="POST" style="display:inline;" onsubmit="return confirm('¿Seguro que deseas eliminar al usuario {username}?');">
+            <input type="hidden" name="admin_id" value="{admin_id}">
+            <button type="submit" class='btn btn-danger'>Eliminar</button>
+        </form>
+        """
         
     html += "</td></tr>"
 
