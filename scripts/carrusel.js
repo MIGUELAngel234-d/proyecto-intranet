@@ -6,7 +6,8 @@ var nextBtn = document.querySelector('.next'),
     runningTime = document.querySelector('.carousel .timeRunning') 
 
 let timeRunning = 1200 
-let timeAutoNext = 10000 // <--- Lo subí a 10 segundos para que dé tiempo de leer bien
+let timeAutoNext = 7000 
+let isMouseOver = false 
 
 nextBtn.onclick = function(){
     showSlider('next')
@@ -19,29 +20,36 @@ prevBtn.onclick = function(){
 let runTimeOut 
 let runNextAuto 
 
-// FUNCIÓN PARA ACTIVAR EL AUTO-NEXT
 function startAutoNext() {
-    runNextAuto = setTimeout(() => {
-        nextBtn.click()
-    }, timeAutoNext)
+    clearTimeout(runNextAuto); 
+    if (!isMouseOver) { 
+        runNextAuto = setTimeout(() => {
+            nextBtn.click()
+        }, timeAutoNext)
+    }
 }
 
-// FUNCIONES DE PAUSA (MOUSE ENCIMA)
 carousel.onmouseenter = function() {
-    clearTimeout(runNextAuto); // Detiene el cronómetro
-    runningTime.style.animationPlayState = 'paused'; // Pausa la barrita visual
+    isMouseOver = true; 
+    clearTimeout(runNextAuto); 
+    runningTime.style.animationPlayState = 'paused'; 
 }
 
 carousel.onmouseleave = function() {
-    startAutoNext(); // Reinicia el cronómetro cuando quitas el mouse
-    runningTime.style.animationPlayState = 'running'; // Sigue la barrita
+    isMouseOver = false; 
+    startAutoNext(); 
+    runningTime.style.animationPlayState = 'running'; 
 }
 
 function resetTimeAnimation() {
     runningTime.style.animation = 'none'
-    runningTime.offsetHeight /* trigger reflow */
+    runningTime.offsetHeight 
     runningTime.style.animation = null 
     runningTime.style.animation = `runningTime ${timeAutoNext/1000}s linear 1 forwards`
+    
+    if (isMouseOver) {
+        runningTime.style.animationPlayState = 'paused';
+    }
 }
 
 function showSlider(type) {
@@ -61,10 +69,11 @@ function showSlider(type) {
     }, timeRunning)
 
     clearTimeout(runNextAuto)
-    startAutoNext() // Usa la nueva función de inicio
+    if (!isMouseOver) {
+        startAutoNext()
+    }
     resetTimeAnimation() 
 }
 
-// Iniciar por primera vez
 startAutoNext()
 resetTimeAnimation()
