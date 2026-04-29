@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acerca - Internet UAM-I</title>
+        <!--Icono logo-->
+    <link rel="icon" href="../recursos/imagenes/logos/logoIntranet.png"  type="image/png" >
+
+    <link rel="stylesheet" href="../estilos/styles.css">
+    <link rel="stylesheet" href="../estilos/footer.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;500;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <header class="full-header">
+        <div class="header-content">
+            <div class="logo-container">
+                <img src="../recursos/imagenes/logos/UAM.png" alt="Logo UAM-I">
+                <h2>Intranet UAM-I</h2>
+            </div>
+
+            <button class="menu-toggle" id="mobile-menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+
+            <nav id="nav_menu">
+                <a href="../index.html">Inicio</a>
+                <a href="acerca.html">Acerca</a>
+                <a href="informacion.html">Información</a>
+                
+                <div class="dropdown">
+                    <a class="dropbtn">Proyectos</a>
+                    <div class="dropdown-content">
+                        <a href="https://sdr.uami.mx" target="_blank">SDR-UAMI</a>
+                        <a href="https://mosyneti.org" target="_blank">MOSYNETI</a>
+                    </div>
+                </div>
+
+                <a href="galeria.html">Galería</a>
+                <a href="contacto.html">Contacto</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <div class="seccion-acerca">
+            <div class="background-gradient-acerca"></div>
+
+            <div class="about-container">
+                <section class="about-hero">
+                    <h1 class="animate-fade-in">
+                        Acerca de <span class="gradient-text">Nosotros</span>
+                    </h1>
+                    <p class="subtitle animate-slide-up">
+                        Conoce más sobre el grupo SDR-UAMI y nuestro propósito.
+                    </p>
+                </section>
+
+                <section class="about-content">
+                    <div class="glass-card text-content animate-slide-up delay-200">
+                        
+                        <p>
+                            <h1>¿Quiénes somos?</h1>
+                        </p>
+                        
+
+                        <p>
+                            En SDR-UAMI trabajamos en proyectos para llevar internet y redes a lugares donde no hay acceso, 
+                            como comunidades cercanas a la universidad y comunidades indígenas.
+                        </p>
+
+                        <p>
+                            Uno de nuestros proyectos principales es la IntraNet Comunitaria UAMI, una red local donde las personas 
+                            pueden compartir y ver contenido sin necesidad de internet, ademas la idea es que cada comunidad pueda crear y 
+                            mantener su propia red.
+                        </p>
+
+                        <p>
+                            También desarrollamos MosyNetl, un sistema de bajo costo que ayuda a que más comunidades tengan acceso a tecnología 
+                            y aprendan a usarla por sí mismas.
+                        </p>
+
+                        <p>
+                            En esta página encontrarás información, guías y recursos para que puedas conocer y replicar estos proyectos fácilmente.
+                        </p>
+                    </div>
+
+                    <div class="image-content animate-slide-up delay-300">
+                        <img src="../recursos/imagenes/galeria/capacitacion.png"
+                             alt="Equipo SDR-UAMI en comunidad"
+                             class="about-image">
+                    </div>
+                </section>
+            </div>
+            
+        </div>
+        
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-container">
+
+            <div class="footer-section">
+                <div class="footer-brand">
+                    <h3>COMUNITARIA</h3>
+                </div>
+                <p>Nuestro objetivo es dar alternativas de conectividad inalámbrica a nuestra comunidad universitaria y
+                    sus alrededores, así como a comunidades indígenas con las que ya se ha trabajado en otros proyectos
+                    y que no tienen la posibilidad de tener Internet o que aun existiendo no es accesible para todos.
+                </p>
+            </div>
+
+            <div class="footer-section">
+                <h3>Navegación</h3>
+                <ul>
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="vistas/acerca">Acerca</a></li>
+                    <li><a href="informacion.html">Información</a></li>
+                    <li><a href="galeria.html">Galería</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h3>Contacto</h3>
+                <div class="contacto-info">
+                    <p>📍 Ciudad de México, MX</p>
+                    <p>📍 Tlalpan, C.P. 14387</p>
+                    <p>📧 contacto@izt.uam.mx</p>
+                    <p>📞 +52 55 XXXX XXXX</p>
+                </div>
+            </div>
+            <img src="../recursos/imagenes/logos/UAM.png" alt="Logo" class="logo-img" onerror="this.style.display='none'">
+
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2026 Comunitaria - Innovación y Desarrollo Social</p>
+        </div>
+    </footer>
+<script src="../scripts/secciones.js"></script>
+</body>
+</html>

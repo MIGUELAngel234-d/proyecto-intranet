@@ -1,0 +1,698 @@
+/* RESET BÁSICO */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #081c15;
+    overflow-x: hidden;
+}
+
+/* --- HEADER (Franja completa) --- */
+header {
+    background-color: rgba(0, 0, 0, 1);
+    width: 100%;
+    border-bottom: 1px solid #222;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    backdrop-filter: blur(0px);
+    -webkit-backdrop-filter: blur(0px); /* prefijo para Safari */
+    transition: all 0.3s ease;
+}
+header.scrolled {
+    background-color: rgba(0, 0, 0, 0.75);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px); /* prefijo para Safari */
+}
+
+.header-content {
+    max-width: 1100px; 
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch; /* los hijos ocupan los 70px completos para que el submenú salga al ras */
+    padding: 0 20px;
+    height: 86px;
+}
+
+/* --- LOGO Y TÍTULO --- */
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+}
+
+.logo-container img {
+    height: 45px;
+}
+
+.logo-container h2 {
+    font-size: 18px; 
+    font-weight: 700;
+    letter-spacing: -0.5px;
+    background: linear-gradient(to right, #2a6d62, #49b3a2); 
+    -webkit-background-clip: text; /* recorta el degradado a la silueta del texto */
+    background-clip: text;
+    color: transparent; /* hace invisible el color para que se vea el degradado de fondo */
+    -webkit-font-smoothing: antialiased;
+}
+
+/* --- NAV --- */   
+nav {
+    display: flex;
+    align-items: stretch; /* los botones heredan el alto del header, área clickeable completa */
+    gap: 24px;
+}
+
+nav a, .dropbtn {
+    display: flex;
+    align-items: center;
+    color: white;
+    text-decoration: none;
+    font-size: 12px; 
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+nav a:hover, .dropdown:hover .dropbtn {
+    color: #49b3a2;
+}
+
+/* --- DROPDOWN (Menú desplegable) --- */
+.dropdown {
+    position: relative;
+    display: flex; /* en lugar de inline-block para heredar el stretch del nav */
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #111;
+    min-width: 160px;
+    top: 100%; /* se posiciona justo debajo del padre sin calcular píxeles */
+    left: 0;
+    border-radius: 0 0 4px 4px; /* solo esquinas inferiores, continúa visualmente el header */
+    z-index: 10;
+    box-shadow: 0px 8px 16px rgba(0,0,0,0.5);
+    overflow: hidden;
+}
+
+.dropdown-content a {
+    display: block;
+    padding: 12px 15px;
+    font-size: 14px;
+    font-weight: 400;
+    width: 100%;
+}
+
+.dropdown-content a:hover {
+    background-color: #49b3a2;
+    color: #000;
+}
+
+.dropdown-content.show {
+    display: block;
+}
+
+.dropdown.open .dropbtn::after {
+    transform: rotate(180deg);
+    border-top-color: #49b3a2;
+}
+
+/* Triángulo CSS: tres bordes donde solo el top es visible, los laterales transparentes forman la punta */
+.dropbtn::after {
+    content: ''; 
+    display: inline-block;
+    margin-left: 8px;
+    vertical-align: middle;
+    border-top: 5px solid white;
+    border-right: 5px solid transparent; /* lado derecho invisible */
+    border-left: 5px solid transparent;  /* lado izquierdo invisible */
+    transition: transform 0.3s ease;
+}
+
+.dropdown:hover .dropbtn::after {
+    border-top-color: #49b3a2;
+}
+
+.dropbtn {
+    padding: 0; 
+    margin: 0;
+    height: 100%;
+}
+
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    background: transparent;
+    border: none;
+    gap: 5px;
+}
+
+.menu-toggle .bar {
+    width: 25px;
+    height: 3px;
+    background-color: white;
+    transition: all 0.3s ease;
+}
+
+/* --- RESPONSIVE --- */
+@media (max-width: 850px) {
+
+    .menu-toggle {
+        display: flex;
+        z-index: 1001;
+        align-self: center;
+        margin-right: 10px;
+    }
+
+    nav {
+        display: none; 
+        flex-direction: column;
+        position: fixed; /* fixed para que no se mueva al hacer scroll */
+        top: 70px;       
+        right: 0;        
+        width: 200px;    
+        height: auto; 
+        border-radius: 0 0 0 20px;
+        background: linear-gradient(
+            to left, 
+            rgba(0, 0, 0, 0.9) 0%, 
+            rgba(0, 0, 0, 0.7) 100%
+        );
+        backdrop-filter: blur(15px);
+        -webkit-backdrop-filter: blur(15px); /* prefijo para Safari */
+        padding: 10px 0;
+        align-items: flex-end; 
+        gap: 0;          
+        z-index: 1000;
+        overflow-y: auto;
+        border-left: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    nav.active {
+        display: flex;
+    }
+
+    nav a, .dropbtn {
+        width: 100%;
+        padding: 12px 30px;
+        font-size: 13px; 
+        border-bottom: 1px solid (255, 255, 255, 0.05);
+        justify-content: flex-end; /* texto a la derecha, coherente con el panel que sale desde ahí */
+        text-align: right;
+        background: transparent;
+    } 
+
+    .dropdown {
+        width: 100%;
+        flex-direction: column;
+        align-items: flex-end;
+    }
+
+    .dropdown-content {
+        display: none;
+        position: static; /* empuja el contenido hacia abajo en lugar de superponerse */
+        width: 100%;
+        background-color: rgba(0, 0, 0, 0.3);
+    }
+
+    .dropdown-content a {
+        padding-right: 35px;
+        padding-left: 0;
+        font-size: 12px;
+        transition: all 0.3s ease;
+    }
+
+    .dropdown-content a:hover {
+        background-color: #49b3a2 !important;
+        color: white !important;
+        padding-left: 45px; /* deslizamiento visual al hacer hover, sin JS */
+    }
+
+    .dropdown.open .dropbtn::after {
+        transform: translateY(3px) rotate(180deg); 
+    }    
+
+    .dropbtn::after {
+        order: -1; /* reordena la flecha antes del texto en flex, sin tocar el HTML */
+        margin-right: 8px;
+        transform: translateY(3px);
+    }
+    
+    .dropbtn {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        gap: 10px;
+        width: 100%;
+        padding: 12px 30px;
+        background: transparent;
+    }
+}
+
+/* Espaciado para el contenido inyectado (se puede modificar desde aqui)*/
+main#contenido {
+    min-height: 60vh; 
+    max-width: 1100px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+
+/* =========================================
+   SECCIÓN INICIO (INYECTADA)
+   ========================================= */
+
+.seccion-inicio {
+    --primary-inicio: #2d6a4f;
+    --secondary-inicio: #52b788;
+    --accent-inicio: #95d5b2;
+    --glass-bg-inicio: rgba(45, 106, 79, 0.1);
+    --glass-border-inicio: rgba(82, 183, 136, 0.2);
+
+    min-height: 100vh;
+    padding: 80px 0;
+    
+    font-family: 'Outfit', sans-serif;
+    position: relative;
+
+    margin-top: -40px;    /* Elimina el margen superior de 40px del main#contenido */
+    margin-bottom: -40px;
+    /* Ajuste para que se pegue a los bordes como hicimos con Acerca De */
+    margin-left: calc(-50vw + 50%);
+    margin-right: calc(-50vw + 50%);
+    width: auto;
+    position: relative;
+    overflow: hidden;
+}
+
+.seccion-inicio main {
+    position: relative;
+    z-index: 1;
+    max-width: 1100px; /* Esto alinea el texto con el header */
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Fondo degradado fijo detrás del contenido de Inicio */
+.background-gradient-inicio {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: radial-gradient(circle at 50% 50%, #1b4332 0%, #081c15 100%);
+    z-index: -1;
+}
+
+/* HERO SECTION */
+.seccion-inicio .hero-section {
+    min-height: 80vh;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 2rem;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.seccion-inicio .hero-content {
+     flex: 1; z-index: 10; 
+}
+
+.seccion-inicio .status-text {
+    display: flex; /* Usamos flex para alinear todo perfecto */
+    align-items: center;
+    gap: 8px; /* Espacio fijo entre los elementos */
+    color: #ffffff;
+    font-size: 0.8rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+    letter-spacing: 1px;
+}
+
+.seccion-inicio h1 {
+    font-size: 3rem;
+    line-height: 1;
+    margin-bottom: 1.5rem;
+    color: #ffffff !important;
+    font-weight: 600;
+}
+
+
+.seccion-inicio .gradient-text {
+    background: linear-gradient(135deg, #49b3a2, #95d5b2);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent !important;
+    display: block;
+}
+
+.seccion-inicio .hero-content p {
+    font-size: 1.1rem;
+    color: #94a3b8;
+    max-width: 450px;
+    margin-bottom: 2rem;
+    line-height: 1.4;
+}
+
+/* BOTONES */
+.seccion-inicio .btn-secondary {
+    display: inline-block;
+    padding: 1rem 2rem;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 14px;
+    border: 2px solid var(--glass-border-inicio);
+    color: white;
+    transition: all 0.3s ease;
+}
+
+.seccion-inicio .btn-secondary:hover {
+    background: var(--glass-bg-inicio);
+    border-color: var(--primary-inicio);
+}
+
+/* MASCOTA */
+.seccion-inicio .hero-visual { flex: 1; display: flex; justify-content: center; }
+.seccion-inicio .hero-visual img { 
+    max-width: 100%;
+    height: clamp(250px, 35vw, 300px); 
+    object-fit: contain; /* Evita que la imagen se estire feo */
+    filter: drop-shadow(0 0 30px rgba(45, 106, 79, 0.6));
+    pointer-events: none;
+    user-select: none;
+    transition: all 0.2s ease-out;
+}
+
+/* SDR-UAMI CARD */
+.seccion-inicio .features-section {
+    padding: 4rem 2rem;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.seccion-inicio .features-section h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+    color: var(--accent-inicio);
+}
+
+.seccion-inicio .glass-card-inicio {
+    background: var(--glass-bg-inicio);
+    border: 1px solid var(--glass-border-inicio);
+    border-radius: 20px;
+    padding: 2.5rem;
+    backdrop-filter: blur(10px);
+    text-align: justify;
+    line-height: 1.8;
+    color: #cbd5e1;
+}
+
+/* GALERÍA */
+.seccion-inicio .gallery-section {
+    padding: 6rem 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.seccion-inicio .gallery-section h2 {
+    text-align: center;
+    font-size: 2.8rem;
+    margin-bottom: 1rem;
+    color: #ffffff;
+    font-weight: 700;
+}
+
+.seccion-inicio .gallery-section p {
+    text-align: center;
+    color: #94a3b8;
+    margin-bottom: 3rem;
+    font-size: 1.1rem;
+}
+
+.seccion-inicio .gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+    padding: 1rem;
+}
+
+.seccion-inicio .gallery-item {
+    border-radius: 15px;
+    overflow: hidden;
+    position: relative;
+    display: block; /* Asegura que el enlace ocupe todo el espacio */
+    text-decoration: none;
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.seccion-inicio .gallery-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(45, 106, 79, 0.4);
+}
+
+.seccion-inicio .gallery-image-wrapper {
+    position: relative;
+    width: 100%;
+    height: 250px;
+    overflow: hidden;
+}
+
+.seccion-inicio .gallery-image-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.seccion-inicio .gallery-item:hover .gallery-image-wrapper img {
+    transform: scale(1.1);
+}
+
+.seccion-inicio .gallery-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    /* Degradado oscuro para que el texto resalte */
+    background: linear-gradient(to top, rgba(8, 28, 21, 0.95), rgba(8, 28, 21, 0.4) 70%, transparent);
+    padding: 1.5rem;
+    color: white;
+    transform: translateY(101%); /* Pequeño ajuste para esconderlo mejor */
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    display: flex;
+    backdrop-filter: blur(4px); /* Efecto cristalino */
+    -webkit-backdrop-filter: blur(4px);
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+.seccion-inicio .gallery-item:hover .gallery-overlay {
+    transform: translateY(0);
+}
+
+/* ESTILOS DE LOS TEXTOS DENTRO DE LAS FOTOS */
+.seccion-inicio .gallery-overlay h3 {
+    font-size: 1.25rem;
+    margin-bottom: 0.25rem;
+    color: var(--accent-inicio); /* Usa el color verde claro */
+    font-weight: 600;
+}
+
+.seccion-inicio .gallery-overlay p {
+    font-size: 0.9rem;
+    color: #e2e8f0;
+    text-align: left; /* Para que no herede el centrado del h2 principal */
+    margin: 0;
+}
+
+.seccion-inicio .puntos-animados {
+    display: inline-block;
+    width: 1.5ch; /* Ancho fijo igual a 3 caracteres aprox */
+    text-align: left;
+    overflow: hidden;
+    white-space: nowrap;
+    animation: escritura-fija 2s steps(4, end) infinite;
+}
+
+@keyframes escritura-fija {
+    from { width: 0; }
+    to { width: 1.5ch; } /* Se llena el espacio sin empujar lo que sigue */
+}
+
+@keyframes float-inicio {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+}
+
+/* RESPONSIVE: Cuando la pantalla es pequeña (Celulares/Tablets) */
+@media (max-width: 768px) {
+    .seccion-inicio .hero-section {
+        flex-direction: column; 
+        text-align: center;
+        padding: 4rem 1.5rem; /* Más espacio arriba y abajo en móviles */
+        gap: 30px;
+    }
+
+    .seccion-inicio .hero-content {
+        order: 2;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .seccion-inicio .hero-content p {
+        margin-left: auto; /* Centra el bloque del párrafo */
+        margin-right: auto;
+        font-size: 1rem; /* Un poquito más chico en móvil ayuda a la lectura */
+    }
+
+    .seccion-inicio .hero-visual {
+        height: auto;
+        width: 70%;
+        margin-bottom: 5px;
+        max-height: 300px;
+    }
+
+    .seccion-inicio .hero-visual img {
+        /* 1. Quitamos cualquier límite anterior */
+        max-height: none !important; 
+        
+        /* 2. Definimos un ancho que se vea bien en celulares */
+        width: 65% !important; /* Prueba con 65% u 80% si la quieres más grande */
+        
+        /* 3. Aseguramos que mantenga la proporción */
+        height: auto !important; 
+        
+        /* 4. Un margen para que no pegue con el texto de abajo */
+        margin-bottom: 20px;
+    }
+}
+
+
+/* =========================================
+   SECCIÓN ACERCA DE NOSOTROS (INYECTADA)
+   ========================================= */
+
+/* Contenedor principal: extiende el fondo a toda la pantalla y define colores */
+.seccion-acerca {
+    --bg-acerca: #0d1f18;
+    --primary-acerca: #2d6a4f;
+    --secondary-acerca: #52b788;
+    --accent-acerca: #95d5b2;
+    --glass-bg: rgba(45, 106, 79, 0.1);
+    --glass-border: rgba(82, 183, 136, 0.2);
+    font-family: 'Outfit', sans-serif;
+    color: #f0fdf4;
+    position: relative;
+
+    margin-top: 0; 
+    margin-bottom: -40px;
+
+    margin-left: calc(-50vw + 50%);
+    margin-right: calc(-50vw + 50%);
+    width: auto;
+    min-height: 100vh;
+    padding: 80px 0;
+    overflow: hidden;
+}
+
+/* Capa de fondo con degradado radial */
+.background-gradient-acerca {
+    position: absolute;
+    top: 0; left: 0; 
+    width: 100%; height: 100%;
+    background: radial-gradient(circle at 50% 50%, #1b4332 0%, #081c15 100%);
+    z-index: 0;
+}
+
+/* Limitador de ancho interno para alinear con el header */
+.seccion-acerca .about-container {
+    position: relative;
+    z-index: 1;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Encabezado: centra el titulo y subtitulo */
+.seccion-acerca .about-hero {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.seccion-acerca .about-hero h1 {
+    font-size: 3.5rem;
+    margin-bottom: 15px;
+}
+
+/* Efecto de texto con degradado */
+.seccion-acerca .gradient-text {
+    background: linear-gradient(135deg, var(--primary-acerca), var(--accent-acerca));
+    -webkit-background-clip: text; 
+    color: transparent;
+}
+
+/* Grid de dos columnas para texto e imagen */
+.seccion-acerca .about-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    align-items: start;
+}
+
+/* Tarjeta con efecto de cristal (Glassmorphism) */
+.seccion-acerca .glass-card {
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    border-radius: 20px;
+    padding: 35px;
+    backdrop-filter: blur(12px);
+    text-align: justify;
+}
+
+.seccion-acerca .glass-card p {
+    margin-bottom: 1.5rem;
+    color: #cbd5e1;
+    font-size: 1.05rem;
+}
+
+/* Contenedor y estilo de la imagen lateral */
+.seccion-acerca .image-content {
+    display: flex;
+    justify-content: center;
+}
+
+.seccion-acerca .about-image {
+    width: 100%;
+    max-width: 550px;
+    height: 330px;
+    border-radius: 20px;
+    border: 1px solid var(--glass-border);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+}
+
+
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+@keyframes slideUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+
+/* Adaptación para dispositivos móviles */
+@media (max-width: 850px) {
+    .seccion-acerca .about-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+    .seccion-acerca .about-hero h1 {
+        font-size: 2.5rem;
+    }
+}

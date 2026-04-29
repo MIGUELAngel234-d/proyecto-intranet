@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Información - Intranet UAM-I</title>
+
+        <!--Icono logo-->
+    <link rel="icon" href="../recursos/imagenes/logos/logoIntranet.png"  type="image/png" >
+
+
+    <link rel="stylesheet" href="../estilos/styles.css">
+    <link rel="stylesheet" href="../estilos/informacion.css">
+    <link rel="stylesheet" href="../estilos/footer.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;500;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <header class="full-header">
+        <div class="header-content">
+            <div class="logo-container">
+                <img src="../recursos/imagenes/logos/UAM.png" alt="Logo UAM-I">
+                <h2>Intranet UAM-I</h2>
+            </div>
+
+            <button class="menu-toggle" id="mobile-menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+
+            <nav id="nav_menu">
+                <a href="../index.html">Inicio</a>
+                <a href="acerca.html">Acerca</a>
+                <a href="informacion.html">Información</a>
+                
+                <div class="dropdown">
+                    <a class="dropbtn">Proyectos</a>
+                    <div class="dropdown-content">
+                        <a href="https://sdr.uami.mx" target="_blank">SDR-UAMI</a>
+                        <a href="https://mosyneti.org" target="_blank">MOSYNETI</a>
+                    </div>
+                </div>
+
+                <a href="galeria.html">Galería</a>
+                <a href="contacto.html">Contacto</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <div class="seccion-informacion">
+            <div class="background-gradient-informacion"></div>
+            <div class="informacion-container">
+                <!--Encabezado-->
+                <section class="informacion-hero">
+                    <p class="informacion-etiqueta">INFORMACIÓN</p>
+                    <h1 class="animate-fade-in">
+                        tecnología libre <br>
+                        para <span class="gradient-text">Comunidades reales</span>
+                    </h1>
+
+                    <p class="animate-slide-up">Conceptos, herramientas y proyectos que hacen posible 
+                       conectar comunidades sin depender de internet comercial. 
+                    </p>
+                </section>
+
+                <!--Estadisticas-->
+                <section class="informacion-stats animate-slide-up delay-200">
+                    <div class="stat-item">
+                        <h2>UAM-I</h2>
+                        <P>ORIGEN DEL PROYECTO</P>
+                    </div>
+
+                    <div class="stat-item">
+                        <h2>100%</h2>
+                        <p>SOFTWARE LIBRE</p>
+                    </div>
+                </section>
+
+                <!-- Qué es una intranet -->
+                <section class="intranet-info animate-slide-up delay-300">
+                    <h2>¿Qué es una intranet Comunitaria?</h2>
+                    <div class="intranet-cards">
+
+                        <div class="intranet-card">
+                            <h3>Definición</h3>
+                            <p>Una intranet comunitaria es una red de comunicación local que
+                            permite la conexión entre dispositivos dentro de una comunidad sin
+                            depender de infraestructura comercial externa. Utiliza tecnologías
+                            libres para garantizar autonomía y control local.</p>
+                        </div>
+
+                        <div class="intranet-card">
+                            <h3>Problema que Resuelve</h3>
+                            <p>Brinda acceso a comunicación y servicios digitales en zonas donde
+                            la infraestructura comercial es limitada o inexistente. Permite
+                            compartir información local, servicios educativos y aplicaciones
+                            sin dependencia de internet convencional.</p>
+                        </div>
+
+                        <div class="intranet-card full-width">
+                            <h3>Contexto de Aplicación</h3>
+                            <p>El proyecto se desarrolla en entornos académicos y comunitarios,
+                            específicamente en la UAM Iztapalapa como laboratorio de pruebas,
+                            con miras a implementaciones en comunidades rurales y urbanas
+                            marginadas que requieren infraestructura de comunicación
+                            accesible y sostenible.</p>
+                        </div>
+
+                    </div>
+                </section>
+
+                <!-- Seccion que conceptos-->
+                <section class="conceptos-clave animate-slide-up delay-300">
+                    <div class="conceptos-header">
+                        <p class="informacion-etiqueta">CONCEPTOS CLAVE</p>
+                        <h2>¿Qué hacemos y cómo?</h2>
+                        <p>Conoce los fundamentos tecnológicos detrás del proyecto.</p>
+                    </div>
+
+                    <div class="conceptos-lista">
+                        <div class="concepto-item">
+                            <span class="concepto-numero">01</span>
+                            <div class="concepto-info">
+                                <span class="badge badge-redes">RED MESH</span>
+                                <h3>Redes Mesh Comunitarias</h3>
+                            </div>
+                            <div class="concepto-desc">
+                                <p>
+                                    Implementamos topologías de red tipo malla donde cada
+                                    nodo actúa como repetidor, creando una red auto-organizada
+                                    y resiliente sin puntos centrales de falla.
+                                </p>
+                                <span class="concepto-link">Leer más</span>
+                            </div>
+
+                        </div>
+
+                        <div class="concepto-item">
+                            <span class="concepto-numero">02</span>
+                            <div class="concepto-info">
+                                <span class="badge badge-radio">SDR</span>
+                                <h3>Radio Definido por Software</h3>
+                            </div>
+                            <div class="concepto-desc">
+                                <p>
+                                    Desarrollamos sistemas de comunicación mediante procesamiento
+                                    digital de señales de radio, permitiendo implementar protocolos
+                                    de comunicación configurables completamente en software.
+                                </p>
+                                <span class="concepto-link">Leer más</span>
+                            </div>
+                        </div>
+
+                        <div class="concepto-item">
+                            <span class="concepto-numero">03</span>
+                            <div class="concepto-info">
+                                <span class="badge badge-sistema">SISTEMA</span>
+                                <h3>MosyNetI</h3>
+                            </div>
+                            <div class="concepto-desc">
+                                <p>Sistema modular de gestión de red desarrollado en UAM-I
+                                para monitorear y administrar la intranet desde una interfaz accesible.
+                                </p>
+                                <span class="concepto-link">Leer más</span>
+                            </div>
+                            
+                        </div>
+
+                        <div class="concepto-item">
+                            <span class="concepto-numero">04</span>
+                            <div class="concepto-info">
+                                <span class="badge badge-politica">POLÍTICA</span>
+                                <h3>Soberanía tecnológica</h3>
+                            </div>
+                            <div class="concepto-desc">    
+                                <p>El derecho de las comunidades a controlar su propia
+                                infraestructura: quién accede, cómo se administra y 
+                                qué datos se generan.
+                                </p>
+                                <span class="concepto-link">Leer más</span>
+                            </div>
+
+                        </div>
+                    </div>
+                </section>
+
+            </div>
+
+        </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-container">
+
+            <div class="footer-section">
+                <div class="footer-brand">
+                    <h3>COMUNITARIA</h3>
+                </div>
+                <p>Nuestro objetivo es dar alternativas de conectividad inalámbrica a nuestra comunidad universitaria y
+                    sus alrededores, así como a comunidades indígenas con las que ya se ha trabajado en otros proyectos
+                    y que no tienen la posibilidad de tener Internet o que aun existiendo no es accesible para todos.
+                </p>
+            </div>
+
+            <div class="footer-section">
+                <h3>Navegación</h3>
+                <ul>
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="vistas/acerca">Acerca</a></li>
+                    <li><a href="informacion.html">Información</a></li>
+                    <li><a href="galeria.html">Galería</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h3>Contacto</h3>
+                <div class="contacto-info">
+                    <p>📍 Ciudad de México, MX</p>
+                    <p>📍 Tlalpan, C.P. 14387</p>
+                    <p>📧 contacto@izt.uam.mx</p>
+                    <p>📞 +52 55 XXXX XXXX</p>
+                </div>
+            </div>
+            <img src="../recursos/imagenes/logos/UAM.png" alt="Logo" class="logo-img" onerror="this.style.display='none'">
+
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2026 Comunitaria - Innovación y Desarrollo Social</p>
+        </div>
+    </footer>
+<script src="../scripts/secciones.js"></script>
+</body>
+</html>
