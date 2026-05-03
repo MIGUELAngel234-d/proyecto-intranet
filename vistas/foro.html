@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Foro Comunitaria</title>
+    <link rel="stylesheet" href="../estilos/foro.css">
+</head>
+<body>
+
+    <div class="container">
+        <header class="main-header">
+            <h1 class="neon-title">INTRANET COMUNITARIA<span> UAMI</span></h1>
+            <p>Conéctate a la intranet. Comparte tus ideas.</p>
+        </header>
+
+        <section class="glass-section">
+            <form id="foro-form">
+                <h3>Crear Nuevo Hilo</h3>
+                <input type="text" id="post-title" placeholder="Título del tema..." required>
+                <textarea id="post-content" rows="4" placeholder="Escribe tu mensaje aquí..." required></textarea>
+                <button type="submit" id="btn-enviar">SUBIR A LA RED</button>
+            </form>
+
+        </section>
+
+        <section id="posts-container">
+            <article class="post-card">
+                <div class="post-content">
+                    <h4>Hilos Recientes</h4>
+                    <div class="post-meta">Publicado justo ahora por <span>Admin</span></div>
+                </div>
+            </article>
+        </section>
+    </div>
+
+    <script src="../scripts/foro.js"></script>
+</body>
+</html>
