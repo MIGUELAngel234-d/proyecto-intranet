@@ -215,7 +215,6 @@
     to{width: 100%;}
 }
 
-/* Responsive Design */
 @media screen and (max-width: 999px){
     header{
         padding-left: 50px;
@@ -246,26 +245,52 @@
 
 @media screen and (max-width: 678px) {
     .carousel {
-        height: 60vh;
+        height: 65vh; 
     }
 
     .carousel .list .item .content {
-        padding-right: 0;
+        padding: 20px;            
+        left: 20px;               
+        width: calc(100% - 40px); 
+        top: 45%;                 
     }
 
     .carousel .list .item .content .title {
-        font-size: 30px; 
+        font-size: 22px;          
+    }
+
+    .carousel .list .item .content .name {
+        font-size: 32px;          
+        line-height: 1.1;        
+    }
+
+    .carousel .list .item .content .des {
+        font-size: 14px;          
     }
 
     .carousel .list .item {
-        width: 120px;
-        height: 180px;
-        left: 60%; 
+        width: 85px;              
+        height: 130px;            
+        left: 65%;                
     }
+    
+    .carousel .list .item:nth-child(3){ left: 65%; }
+    .carousel .list .item:nth-child(4){ left: calc(65% + 95px); }
+    .carousel .list .item:nth-child(5){ left: calc(65% + 190px); }
 
     .arrows {
-        top: 85%;
-        left: 10%;
+        top: auto;                
+        bottom: 15px;             
+        left: 0;                  
+        width: 100%;              
+        display: flex;
+        justify-content: center;  
+        gap: 50px;               
+    }
+
+    .arrows button {
+        width: 45px;             
+        height: 45px;
     }
 }
 
