@@ -17,16 +17,6 @@ cursor.execute('''
     )
 ''')
 
-#tabla de Avisos (NUEVA)
-cursor.execute('''
-    CREATE TABLE IF NOT EXISTS avisos (
-        id INTEGER PRIMARY KEY AUTOINCREMENT,
-        titulo TEXT NOT NULL,
-        contenido TEXT NOT NULL,
-        imagen_ruta TEXT,
-        fecha DATETIME DEFAULT CURRENT_TIMESTAMP
-    )
-''')
 
 #insertamos al administrador intocable
 usuario = 'admin_uami'
