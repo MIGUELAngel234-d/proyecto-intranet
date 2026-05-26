@@ -49,10 +49,16 @@ html = """
     </style>
 </head>
 <body>
+
     <div style="display: flex; justify-content: space-between; align-items: center; max-width: 1000px; margin: 0 auto 30px;">
         <h1>🛡️ Centro de Mando UAMI</h1>
-        <a href="/index.html" class="btn">Ver Sitio Público</a>
+        <div style="display: flex; gap: 15px;">
+            <a href="/index.html" class="btn">Ver Sitio Público</a>
+            <button onclick="cerrarSesionPanel()" class="btn btn-danger">🚪 Salir</button>
+        </div>
     </div>
+    
+    
 
     <div class="panel-container">
         <div class="card">
@@ -116,6 +122,17 @@ html += """
     </div>
     
     <script>
+        //logica de cerrar sesion desde el panel
+        function cerrarSesionPanel() {
+            const seguro = confirm("¿Estas seguro de que deseas cerrar sesion?");
+            if (seguro) {
+                //destruimos la cookie
+                document.cookie = "admin_uami=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+                //lo aventamos al index
+                window.location.href = "/index.html";
+            }
+        }
+        
         //logica de mostrar/ocultar
         const chkMostrar = document.getElementById('chk-mostrar');
         const pass1 = document.getElementById('pass1');
