@@ -103,22 +103,16 @@ html += """
             </form>
             
         </div>
-
-        <div class="card">
-            <h2>📢 Publicar Aviso</h2>
-            <form action="procesar_aviso.py" method="POST" enctype="multipart/form-data">
-                <label>Título del Evento/Aviso:</label>
-                <input type="text" name="titulo" required>
-                
-                <label>Contenido:</label>
-                <textarea name="contenido" rows="4" required></textarea>
-                
-                <label>Adjuntar Imagen (Opcional):</label>
-                <input type="file" name="imagen" accept="image/*">
-                
-                <button type="submit" class="btn">Publicar Aviso</button>
-            </form>
+        
+        <div class="card" style="display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; border: 2px dashed #52b788; background: rgba(82, 183, 136, 0.05);">
+            <h2 style="color: #94a3b8;">🗣️ Módulo del Foro</h2>
+            <p style="color: #f0fdf4; margin-bottom: 20px;">
+                <em>[Espacio reservado para integración]</em><br>
+                Insertar aquí todo lo del foro.
+            </p>
         </div>
+
+
     </div>
     
     <script>
