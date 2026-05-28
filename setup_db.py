@@ -1,0 +1,35 @@
+import sqlite3
+import hashlib
+
+def encriptar_password(password):
+    return hashlib.sha256(password.encode('utf-8')).hexdigest()
+
+conexion = sqlite3.connect('intranet.db')
+cursor = conexion.cursor()
+
+#Tabla de Administradores
+cursor.execute('''
+    CREATE TABLE IF NOT EXISTS administradores (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        username TEXT UNIQUE NOT NULL,
+        password_hash TEXT NOT NULL,
+        es_principal BOOLEAN DEFAULT 0
+    )
+''')
+
+
+#insertamos al administrador intocable
+usuario = 'admin_uami'
+pass_hash = encriptar_password('uami2026')
+try:
+    #Le ponemos es_principal = 1 (Verdadero) para que la pagina sepa que a este no se le puede borrar
+    cursor.execute("INSERT INTO administradores (username, password_hash, es_principal) VALUES (?, ?, 1)", (usuario, pass_hash))
+    print("Usuario principal creado.")
+except sqlite3.IntegrityError:
+    #Si ya existe, actualizamos su estatus a principal por si acaso
+    cursor.execute("UPDATE administradores SET es_principal = 1 WHERE username = ?", (usuario,))
+    print("Usuario principal ya existía y fue asegurado.")
+
+conexion.commit()
+conexion.close()
+print("📂 Base de datos actualizada con éxito.")

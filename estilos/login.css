@@ -1,0 +1,165 @@
+/* =========================================
+   Variables globales 
+   =========================== */
+:root {
+    --bg-color: #0d1f18;
+    --text-color: #f0fdf4;
+    --primary-color: #2d6a4f;
+    --secondary-color: #52b788;
+    --accent-color: #95d5b2;
+    --glass-bg: rgba(45, 106, 79, 0.1);
+    --glass-border: rgba(82, 183, 136, 0.2);
+    --font-main: 'Outfit', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-main);
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/*fondo oscuro */
+.background-gradient {
+    position: fixed;
+    top: 0; left: 0; width: 100vw; height: 100vh;
+    background: radial-gradient(circle at 50% 50%, #1b4332 0%, #081c15 100%);
+    z-index: -1;
+}
+
+/* =========================================
+   contenedor de login
+   =================================== */
+.login-container {
+    width: 100%;
+    max-width: 450px; /* Hace que la cajita no se estire demasiado */
+    padding: 2rem;
+}
+
+.login-box {
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    border-radius: 20px;
+    padding: 3rem 2.5rem;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.5);
+    backdrop-filter: blur(12px);
+}
+
+/*cabecera del login */
+.login-header {
+    text-align: center;
+    margin-bottom: 2.5rem;
+}
+
+.login-logo {
+    height: 60px;
+    margin-bottom: 1rem;
+    filter: drop-shadow(0 0 10px rgba(255,255,255,0.1));
+}
+
+.login-header h2 {
+    font-size: 1.8rem;
+    margin-bottom: 0.5rem;
+    color: var(--text-color);
+}
+
+.login-header p {
+    color: #94a3b8;
+    font-size: 0.95rem;
+}
+
+/* =========================================
+   estilos de formulario
+   ========================================= */
+.login-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.input-group label {
+    font-size: 0.9rem;
+    color: var(--accent-color);
+    font-weight: 500;
+}
+
+/*cajas de texto donde el profeo el administrdor escribiran */
+.input-group input {
+    width: 100%;
+    padding: 1rem;
+    background: rgba(0, 0, 0, 0.2);
+    border: 1px solid var(--glass-border);
+    border-radius: 10px;
+    color: var(--text-color);
+    font-family: var(--font-main);
+    font-size: 1rem;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+/*cuando le damos clic a la caja de texto */
+.input-group input:focus {
+    border-color: var(--secondary-color);
+    box-shadow: 0 0 10px rgba(82, 183, 136, 0.3);
+    background: rgba(0, 0, 0, 0.4);
+}
+
+/*boton de Iniciar Sesion */
+.login-btn {
+    margin-top: 1rem;
+    padding: 1rem;
+    border-radius: 10px;
+    border: none;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: white;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.login-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(45, 106, 79, 0.6);
+}
+
+/*enlace para regresar */
+.login-footer {
+    margin-top: 2rem;
+    text-align: center;
+}
+
+.back-link {
+    color: #94a3b8;
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: color 0.3s ease;
+}
+
+.back-link:hover {
+    color: var(--accent-color);
+}
+
+/* =========================================
+   animacion
+   ========================================= */
+.animate-slide-up { animation: slideUp 0.8s ease-out; }
+@keyframes slideUp { 
+    from { opacity: 0; transform: translateY(30px); } 
+    to { opacity: 1; transform: translateY(0); } 
+}
