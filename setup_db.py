@@ -4,6 +4,11 @@ import hashlib
 def encriptar_password(password):
     return hashlib.sha256(password.encode('utf-8')).hexdigest()
 
+
+import os
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+db_path = os.path.join(BASE_DIR, 'intranet.db')
+
 conexion = sqlite3.connect('intranet.db')
 cursor = conexion.cursor()
 
@@ -16,7 +21,15 @@ cursor.execute('''
         es_principal BOOLEAN DEFAULT 0
     )
 ''')
-
+#tabla de Posts (NUEVA)
+cursor.execute('''
+    CREATE TABLE IF NOT EXISTS posts (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        titulo TEXT NOT NULL,
+        contenido TEXT NOT NULL,
+        fecha DATETIME DEFAULT CURRENT_TIMESTAMP
+    )
+''')
 
 #insertamos al administrador intocable
 usuario = 'admin_uami'
