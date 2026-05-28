@@ -21,17 +21,6 @@ cursor.execute('''
         es_principal BOOLEAN DEFAULT 0
     )
 ''')
-
-#tabla de Avisos (NUEVA)
-cursor.execute('''
-    CREATE TABLE IF NOT EXISTS avisos (
-        id INTEGER PRIMARY KEY AUTOINCREMENT,
-        titulo TEXT NOT NULL,
-        contenido TEXT NOT NULL,
-        imagen_ruta TEXT,
-        fecha DATETIME DEFAULT CURRENT_TIMESTAMP
-    )
-''')
 #tabla de Posts (NUEVA)
 cursor.execute('''
     CREATE TABLE IF NOT EXISTS posts (
@@ -56,4 +45,4 @@ except sqlite3.IntegrityError:
 
 conexion.commit()
 conexion.close()
-print("Base de datos actualizada con éxito.")
+print("📂 Base de datos actualizada con éxito.")
