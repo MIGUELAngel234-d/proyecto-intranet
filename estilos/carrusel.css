@@ -1,103 +1,119 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
-.carousel{
-    width: 100vw;
-    height: 80vh;
-    margin-top: -70px; 
+.carousel {
+    width: 94%;           
+    height: 75vh;         
+    margin: 20px auto 0;  
     overflow: hidden;
     position: relative;
-    
+    border-radius: 30px;  
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+    contain: paint;
+    transform: translateZ(0);
 }
 
-.carousel .list .item{
+.carousel .list .item {
     width: 180px;
     height: 250px;
     position: absolute;
     top: 80%;
-    transform: translateY(-70%);
+    /* TRUCO 2: Simplificamos el transform para que la GPU no trabaje de más */
+    transform: translateY(-70%) translate3d(0, 0, 0);
     left: 70%;
     border-radius: 20px;
-    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
-    background-position: 50% 50%;
+    /* Quitamos un poco de blur a la sombra para que no sea tan pesada de mover */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); 
+    background-position: center;
     background-size: cover;
     z-index: 100;
-    transition: 1.2s ease-in-out;
+    /* TRUCO 3: Tiempo óptimo. 0.7s es el punto dulce entre suavidad y velocidad */
+    transition: transform 0.7s cubic-bezier(0.25, 1, 0.5, 1), left 0.7s cubic-bezier(0.25, 1, 0.5, 1);
     will-change: transform, left;
-    backface-visibility: hidden;
+    
+    /* Evita parpadeos en navegadores basados en Chrome */
     -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
 }
 
+/* Modificamos los que hacen de fondo */
 .carousel .list .item:nth-child(1),
-.carousel .list .item:nth-child(2){
+.carousel .list .item:nth-child(2) {
     top: 0;
     left: 0;
-    transform: translate(0, 0);
-    border-radius: 0;
+    transform: translate3d(0, 0, 0);
     width: 100%;
     height: 100%;
+    border-radius: 0; 
+    /* Quitamos la sombra a la imagen de fondo para que no consuma recursos */
+    box-shadow: none; 
 }
 
-.carousel .list .item:nth-child(3){
-    left: 67%;
-}
-
-.carousel .list .item:nth-child(4){
-    left: calc(67% + 200px);
-}
-
-.carousel .list .item:nth-child(5){
-    left: calc(67% + 400px);
-}
-
-.carousel .list .item:nth-child(6){
-    left: calc(67% + 600px);
-}
+.carousel .list .item:nth-child(3){ left: 67%; }
+.carousel .list .item:nth-child(4){ left: calc(67% + 200px); }
+.carousel .list .item:nth-child(5){ left: calc(67% + 400px); }
+.carousel .list .item:nth-child(6){ left: calc(67% + 600px); }
 
 .carousel .list .item:nth-child(n+7){
     left: calc(67% + 800px);
     opacity: 0;
 }
 
-.list .item .content{
+.list .item .content {
     position: absolute;
     top: 50%;
     left: 100px;
     transform: translateY(-50%);
-    width: 400px;
+    width: 600px; 
     text-align: left;
     color: #fff;
     display: none;
+    background: rgba(0, 0, 0, 0.5); 
+    padding: 40px;
+    border-radius: 20px;
+    backdrop-filter: blur(8px);
+    box-sizing: border-box; 
 }
 
 .list .item:nth-child(2) .content{
     display: block;
 }
 
-.content .title{
-    font-size: 100px;
+.content .title {
+    font-size: 80px;
     text-transform: uppercase;
-    color: #2a6d62;
+    color: #00df9a; /* Verde más llamativo */
     font-weight: bold;
-    line-height: 1;
-    opacity: 0;
-    animation: animate 1s ease-in-out 0.3s 1 forwards;
+    line-height: 0.9;
+    margin-bottom: 10px;
 }
 
-.content .name{
-    font-size: 100px;
+.content .name {
+    font-size: 80px;
     text-transform: uppercase;
     font-weight: bold;
-    line-height: 1;
-    text-shadow: 3px 4px 4px rgba(255, 255, 255, 0.8);
+    line-height: 0.9;
+    color: #fff; /* Blanco */
+    text-shadow: 2px 2px 10px rgba(0,0,0,0.5);
+}
+
+.content .name {
+    font-size: 80px; /* Bajamos de 100 a 80 para que no se salga */
+    text-transform: uppercase;
+    font-weight: bold;
+    line-height: 0.9;
+    color: #fff; /* Cambiado de negro a blanco */
+    text-shadow: 3px 3px 15px rgba(0,0,0,0.8); 
     opacity: 0;
     animation: animate 1s ease-in-out 0.6s 1 forwards;
 }
 
-.content .des{
+.content .des {
     margin-top: 10px;
     margin-bottom: 20px;
     font-size: 18px;
     margin-left: 5px;
+    color: #fff; /* Cambiado de negro a blanco */
+    text-shadow: 1px 1px 8px rgba(0,0,0,0.7);
     opacity: 0;
     animation: animate 1s ease-in-out 0.9s 1 forwards;
 }
@@ -146,36 +162,40 @@
     }
 }
 
-.arrows{
+.arrows {
     position: absolute;
-    top: 80%;
-    right: 20%;
-    z-index: 100;
-    width: 300px;
-    max-width: 30%;
+    top: 50%;         
+    transform: translateY(-50%); 
+    width: 100%;      
     display: flex;
-    gap: 10px;
-    align-items: center;
+    justify-content: space-between; 
+    padding: 0 30px;  
+    pointer-events: none; 
+    z-index: 1000;
 }
 
-.arrows button{
-    width: 50px;
-    height: 50px;
+.arrows button {
+    width: 60px; 
+    height: 60px;
     border-radius: 50%;
-    background-color: #2a6d62;
-    color: #fff;
-    border: none;
+    pointer-events: auto; 
+    background: rgba(255, 255, 255, 0.2); 
+    backdrop-filter: blur(10px);          
+    -webkit-backdrop-filter: blur(10px);  
+    
+    color: #000;      
+    border: 1px solid rgba(255, 255, 255, 0.3); 
     outline: none;
-    font-size: 16px;
-    font-family: monospace;
+    font-size: 20px;
     font-weight: bold;
     transition: .5s;
     cursor: pointer;
 }
 
-.arrows button:hover{
-    background: #fff;
-    color: #000;
+.arrows button:hover {
+    background: rgba(0, 0, 0, 0.5); 
+    color: #fff;                    
+    border: 1px solid rgba(255, 255, 255, 0.5);
 }
 
 .carousel .timeRunning{
@@ -195,7 +215,6 @@
     to{width: 100%;}
 }
 
-/* Responsive Design */
 @media screen and (max-width: 999px){
     header{
         padding-left: 50px;
@@ -221,5 +240,67 @@
     .content .btn button{
         padding: 10px 15px;
         font-size: 14px;
+    }
+}
+
+@media screen and (max-width: 678px) {
+    .carousel {
+        height: 65vh; 
+    }
+
+    .carousel .list .item .content {
+        padding: 20px;            
+        left: 20px;               
+        width: calc(100% - 40px); 
+        top: 45%;                 
+    }
+
+    .carousel .list .item .content .title {
+        font-size: 22px;          
+    }
+
+    .carousel .list .item .content .name {
+        font-size: 32px;          
+        line-height: 1.1;        
+    }
+
+    .carousel .list .item .content .des {
+        font-size: 14px;          
+    }
+
+    .carousel .list .item {
+        width: 85px;              
+        height: 130px;            
+        left: 65%;                
+    }
+    
+    .carousel .list .item:nth-child(3){ left: 65%; }
+    .carousel .list .item:nth-child(4){ left: calc(65% + 95px); }
+    .carousel .list .item:nth-child(5){ left: calc(65% + 190px); }
+
+    .arrows {
+        top: auto;                
+        bottom: 15px;             
+        left: 0;                  
+        width: 100%;              
+        display: flex;
+        justify-content: center;  
+        gap: 50px;               
+    }
+
+    .arrows button {
+        width: 45px;             
+        height: 45px;
+    }
+}
+
+@media screen and (max-width: 1024px) and (min-width: 679px) {
+    .carousel .list .item .content .title {
+        font-size: 50px;
+    }
+    
+    .carousel .list .item {
+        width: 150px;
+        height: 220px;
     }
 }
