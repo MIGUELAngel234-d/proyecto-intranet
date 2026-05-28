@@ -8,7 +8,6 @@
     position: relative;
     border-radius: 30px;  
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
-    /* TRUCO 1: Crea un contexto de renderizado independiente */
     contain: paint;
     transform: translateZ(0);
 }
@@ -216,7 +215,6 @@
     to{width: 100%;}
 }
 
-/* Responsive Design */
 @media screen and (max-width: 999px){
     header{
         padding-left: 50px;
@@ -242,5 +240,67 @@
     .content .btn button{
         padding: 10px 15px;
         font-size: 14px;
+    }
+}
+
+@media screen and (max-width: 678px) {
+    .carousel {
+        height: 65vh; 
+    }
+
+    .carousel .list .item .content {
+        padding: 20px;            
+        left: 20px;               
+        width: calc(100% - 40px); 
+        top: 45%;                 
+    }
+
+    .carousel .list .item .content .title {
+        font-size: 22px;          
+    }
+
+    .carousel .list .item .content .name {
+        font-size: 32px;          
+        line-height: 1.1;        
+    }
+
+    .carousel .list .item .content .des {
+        font-size: 14px;          
+    }
+
+    .carousel .list .item {
+        width: 85px;              
+        height: 130px;            
+        left: 65%;                
+    }
+    
+    .carousel .list .item:nth-child(3){ left: 65%; }
+    .carousel .list .item:nth-child(4){ left: calc(65% + 95px); }
+    .carousel .list .item:nth-child(5){ left: calc(65% + 190px); }
+
+    .arrows {
+        top: auto;                
+        bottom: 15px;             
+        left: 0;                  
+        width: 100%;              
+        display: flex;
+        justify-content: center;  
+        gap: 50px;               
+    }
+
+    .arrows button {
+        width: 45px;             
+        height: 45px;
+    }
+}
+
+@media screen and (max-width: 1024px) and (min-width: 679px) {
+    .carousel .list .item .content .title {
+        font-size: 50px;
+    }
+    
+    .carousel .list .item {
+        width: 150px;
+        height: 220px;
     }
 }
