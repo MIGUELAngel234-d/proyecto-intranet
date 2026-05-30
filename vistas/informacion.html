@@ -51,6 +51,27 @@
         </div>
     </header>
 
+    <!-- MODAL BACKDROP -->
+    <div id="modal-backdrop" onclick="closeModalOutside(event)">
+
+        <div id="modal-box">
+
+            <button id="modal-close" onclick="closeModal()">✕</button>
+
+            <div id="modal-badge"></div>
+            <h2 id="modal-title"></h2>
+
+            <div id="modal-imagen">
+                <img id="modal-img" src="" alt="" />
+            </div>
+
+            <p id="modal-body"></p>
+
+            <div id="modal-tags"></div>
+
+        </div>
+    </div>
+
     <main>
         <div class="seccion-informacion">
             <div class="background-gradient-informacion"></div>
@@ -84,34 +105,46 @@
                 <!-- Qué es una intranet -->
                 <section class="intranet-info animate-slide-up delay-300">
                     <h2>¿Qué es una intranet Comunitaria?</h2>
-                    <div class="intranet-cards">
-
-                        <div class="intranet-card">
-                            <h3>Definición</h3>
-                            <p>Una intranet comunitaria es una red de comunicación local que
-                            permite la conexión entre dispositivos dentro de una comunidad sin
-                            depender de infraestructura comercial externa. Utiliza tecnologías
-                            libres para garantizar autonomía y control local.</p>
-                        </div>
-
-                        <div class="intranet-card">
-                            <h3>Problema que Resuelve</h3>
-                            <p>Brinda acceso a comunicación y servicios digitales en zonas donde
-                            la infraestructura comercial es limitada o inexistente. Permite
-                            compartir información local, servicios educativos y aplicaciones
-                            sin dependencia de internet convencional.</p>
-                        </div>
-
-                        <div class="intranet-card full-width">
-                            <h3>Contexto de Aplicación</h3>
-                            <p>El proyecto se desarrolla en entornos académicos y comunitarios,
-                            específicamente en la UAM Iztapalapa como laboratorio de pruebas,
-                            con miras a implementaciones en comunidades rurales y urbanas
-                            marginadas que requieren infraestructura de comunicación
-                            accesible y sostenible.</p>
-                        </div>
-
+                    <!-- Botones de tabs -->
+                    <div class="tabs-botones">
+                        <button class="tab-btn active" onclick="switchTab('def', this)">Definición</button>
+                        <button class="tab-btn" onclick="switchTab('prob', this)">Problema que resuelve</button>
+                        <button class="tab-btn" onclick="switchTab('ctx', this)">Contexto</button>
                     </div>
+
+                    <!-- Panel: Definición -->
+                    <div class="tab-panel active" id="tab-def">
+                        <div class="tab-texto">
+                            <h3>Definición</h3>
+                            <p>Una intranet comunitaria es una red de comunicación local que permite la conexión entre dispositivos dentro de una comunidad sin depender de infraestructura comercial externa. Utiliza tecnologías libres para garantizar autonomía y control local.</p>
+                        </div>
+                        <div class="tab-imagen">
+                            <img src="../recursos/imagenes/galeria/Intranet/intranet.png" alt="Red local comunitaria" />
+                        </div>
+                    </div>
+
+                    <!-- Panel: Problema -->
+                    <div class="tab-panel" id="tab-prob">
+                        <div class="tab-texto">
+                            <h3>Problema que resuelve</h3>
+                            <p>Brinda acceso a comunicación y servicios digitales en zonas donde la infraestructura comercial es limitada o inexistente. Permite compartir información local, servicios educativos y aplicaciones sin dependencia de internet convencional.</p>
+                        </div>
+                        <div class="tab-imagen">
+                            <img src="../recursos/imagenes/galeria/taller.png" alt="Comunidad rural sin conectividad" />
+                        </div>
+                    </div>
+
+                    <!-- Panel: Contexto -->
+                    <div class="tab-panel" id="tab-ctx">
+                        <div class="tab-texto">
+                            <h3>Contexto de aplicación</h3>
+                            <p>El proyecto se desarrolla en entornos académicos y comunitarios, específicamente en la UAM Iztapalapa como laboratorio de pruebas, con miras a implementaciones en comunidades rurales y urbanas marginadas.</p>
+                        </div>
+                        <div class="tab-imagen">
+                            <img src="../recursos/imagenes/galeria/contexto.JPG" alt="Campus UAM Iztapalapa" />
+                        </div>
+                    </div>
+
                 </section>
 
                 <!-- Seccion que conceptos-->
@@ -130,12 +163,9 @@
                                 <h3>Redes Mesh Comunitarias</h3>
                             </div>
                             <div class="concepto-desc">
-                                <p>
-                                    Implementamos topologías de red tipo malla donde cada
-                                    nodo actúa como repetidor, creando una red auto-organizada
-                                    y resiliente sin puntos centrales de falla.
-                                </p>
-                                <span class="concepto-link">Leer más</span>
+                                <p>Modelo de conectividad donde cada nodo de la comunidad contribuye 
+                                    a mantener una red local resiliente y compartida.</p>
+                                <span class="concepto-link" onclick="openModal('mesh')">Leer más</span>
                             </div>
 
                         </div>
@@ -147,12 +177,9 @@
                                 <h3>Radio Definido por Software</h3>
                             </div>
                             <div class="concepto-desc">
-                                <p>
-                                    Desarrollamos sistemas de comunicación mediante procesamiento
-                                    digital de señales de radio, permitiendo implementar protocolos
-                                    de comunicación configurables completamente en software.
-                                </p>
-                                <span class="concepto-link">Leer más</span>
+                                <p>Tecnología que permite implementar sistemas de comunicación por radio mediante software, 
+                                haciendo la red más flexible, configurable y accesible.</p>
+                                <span class="concepto-link" onclick="openModal('sdr')">Leer más</span>
                             </div>
                         </div>
 
@@ -163,10 +190,9 @@
                                 <h3>MosyNetI</h3>
                             </div>
                             <div class="concepto-desc">
-                                <p>Sistema modular de gestión de red desarrollado en UAM-I
-                                para monitorear y administrar la intranet desde una interfaz accesible.
-                                </p>
-                                <span class="concepto-link">Leer más</span>
+                                <p>Sistema desarrollado en la UAM-I para gestionar y monitorear la intranet 
+                                    comunitaria desde una arquitectura modular y adaptable.</p>
+                                <span class="concepto-link" onclick="openModal('mosy')">Leer más</span>
                             </div>
                             
                         </div>
@@ -178,11 +204,9 @@
                                 <h3>Soberanía tecnológica</h3>
                             </div>
                             <div class="concepto-desc">    
-                                <p>El derecho de las comunidades a controlar su propia
-                                infraestructura: quién accede, cómo se administra y 
-                                qué datos se generan.
-                                </p>
-                                <span class="concepto-link">Leer más</span>
+                                <p>Las comunidades construyen y administran sus propias redes para mantener
+                                   control sobre la comunicación, el acceso y la información compartida.</p>
+                                <span class="concepto-link" onclick="openModal('sob')">Leer más</span>
                             </div>
 
                         </div>

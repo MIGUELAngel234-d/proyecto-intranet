@@ -17,7 +17,7 @@ prevBtn.onclick = function(){
     showSlider('prev')
 }
 
-let runTimeOut 
+let runTimeOut
 let runNextAuto 
 
 function startAutoNext() {
@@ -67,7 +67,6 @@ function showSlider(type) {
         carousel.classList.remove('next')
         carousel.classList.remove('prev')
     }, timeRunning)
-
     clearTimeout(runNextAuto)
     if (!isMouseOver) {
         startAutoNext()
