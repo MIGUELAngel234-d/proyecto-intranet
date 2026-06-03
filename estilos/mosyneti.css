@@ -1,0 +1,562 @@
+/* =========================================
+   SECCIÓN MOSYNETI 
+   ========================================= */
+.seccion-mosyneti {
+    --bg-mosyneti: #081c15;
+    --primary-mosyneti: #2d6a4f;
+    --secondary-mosyneti: #52b788;
+    --accent-mosyneti: #95d5b2;
+    --orange-mosyneti: #f39c12;
+    --glass-bg-mosyneti: rgba(45, 106, 79, 0.1);
+    --glass-border-mosyneti: rgba(82, 183, 136, 0.2);
+
+    font-family: 'Outfit', sans-serif;
+    color: #f0fdf4;
+    position: relative;
+
+    margin-top: 0;
+    margin-bottom: -40px;
+    margin-left: calc(-50vw + 50%);
+    margin-right: calc(-50vw + 50%);
+    width: auto;
+
+    min-height: 100vh;
+    padding: 100px 0 60px 0;
+    overflow: hidden;
+}
+
+.seccion-mosyneti .texto-degradado {
+    background: linear-gradient(135deg, #49b3a2, #95d5b2);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent !important;
+}
+
+.seccion-mosyneti .texto-naranja {
+    background: linear-gradient(135deg, #f39c12, #f1c40f);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent !important;
+    font-weight: 700;
+}
+
+/* FONDO GRADIENTE */
+.fondo-degradado-mosyneti {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at 50% 50%, #1b4332 0%, #081c15 100%);
+    z-index: 0;
+}
+
+/* CONTENEDOR */
+.contenedor-mosyneti {
+    position: relative;
+    z-index: 1;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* HERO SECTION */
+.hero-mosyneti {
+    max-width: 800px;
+    margin-bottom: 60px;
+}
+
+.etiqueta-mosyneti {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.8rem;
+    letter-spacing: 2px;
+    font-weight: 600;
+    margin-bottom: 20px;
+    color: #ffd166;
+}
+
+.etiqueta-mosyneti::before {
+    content: "";
+    width: 30px;
+    height: 2px;
+    background: #ffd166;
+}
+
+.hero-mosyneti h1 {
+    font-size: 3.5rem;
+    line-height: 1.1;
+    margin-bottom: 20px;
+    color: #ffffff;
+    font-weight: 700;
+}
+
+.hero-mosyneti p {
+    font-size: 1.1rem;
+    color: #cbd5e1;
+    line-height: 1.6;
+}
+
+/* CARDS DEFINICIONES */
+.rejilla-def {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    margin-bottom: 60px;
+}
+
+.tarjeta-def {
+    background: var(--glass-bg-mosyneti);
+    border: 1px solid var(--glass-border-mosyneti);
+    border-radius: 16px;
+    padding: 30px;
+    transition: transform 0.3s ease, background 0.3s ease, border-color 0.3s ease;
+    backdrop-filter: blur(10px);
+}
+
+.tarjeta-def:hover {
+    transform: translateY(-5px);
+    background: rgba(45, 106, 79, 0.16);
+    border-color: rgba(82, 183, 136, 0.35);
+}
+
+.tarjeta-def h3 {
+    font-size: 1.3rem;
+    color: var(--secondary-mosyneti);
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.tarjeta-def p {
+    font-size: 0.95rem;
+    color: #cbd5e1;
+    line-height: 1.6;
+}
+
+/* SECCIÓN ARQUITECTURA EN CAPAS */
+.seccion-capas {
+    margin-top: 60px;
+    margin-bottom: 80px;
+}
+
+.seccion-titulo {
+    font-size: 2.2rem;
+    color: #ffffff;
+    margin-bottom: 35px;
+    text-align: center;
+    font-weight: 700;
+}
+
+.seccion-subtitulo {
+    font-size: 1.05rem;
+    color: #94a3b8;
+    text-align: center;
+    margin-top: -25px;
+    margin-bottom: 40px;
+}
+
+.pila-capas {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.tarjeta-capa {
+    background: rgba(45, 106, 79, 0.08);
+    border: 1px solid rgba(82, 183, 136, 0.15);
+    border-left: 5px solid var(--secondary-mosyneti);
+    border-radius: 12px;
+    padding: 25px 30px;
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: 30px;
+    align-items: center;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(5px);
+}
+
+.tarjeta-capa:hover {
+    background: rgba(45, 106, 79, 0.14);
+    border-color: rgba(82, 183, 136, 0.35);
+    transform: scale(1.01);
+}
+
+.ident-capa {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.capa-numero {
+    font-size: 0.8rem;
+    font-weight: bold;
+    color: var(--secondary-mosyneti);
+    letter-spacing: 1px;
+}
+
+.capa-nombre {
+    font-size: 1.25rem;
+    color: #ffffff;
+    font-weight: 600;
+}
+
+.capa-detalle p {
+    font-size: 0.95rem;
+    color: #cbd5e1;
+    line-height: 1.6;
+    margin-bottom: 12px;
+}
+
+/* SECCIÓN MÓDULOS */
+.contenedor-modulos {
+    margin-top: 60px;
+    margin-bottom: 80px;
+}
+
+.rejilla-modulos {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+}
+
+.tarjeta-modulo {
+    background: var(--glass-bg-mosyneti);
+    border: 1px solid var(--glass-border-mosyneti);
+    border-radius: 20px;
+    padding: 35px;
+    backdrop-filter: blur(10px);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: all 0.3s ease;
+}
+
+.tarjeta-modulo:hover {
+    transform: translateY(-5px);
+    border-color: rgba(82, 183, 136, 0.4);
+    box-shadow: 0 10px 30px rgba(45, 106, 79, 0.15);
+}
+
+.cabecera-modulo {
+    margin-bottom: 20px;
+}
+
+.etiqueta-modulo {
+    font-size: 0.75rem;
+    color: #ffd166;
+    font-weight: 700;
+    letter-spacing: 1px;
+    margin-bottom: 8px;
+    display: block;
+}
+
+.tarjeta-modulo h3 {
+    font-size: 1.6rem;
+    color: #ffffff;
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+.desc-modulo {
+    font-size: 0.98rem;
+    color: #cbd5e1;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+/* Router module styles */
+.lista-dispositivos {
+    margin: 20px 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+}
+
+.item-disp {
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 8px;
+    padding: 12px;
+    font-size: 0.88rem;
+    color: #cbd5e1;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.item-disp strong {
+    color: var(--secondary-mosyneti);
+}
+
+.item-disp small {
+    font-size: 0.75rem;
+    color: #94a3b8;
+}
+
+.puntos-claves {
+    background: rgba(82, 183, 136, 0.05);
+    border-left: 3px solid var(--secondary-mosyneti);
+    padding: 15px;
+    border-radius: 0 8px 8px 0;
+    margin-top: 15px;
+    font-size: 0.9rem;
+}
+
+.puntos-claves h4 {
+    color: #ffffff;
+    margin-bottom: 8px;
+    font-size: 0.95rem;
+}
+
+.puntos-claves ul {
+    list-style-type: none;
+    padding-left: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.puntos-claves li::before {
+    content: "•";
+    color: var(--secondary-mosyneti);
+    font-weight: bold;
+    display: inline-block;
+    width: 15px;
+}
+
+/* Badges list */
+.grupo-insignias {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 15px;
+}
+
+.insignia-tec {
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    color: #e2e8f0;
+    padding: 5px 12px;
+    border-radius: 50px;
+    font-size: 0.75rem;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+}
+
+.insignia-tec.openwrt {
+    background: rgba(73, 179, 162, 0.15);
+    color: #95d5b2;
+    border-color: rgba(73, 179, 162, 0.3);
+}
+
+.insignia-tec.python {
+    background: rgba(58, 125, 68, 0.2);
+    color: #a3e635;
+    border-color: rgba(58, 125, 68, 0.4);
+}
+
+.insignia-tec.gnuradio {
+    background: rgba(255, 209, 102, 0.15);
+    color: #ffd166;
+    border-color: rgba(255, 209, 102, 0.3);
+}
+
+.insignia-tec.cifrado {
+    background: rgba(141, 134, 201, 0.2);
+    color: #b1a7f0;
+    border-color: rgba(141, 134, 201, 0.4);
+}
+
+.insignia-tec.insignia-naranja {
+    background: rgba(243, 156, 18, 0.15);
+    color: #ffd166;
+    border-color: rgba(243, 156, 18, 0.3);
+}
+
+/* Antennas module specific */
+.modulo-detalles {
+    font-size: 0.9rem;
+    color: #94a3b8;
+    line-height: 1.5;
+}
+
+.modulo-detalles ul {
+    margin-top: 10px;
+    padding-left: 20px;
+}
+
+.modulo-detalles li {
+    margin-bottom: 8px;
+}
+
+/* Radio programmable list */
+.tarjeta-naranja {
+    background: rgba(243, 156, 18, 0.05);
+    border: 1px solid rgba(243, 156, 18, 0.15);
+    border-radius: 12px;
+    padding: 15px 20px;
+    margin-top: 15px;
+}
+
+.tarjeta-naranja h4 {
+    color: #ffd166;
+    font-size: 0.95rem;
+    margin-bottom: 5px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.tarjeta-naranja p {
+    font-size: 0.85rem;
+    color: #cbd5e1;
+    margin: 0;
+    line-height: 1.4;
+}
+
+/* Encryption list */
+.cifrado-alerta {
+    background: rgba(141, 134, 201, 0.08);
+    border: 1px solid rgba(141, 134, 201, 0.2);
+    border-radius: 12px;
+    padding: 15px;
+    margin-top: 15px;
+    font-size: 0.88rem;
+}
+
+.cifrado-alerta strong {
+    color: #b1a7f0;
+}
+
+/* FOOTER-LIKE INTRANET CALL TO ACTION */
+.cta-mosyneti {
+    background: rgba(45, 106, 79, 0.15);
+    border: 1px solid rgba(82, 183, 136, 0.2);
+    border-radius: 16px;
+    padding: 30px 40px;
+    margin-top: 40px;
+    backdrop-filter: blur(15px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 45px;
+    text-align: center;
+}
+
+.cta-mosyneti .cta-logo {
+    height: 110px;
+    width: auto;
+    object-fit: contain;
+    flex-shrink: 0;
+    filter: drop-shadow(0 0 12px rgba(82, 183, 136, 0.4));
+    transition: transform 0.3s ease;
+}
+
+.cta-mosyneti .cta-logo:hover {
+    transform: scale(1.05);
+}
+
+.cta-mosyneti .cta-contenido {
+    flex-grow: 1;
+}
+
+.cta-mosyneti h2 {
+    font-size: 2rem;
+    color: #ffffff;
+    margin-bottom: 15px;
+    font-weight: 700;
+}
+
+.cta-mosyneti p {
+    font-size: 1.05rem;
+    color: #cbd5e1;
+    margin-bottom: 25px;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.botones-cta {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.btn-mosy {
+    display: inline-block;
+    padding: 12px 28px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+}
+
+.btn-mosy.primario {
+    background: var(--secondary-mosyneti);
+    color: #081c15;
+}
+
+.btn-mosy.primario:hover {
+    background: var(--accent-mosyneti);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(82, 183, 136, 0.4);
+}
+
+.btn-mosy.secundario {
+    background: transparent;
+    border: 2px solid var(--glass-border-mosyneti);
+    color: #ffffff;
+}
+
+.btn-mosy.secundario:hover {
+    background: var(--glass-bg-mosyneti);
+    border-color: var(--secondary-mosyneti);
+    transform: translateY(-2px);
+}
+
+/* RESPONSIVE DESIGN */
+@media (max-width: 900px) {
+    .rejilla-modulos {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .seccion-mosyneti {
+        padding: 80px 0 40px 0;
+    }
+
+    .hero-mosyneti h1 {
+        font-size: 2.8rem;
+    }
+
+    .rejilla-def {
+        grid-template-columns: 1fr;
+        gap: 18px;
+    }
+
+    .tarjeta-capa {
+        grid-template-columns: 1fr;
+        gap: 15px;
+        padding: 20px;
+    }
+
+    .ident-capa {
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        padding-bottom: 10px;
+    }
+
+    .lista-dispositivos {
+        grid-template-columns: 1fr;
+    }
+
+    .cta-mosyneti {
+        flex-direction: column;
+        gap: 25px;
+    }
+}

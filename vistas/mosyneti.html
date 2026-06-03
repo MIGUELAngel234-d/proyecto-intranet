@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inicio - Intranet UAM-I</title>
+
+    <!--Icono logo-->
+    <link rel="icon" href="recursos/imagenes/logos/logoIntranet.png" type="image/png">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="../estilos/styles.css">
+    <link rel="stylesheet" href="../estilos/footer.css">
+    <link rel="stylesheet" href="../estilos/mosyneti.css">
+
+    <!-- Fuentes -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;500;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <header class="full-header">
+        <div class="header-content">
+            <div class="logo-container">
+                <img src="../recursos/imagenes/logos/UAM.png" alt="Logo UAM-I">
+                <h2>Intranet UAM-I</h2>
+            </div>
+
+            <button class="menu-toggle" id="mobile-menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+
+            <nav id="nav_menu">
+                <a href="../index.html">Inicio</a>
+                <a href="../vistas/acerca.html">Acerca</a>
+                <a href="../vistas/informacion.html">Información</a>
+
+                <div class="dropdown">
+                    <a class="dropbtn">Proyectos</a>
+                    <div class="dropdown-content">
+                        <a href="https://sdr.uami.mx" target="_blank">SDR-UAMI</a>
+                        <a href="../vistas/mosyneti.html">MOSYNETI</a>
+                    </div>
+                </div>
+
+                <a href="../vistas/galeria.html">Galería</a>
+                <a href="../vistas/contacto.html">Contacto</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- CONTENIDO -->
+    <main>
+        <div class="seccion-mosyneti">
+            <div class="fondo-degradado-mosyneti"></div>
+
+            <div class="contenedor-mosyneti">
+                <!-- Introduccion -->
+                <section class="hero-mosyneti" style="margin-bottom: 40px;">
+                    <h1>¿Qué es <span class="texto-degradado">MOSYNETI</span>?</h1>
+                    <p style="font-size: 1.1rem; line-height: 1.7; margin-bottom: 20px;">
+                        <strong>MOSYNETI</strong> (<em>Modular System Network Iztapalapa</em>) es un
+                        sistema modular diseñado para conectar y ampliar la cobertura de una red en comunidades que
+                        tienen acceso limitado o que carecen de internet. Su objetivo principal es erradicar la brecha
+                        digital que afecta principalmente a las zonas rurales y urbanas marginadas mediante la
+                        construcción de <strong>intranets comunitarias</strong> autogestionadas con software y hardware
+                        libre.
+                    </p>
+
+                    <!-- Conceptos clave integrados sin cajas pesadas -->
+                    <div
+                        style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-top: 30px; margin-bottom: 20px; border-top: 1px solid rgba(255,255,255,0.08); padding-top: 25px;">
+                        <div>
+                            <h3
+                                style="color: var(--secondary-mosyneti); font-size: 1.15rem; margin-bottom: 8px; font-weight: 600;">
+                                Intranet vs Internet</h3>
+                            <p style="font-size: 0.92rem; color: #cbd5e1; line-height: 1.6; text-align: justify;">
+                                Una <strong>intranet</strong> es una red interna que permite compartir datos localmente
+                                (por ejemplo, contenido con tu vecino), conectando dispositivos como celulares, tablets
+                                o computadoras. El <strong>internet</strong>, en cambio, es una red internacional de
+                                redes con alcance global que transmite datos a cualquier parte del mundo en segundos.
+                            </p>
+                        </div>
+                        <div>
+                            <h3
+                                style="color: var(--secondary-mosyneti); font-size: 1.15rem; margin-bottom: 8px; font-weight: 600;">
+                                Elementos de la Red</h3>
+                            <p style="font-size: 0.92rem; color: #cbd5e1; line-height: 1.6; text-align: justify;">
+                                Armar una intranet requiere un <strong>router</strong> para coordinar e direccionar los
+                                datos a su destino, además de computadoras, antenas y cables Ethernet. Al configurarse
+                                con software libre, resulta sumamente accesible y sencillo.
+                            </p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- ARQUITECTURA EN CAPAS -->
+                <section class="seccion-capas" style="margin-top: 40px; margin-bottom: 50px;">
+                    <h2 class="seccion-titulo" style="font-size: 1.8rem; margin-bottom: 10px; text-align: left;">Sistema
+                        en Capas</h2>
+                    <p class="seccion-subtitulo" style="margin-top: 0; margin-bottom: 25px; text-align: left;">Diseñado
+                        en capas para facilitar la integración de nuevas funcionalidades:</p>
+
+                    <div
+                        style="background: rgba(45, 106, 79, 0.08); border: 1px solid rgba(82, 183, 136, 0.15); border-radius: 16px; padding: 25px; backdrop-filter: blur(10px);">
+
+                        <!-- Capa 1 -->
+                        <div
+                            style="display: grid; grid-template-columns: 200px 1fr; gap: 20px; align-items: start; border-bottom: 1px solid rgba(255,255,255,0.06); padding-bottom: 15px; margin-bottom: 15px;">
+                            <div style="display: flex; flex-direction: column;">
+                                <strong style="color: #ffffff; font-size: 1.25rem; font-weight: 600;">Capa de Software
+                                    Aplicativo</strong>
+                            </div>
+                            <div>
+                                <p style="font-size: 1.1rem; color: #cbd5e1; line-height: 1.6; margin: 0;">
+                                    Hace referencia a todos los servicios que puede ofrecer la red, tales como correo
+                                    electrónico, mensajes de texto, servicios de videoconferencia o sistemas para
+                                    compartir archivos multimedia.
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Capa 2 -->
+                        <div
+                            style="display: grid; grid-template-columns: 200px 1fr; gap: 20px; align-items: start; border-bottom: 1px solid rgba(255,255,255,0.06); padding-bottom: 15px; margin-bottom: 15px;">
+                            <div style="display: flex; flex-direction: column;">
+                                <strong style="color: #ffffff; font-size: 1.25rem; font-weight: 600;">Capa de Software<br> de
+                                    Control</strong>
+                            </div>
+                            <div>
+                                <p style="font-size: 1.1rem; color: #cbd5e1; line-height: 1.6; margin-bottom: 8px;">
+                                    Se refiere a los algoritmos, protocolos y sistemas operativos que permiten la
+                                    operación de los equipos.
+                                </p>
+                                <div class="grupo-insignias" style="margin-top: 0;">
+                                    <span class="insignia-tec openwrt"
+                                        style="font-size: 0.8rem; padding: 3px 10px;">OpenWRT</span>
+                                    <span class="insignia-tec gnuradio" style="font-size: 0.8rem; padding: 3px 10px;">GNU
+                                        Radio</span>
+                                    <span class="insignia-tec python"
+                                        style="font-size: 0.8rem; padding: 3px 10px;">Python</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Capa 3 -->
+                        <div style="display: grid; grid-template-columns: 200px 1fr; gap: 20px; align-items: start;">
+                            <div style="display: flex; flex-direction: column;">
+                                <strong
+                                    style="color: #ffffff; font-size: 1.25rem; font-weight: 600;">Capa  de  Infraestructura</strong>
+                            </div>
+                            <div>
+                                <p style="font-size: 1.1rem; color: #cbd5e1; line-height: 1.6; margin: 0;">
+                                    Hace referencia a todos los componentes físicos (hardware) y cables encargados de
+                                    establecer la comunicación física de la intranet.
+                                </p>
+                            </div>
+                        </div>
+
+                    </div>
+                </section>
+
+                <!-- Concepto modular -->
+                <section class="contenedor-modulos" style="margin-top: 40px; margin-bottom: 50px;">
+                    <h2 class="seccion-titulo" style="font-size: 1.8rem; margin-bottom: 10px; text-align: left;">El
+                        Concepto Modular</h2>
+                    <p class="seccion-subtitulo" style="margin-top: 0; margin-bottom: 25px; text-align: left;">Permite
+                        atender las distintas necesidades de cada comunidad, se pueden elegir y adaptar los módulos
+                        necesarios de forma independiente:</p>
+
+                    <div class="rejilla-modulos"
+                        style="grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px;">
+
+                        <!-- Módulo Router -->
+                        <div class="tarjeta-modulo"
+                            style="padding: 24px; border-radius: 14px; background: rgba(45, 106, 79, 0.08); min-height: auto; border: 1px solid rgba(82, 183, 136, 0.15);">
+                            <div class="cabecera-modulo" style="margin-bottom: 0;">
+                                <span class="etiqueta-modulo"
+                                    style="font-size: 0.7rem; color: #ffd166; margin-bottom: 5px;">MÓDULO
+                                    PRINCIPAL</span>
+                                <h3 style="font-size: 1.3rem; margin-bottom: 10px; color: #ffffff;">1. Módulo Router
+                                </h3>
+                                <p class="desc-modulo"
+                                    style="font-size: 0.88rem; margin-bottom: 10px; line-height: 1.5; color: #cbd5e1;">
+                                    Es el elemento central para conectar los diversos dispositivos a través del software
+                                    <strong>OpenWRT</strong>.
+                                </p>
+                                <ul
+                                    style="font-size: 0.85rem; color: #cbd5e1; padding-left: 15px; line-height: 1.5; margin-bottom: 10px;">
+                                    <li><strong>4 Equipos compatibles:</strong> Routers genéricos, Raspberry Pi,
+                                        Computadoras de uso personal (se les remueve el software previo) o Servicios
+                                        virtuales (máquinas virtuales / Docker).</li>
+                                    <li><strong>Configuración:</strong> Punto de Acceso (conexión de usuarios) y Red
+                                        Mesh (conexión entre routers).</li>
+                                </ul>
+                                <p style="font-size: 0.8rem; color: #94a3b8; margin: 0; line-height: 1.4;">
+                                    * El canal cuenta con tutoriales para la instalación de OpenWRT en estos 4
+                                    dispositivos.
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Módulo Amplificación y Antenas -->
+                        <div class="tarjeta-modulo"
+                            style="padding: 24px; border-radius: 14px; background: rgba(45, 106, 79, 0.08); min-height: auto; border: 1px solid rgba(82, 183, 136, 0.15);">
+                            <div class="cabecera-modulo" style="margin-bottom: 0;">
+                                <span class="etiqueta-modulo"
+                                    style="font-size: 0.7rem; color: #ffd166; margin-bottom: 5px;">MÓDULO DE
+                                    COBERTURA</span>
+                                <h3 style="font-size: 1.3rem; margin-bottom: 10px; color: #ffffff;">2. Amplificación y
+                                    Antenas</h3>
+                                <p class="desc-modulo"
+                                    style="font-size: 0.88rem; margin-bottom: 10px; line-height: 1.5; color: #cbd5e1;">
+                                    Ideal para comunidades donde se necesitan enlaces inalámbricos de mayor alcance.
+                                </p>
+                                <ul style="font-size: 0.85rem; color: #cbd5e1; padding-left: 15px; line-height: 1.5;">
+                                    <li><strong>Amplificadores:</strong> Se recomienda el uso de componentes comerciales
+                                        compatibles con los modulos de MoSyNetI</li>
+                                    <li><strong>Antenas Caseras:</strong> MoSyNetI provee diseños de antenas con
+                                        materiales caseros y se han diseñado antenas Yagi Uda y Parabólicas con
+                                        frecuencia 2.4 GHz (WiFi).</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- Módulo Radiocomunicaciones -->
+                        <div class="tarjeta-modulo"
+                            style="padding: 24px; border-radius: 14px; background: rgba(45, 106, 79, 0.08); min-height: auto; border: 1px solid rgba(82, 183, 136, 0.15);">
+                            <div class="cabecera-modulo" style="margin-bottom: 0;">
+                                <span class="etiqueta-modulo"
+                                    style="font-size: 0.7rem; color: #ffd166; margin-bottom: 5px;">MÓDULO
+                                    AVANZADO</span>
+                                <h3 style="font-size: 1.3rem; margin-bottom: 10px; color: #ffffff;">3.
+                                    Radiocomunicaciones</h3>
+                                <p class="desc-modulo"
+                                    style="font-size: 0.88rem; margin-bottom: 10px; line-height: 1.5; color: #cbd5e1;">
+                                    Radio programable (SDR) es un conjunto de herramientas donde los bloques de
+                                    procesamiento son definidos por
+                                    software, conectada a antenas transmisoras/receptoras.
+                                </p>
+                                <ul style="font-size: 0.85rem; color: #cbd5e1; padding-left: 15px; line-height: 1.5;">
+                                    <li><strong>Hardware:</strong> Una placa de desarrollo (Raspberry Pi, PC o Laptop)
+                                        acoplada a una SDR.</li>
+                                    <li><strong>Programación:</strong> Realizada con el software de bloques <strong>GNU
+                                            Radio</strong> (basado en Python y C++) y el repositorio <strong>Line
+                                            Suite</strong> para la gestión de SDR.</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- Módulo Cifrado -->
+                        <div class="tarjeta-modulo"
+                            style="padding: 24px; border-radius: 14px; background: rgba(45, 106, 79, 0.08); min-height: auto; border: 1px solid rgba(82, 183, 136, 0.15);">
+                            <div class="cabecera-modulo" style="margin-bottom: 0;">
+                                <span class="etiqueta-modulo"
+                                    style="font-size: 0.7rem; color: #ffd166; margin-bottom: 5px;">MÓDULO DE SEGURIDAD
+                                    (OPCIONAL)</span>
+                                <h3 style="font-size: 1.3rem; margin-bottom: 10px; color: #ffffff;">4. Módulo de Cifrado
+                                </h3>
+                                <p class="desc-modulo"
+                                    style="font-size: 0.88rem; margin-bottom: 10px; line-height: 1.5; color: #cbd5e1;">
+                                    Protege la información confidencial que se transmite por los canales de comunicación
+                                    inalámbricos.
+                                </p>
+                                <ul style="font-size: 0.85rem; color: #cbd5e1; padding-left: 15px; line-height: 1.5;">
+                                    <li><strong>Algoritmo:</strong> Emplea <strong>AES-Caos</strong> desarrollado por el
+                                        grupo <strong>SDR UAM</strong> (Estándar de Cifrado Avanzado).</li>
+                                    <li><strong>Operación:</strong> Distorsiona las propiedades sintácticas, semánticas
+                                        y estadísticas del mensaje, sequiere ejecutar una aplicación en todos los
+                                        dispositivos de los usuarios para lograr un cifrado de extremo a extremo.</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                    </div>
+                </section>
+
+                <!-- contacto -->
+                <section class="cta-mosyneti">
+                    <!-- Imagen Izquierda -->
+                    <img src="../recursos/imagenes/logos/lodoPantera.png" alt="Logo Pantera UAM" class="cta-logo">
+                    
+                    <!-- Contenido Central -->
+                    <div class="cta-contenido">
+                        <h2 style="font-size: 1.6rem; margin-bottom: 8px;">Cursos e Información de Soporte</h2>
+                        <p style="font-size: 0.92rem; color: #cbd5e1; margin-bottom: 20px; line-height: 1.5;">
+                            Síguenos en nuestras páginas y redes sociales oficiales del proyecto.
+                        </p>
+                        <div class="botones-cta" style="gap: 10px;">
+                            <a href="https://www.facebook.com/share/1CGgsfEDeR/" target="_blank" class="btn-mosy primario"
+                                style="padding: 10px 20px; font-size: 0.85rem;">Intranet Comunitaria UAM</a>
+                            <a href="https://www.youtube.com/@uamistreamyoutube9480" target="_blank" class="btn-mosy primario"
+                                style="padding: 10px 20px; font-size: 0.85rem;">YouTube UAMISTREM</a>
+                        </div>
+                    </div>
+
+                    <!-- Imagen Derecha -->
+                    <img src="../recursos/imagenes/logos/logoIntranet.png" alt="Logo Intranet" class="cta-logo">
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-container">
+
+            <div class="footer-section">
+                <div class="footer-brand">
+                    <h3>COMUNITARIA</h3>
+                </div>
+                <p>Nuestro objetivo es dar alternativas de conectividad inalámbrica a nuestra comunidad universitaria y
+                    sus alrededores, así como a comunidades indígenas con las que ya se ha trabajado en otros proyectos
+                    y que no tienen la posibilidad de tener Internet o que aun existiendo no es accesible para todos.
+                </p>
+            </div>
+
+            <div class="footer-section">
+                <h3>Navegación</h3>
+                <ul>
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="vistas/acerca">Acerca</a></li>
+                    <li><a href="informacion.html">Información</a></li>
+                    <li><a href="galeria.html">Galería</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h3>Contacto</h3>
+                <div class="contacto-info">
+                    <p>📍 Ciudad de México, MX</p>
+                    <p>📍 Tlalpan, C.P. 14387</p>
+                    <p>📧 contacto@izt.uam.mx</p>
+                    <p>📞 +52 55 XXXX XXXX</p>
+                </div>
+            </div>
+            <img src="../recursos/imagenes/logos/UAM.png" alt="Logo" class="logo-img"
+                onerror="this.style.display='none'">
+
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2026 Comunitaria - Innovación y Desarrollo Social</p>
+        </div>
+    </footer>
+
+
+    <script src="../scripts/secciones.js"></script>
+    <script src="../scripts/carrusel.js"></script>
+
+</body>
+
+</html>
