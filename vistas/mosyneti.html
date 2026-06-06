@@ -72,33 +72,36 @@
                         construcción de <strong>intranets comunitarias</strong> autogestionadas con software y hardware
                         libre.
                     </p>
-
-                    <!-- Conceptos clave integrados sin cajas pesadas -->
-                    <div
-                        style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-top: 30px; margin-bottom: 20px; border-top: 1px solid rgba(255,255,255,0.08); padding-top: 25px;">
-                        <div>
-                            <h3
-                                style="color: var(--secondary-mosyneti); font-size: 1.15rem; margin-bottom: 8px; font-weight: 600;">
-                                Intranet vs Internet</h3>
-                            <p style="font-size: 0.92rem; color: #cbd5e1; line-height: 1.6; text-align: justify;">
-                                Una <strong>intranet</strong> es una red interna que permite compartir datos localmente
-                                (por ejemplo, contenido con tu vecino), conectando dispositivos como celulares, tablets
-                                o computadoras. El <strong>internet</strong>, en cambio, es una red internacional de
-                                redes con alcance global que transmite datos a cualquier parte del mundo en segundos.
-                            </p>
-                        </div>
-                        <div>
-                            <h3
-                                style="color: var(--secondary-mosyneti); font-size: 1.15rem; margin-bottom: 8px; font-weight: 600;">
-                                Elementos de la Red</h3>
-                            <p style="font-size: 0.92rem; color: #cbd5e1; line-height: 1.6; text-align: justify;">
-                                Armar una intranet requiere un <strong>router</strong> para coordinar e direccionar los
-                                datos a su destino, además de computadoras, antenas y cables Ethernet. Al configurarse
-                                con software libre, resulta sumamente accesible y sencillo.
-                            </p>
-                        </div>
-                    </div>
                 </section>
+
+                <!-- Conceptos clave integrados  -->
+                <div class="rejilla-def">
+                    <div class="tarjeta-def">
+                        <h3 style="--secundario-mosyneti: #52b788; color: var(--secundario-mosyneti);">
+                            Intranet vs Internet</h3>
+                        <p style="text-align: justify;">
+                            Una <strong>intranet</strong> es una red interna que permite compartir datos localmente
+                            (por ejemplo, contenido con tu vecino), conectando dispositivos como celulares, tablets
+                            o computadoras. El <strong>internet</strong>, en cambio, es una red internacional de
+                            redes con alcance global que transmite datos a cualquier parte del mundo en segundos.
+                        </p>
+                        <img src="../recursos/imagenes/mosyneti/intravsinte.webp" alt="intravsinte"
+                            class="imagen-intravsinte">
+                    </div>
+                    <div class="tarjeta-def">
+                        <h3 style="--secundario-mosyneti: #52b788; color: var(--secundario-mosyneti);">
+                            Elementos de la Red</h3>
+                        <p style="text-align: justify;">
+                            Armar una intranet requiere almenos un <strong>router</strong> para coordinar y
+                            direccionar los
+                            datos a su destino, además de computadoras, antenas y cables Ethernet. Al configurarse
+                            con software libre, resulta sumamente accesible y sencillo.
+                        </p>
+                        <br><br>
+                        <img src="../recursos/imagenes/mosyneti/ElemRed.webp" alt="Elementos de la Red"
+                            class="imagen-ElemRed">
+                    </div>
+                </div>
 
                 <!-- ARQUITECTURA EN CAPAS -->
                 <section class="seccion-capas" style="margin-top: 40px; margin-bottom: 50px;">
@@ -110,7 +113,7 @@
                     <div
                         style="background: rgba(45, 106, 79, 0.08); border: 1px solid rgba(82, 183, 136, 0.15); border-radius: 16px; padding: 25px; backdrop-filter: blur(10px);">
 
-                        <!-- Capa 1 -->
+                        <!-- Capa de Software Aplicativo -->
                         <div
                             style="display: grid; grid-template-columns: 200px 1fr; gap: 20px; align-items: start; border-bottom: 1px solid rgba(255,255,255,0.06); padding-bottom: 15px; margin-bottom: 15px;">
                             <div style="display: flex; flex-direction: column;">
@@ -123,14 +126,16 @@
                                     electrónico, mensajes de texto, servicios de videoconferencia o sistemas para
                                     compartir archivos multimedia.
                                 </p>
+                                <img src="../recursos/imagenes/mosyneti/capasoftw.webp" alt="Capa de Software Aplicativo" class="imagen-capa-software">
                             </div>
                         </div>
 
-                        <!-- Capa 2 -->
+                        <!-- Capa de Software de Control -->
                         <div
                             style="display: grid; grid-template-columns: 200px 1fr; gap: 20px; align-items: start; border-bottom: 1px solid rgba(255,255,255,0.06); padding-bottom: 15px; margin-bottom: 15px;">
                             <div style="display: flex; flex-direction: column;">
-                                <strong style="color: #ffffff; font-size: 1.25rem; font-weight: 600;">Capa de Software<br> de
+                                <strong style="color: #ffffff; font-size: 1.25rem; font-weight: 600;">Capa de
+                                    Software<br> de
                                     Control</strong>
                             </div>
                             <div>
@@ -141,25 +146,29 @@
                                 <div class="grupo-insignias" style="margin-top: 0;">
                                     <span class="insignia-tec openwrt"
                                         style="font-size: 0.8rem; padding: 3px 10px;">OpenWRT</span>
-                                    <span class="insignia-tec gnuradio" style="font-size: 0.8rem; padding: 3px 10px;">GNU
+                                    <span class="insignia-tec gnuradio"
+                                        style="font-size: 0.8rem; padding: 3px 10px;">GNU
                                         Radio</span>
                                     <span class="insignia-tec python"
                                         style="font-size: 0.8rem; padding: 3px 10px;">Python</span>
                                 </div>
+                                <img src="../recursos/imagenes/mosyneti/capaSofCont.webp" alt="Capa de Software de Control" class="imagen-capa-control">
                             </div>
                         </div>
 
-                        <!-- Capa 3 -->
+                        <!-- Capa de Infraestructura -->
                         <div style="display: grid; grid-template-columns: 200px 1fr; gap: 20px; align-items: start;">
                             <div style="display: flex; flex-direction: column;">
-                                <strong
-                                    style="color: #ffffff; font-size: 1.25rem; font-weight: 600;">Capa  de  Infraestructura</strong>
+                                <strong style="color: #ffffff; font-size: 1.25rem; font-weight: 600;">Capa de
+                                    Infraestructura</strong>
                             </div>
                             <div>
                                 <p style="font-size: 1.1rem; color: #cbd5e1; line-height: 1.6; margin: 0;">
-                                    Hace referencia a todos los componentes físicos (hardware) y cables encargados de
-                                    establecer la comunicación física de la intranet.
+                                    Hace referencia a todos los componentes físicos (hardware), como pueden ser routers
+                                    (enrutadores), switches y servidores, así como a los cables de red, Ethernet
+                                    (UTP/STP), encargados de establecer la comunicación física de la intranet.
                                 </p>
+                                <img src="../recursos/imagenes/mosyneti/capaInfra.webp" alt="Capa de Infraestructura" class="imagen-capa-infraestructura">
                             </div>
                         </div>
 
@@ -184,7 +193,7 @@
                                 <span class="etiqueta-modulo"
                                     style="font-size: 0.7rem; color: #ffd166; margin-bottom: 5px;">MÓDULO
                                     PRINCIPAL</span>
-                                <h3 style="font-size: 1.3rem; margin-bottom: 10px; color: #ffffff;">1. Módulo Router
+                                <h3 style="font-size: 1.3rem; margin-bottom: 10px; color: #ffffff;">Módulo Router
                                 </h3>
                                 <p class="desc-modulo"
                                     style="font-size: 0.88rem; margin-bottom: 10px; line-height: 1.5; color: #cbd5e1;">
@@ -194,15 +203,30 @@
                                 <ul
                                     style="font-size: 0.85rem; color: #cbd5e1; padding-left: 15px; line-height: 1.5; margin-bottom: 10px;">
                                     <li><strong>4 Equipos compatibles:</strong> Routers genéricos, Raspberry Pi,
-                                        Computadoras de uso personal (se les remueve el software previo) o Servicios
+                                        Computadoras de uso personal (se les sustituye el software previo) o Servicios
                                         virtuales (máquinas virtuales / Docker).</li>
                                     <li><strong>Configuración:</strong> Punto de Acceso (conexión de usuarios) y Red
                                         Mesh (conexión entre routers).</li>
                                 </ul>
-                                <p style="font-size: 0.8rem; color: #94a3b8; margin: 0; line-height: 1.4;">
-                                    * El canal cuenta con tutoriales para la instalación de OpenWRT en estos 4
-                                    dispositivos.
+
+                                <p>
+                                    Videos :
                                 </p>
+                                <br>
+                                <a href="https://youtu.be/Zh93s6SSaCE?si=GOrbZaZV8SpFYAG7" target="_blank"
+                                    class="btn-mosy primarioModulo" style="padding: 10px 20px; font-size: 0.85rem;">
+                                    OWRT en
+                                    raspberry</a>
+                                <br><br>
+                                <a href="https://youtu.be/cqIGu6iwmTM?si=JFLox97CU8IUe2Ha" target="_blank"
+                                    class="btn-mosy primarioModulo" style="padding: 10px 20px; font-size: 0.85rem;">
+                                    OWRT en|
+                                    ruteador</a>
+                                <br><br>
+                                <a href="https://youtu.be/hr7SUSLHQkU?si=UAry2sX6vqrqNapY" target="_blank"
+                                    class="btn-mosy primarioModulo" style="padding: 10px 20px; font-size: 0.85rem;">Red
+                                    Mesh con OWRT</a>
+
                             </div>
                         </div>
 
@@ -213,7 +237,7 @@
                                 <span class="etiqueta-modulo"
                                     style="font-size: 0.7rem; color: #ffd166; margin-bottom: 5px;">MÓDULO DE
                                     COBERTURA</span>
-                                <h3 style="font-size: 1.3rem; margin-bottom: 10px; color: #ffffff;">2. Amplificación y
+                                <h3 style="font-size: 1.1rem; margin-bottom: 10px; color: #ffffff;">Amplificación y
                                     Antenas</h3>
                                 <p class="desc-modulo"
                                     style="font-size: 0.88rem; margin-bottom: 10px; line-height: 1.5; color: #cbd5e1;">
@@ -226,6 +250,21 @@
                                         materiales caseros y se han diseñado antenas Yagi Uda y Parabólicas con
                                         frecuencia 2.4 GHz (WiFi).</li>
                                 </ul>
+                                <br>
+                                <p>
+                                    Videos :
+                                </p>
+                                <br>
+                                <!-- Antenas Yagi Uda -->
+                                <a href="https://youtu.be/Kkc_RxFXRsY?si=nAhmTvhI3ebB96P5" target="_blank"
+                                    class="btn-mosy primarioModulo"
+                                    style="padding: 10px 20px; font-size: 0.85rem;">Tutorial para crear tu propia Antena
+                                    Yagi</a>
+                                <br><br>
+                                <!-- Antenas Parabólicas-->
+                                <a href="https://youtube.com/playlist?list=PL4qqoU26e7HyOzW87kx9jjKiTTQRSP_oa&si=9k_Fl3lFFEsl7_-n"
+                                    target="_blank" class="btn-mosy primarioModulo"
+                                    style="padding: 10px 20px; font-size: 0.85rem;">Antenas, Amplificadores</a>
                             </div>
                         </div>
 
@@ -236,8 +275,8 @@
                                 <span class="etiqueta-modulo"
                                     style="font-size: 0.7rem; color: #ffd166; margin-bottom: 5px;">MÓDULO
                                     AVANZADO</span>
-                                <h3 style="font-size: 1.3rem; margin-bottom: 10px; color: #ffffff;">3.
-                                    Radiocomunicaciones</h3>
+                                <h3 style="font-size: 1.3rem; margin-bottom: 10px; color: #ffffff;">Radiocomunicaciones
+                                </h3>
                                 <p class="desc-modulo"
                                     style="font-size: 0.88rem; margin-bottom: 10px; line-height: 1.5; color: #cbd5e1;">
                                     Radio programable (SDR) es un conjunto de herramientas donde los bloques de
@@ -251,17 +290,36 @@
                                             Radio</strong> (basado en Python y C++) y el repositorio <strong>Line
                                             Suite</strong> para la gestión de SDR.</li>
                                 </ul>
+                                <br>
+                                <p>
+                                    Videos :
+                                </p>
+                                <br>
+                                <!-- Instalacion GNU Radio -->
+                                <a href="https://youtu.be/VilIHEZs7xI?si=PK1ilvd_mofVE49s" target="_blank"
+                                    class="btn-mosy primarioModulo"
+                                    style="padding: 10px 20px; font-size: 0.85rem;">Instalacion GNU Radio</a>
+                                <br><br>
+                                <!-- Tutorial Raspberry con Ettus y GNU Radio    -->
+                                <a href="https://youtu.be/2ttixHtsTNE?si=3XREBIle__X8zbz1" target="_blank"
+                                    class="btn-mosy primarioModulo"
+                                    style="padding: 10px 20px; font-size: 0.85rem;">Tutorial Raspberry con Ettus y GNU
+                                    Radio</a>
+                                <br>
+
+                                <!-- SDR -->
+
                             </div>
                         </div>
 
-                        <!-- Módulo Cifrado -->
+                        <!-- Módulo aplicacion -->
                         <div class="tarjeta-modulo"
                             style="padding: 24px; border-radius: 14px; background: rgba(45, 106, 79, 0.08); min-height: auto; border: 1px solid rgba(82, 183, 136, 0.15);">
                             <div class="cabecera-modulo" style="margin-bottom: 0;">
                                 <span class="etiqueta-modulo"
                                     style="font-size: 0.7rem; color: #ffd166; margin-bottom: 5px;">MÓDULO DE SEGURIDAD
                                     (OPCIONAL)</span>
-                                <h3 style="font-size: 1.3rem; margin-bottom: 10px; color: #ffffff;">4. Módulo de Cifrado
+                                <h3 style="font-size: 1.2rem; margin-bottom: 10px; color: #ffffff;">Módulo de Aplicación
                                 </h3>
                                 <p class="desc-modulo"
                                     style="font-size: 0.88rem; margin-bottom: 10px; line-height: 1.5; color: #cbd5e1;">
@@ -275,6 +333,20 @@
                                         y estadísticas del mensaje, sequiere ejecutar una aplicación en todos los
                                         dispositivos de los usuarios para lograr un cifrado de extremo a extremo.</li>
                                 </ul>
+                                <br>
+                                <p>
+                                    Videos:
+                                </p>
+                                <br>
+                                <!-- Video tutorial de AES-Caos  -->
+                                <a href="https://youtu.be/D_VmgImo4es?si=rqkIpE2pxHJf73DB" target="_blank"
+                                    class="btn-mosy primarioModulo" style="padding: 10px 20px; font-size: 0.85rem;">
+                                    Cifrado AES-Caos </a>
+                                <br><br>
+                                <!-- Video tutorial de AES-Caos  -->
+                                <a href="https://youtu.be/p34usgpJEG4?si=hlK9MqjRa4UNaj--" target="_blank"
+                                    class="btn-mosy primarioModulo"
+                                    style="padding: 10px 20px; font-size: 0.85rem;">Criptografía Simétrica</a>
                             </div>
                         </div>
 
@@ -285,7 +357,7 @@
                 <section class="cta-mosyneti">
                     <!-- Imagen Izquierda -->
                     <img src="../recursos/imagenes/logos/lodoPantera.png" alt="Logo Pantera UAM" class="cta-logo">
-                    
+
                     <!-- Contenido Central -->
                     <div class="cta-contenido">
                         <h2 style="font-size: 1.6rem; margin-bottom: 8px;">Cursos e Información de Soporte</h2>
@@ -293,10 +365,12 @@
                             Síguenos en nuestras páginas y redes sociales oficiales del proyecto.
                         </p>
                         <div class="botones-cta" style="gap: 10px;">
-                            <a href="https://www.facebook.com/share/1CGgsfEDeR/" target="_blank" class="btn-mosy primario"
-                                style="padding: 10px 20px; font-size: 0.85rem;">Intranet Comunitaria UAM</a>
-                            <a href="https://www.youtube.com/@uamistreamyoutube9480" target="_blank" class="btn-mosy primario"
-                                style="padding: 10px 20px; font-size: 0.85rem;">YouTube UAMISTREM</a>
+                            <a href="https://www.facebook.com/share/1CGgsfEDeR/" target="_blank"
+                                class="btn-mosy primario" style="padding: 10px 20px; font-size: 0.85rem;">Intranet
+                                Comunitaria UAM</a>
+                            <a href="https://www.youtube.com/@uamistreamyoutube9480" target="_blank"
+                                class="btn-mosy primario" style="padding: 10px 20px; font-size: 0.85rem;">YouTube
+                                UAMISTREM</a>
                         </div>
                     </div>
 

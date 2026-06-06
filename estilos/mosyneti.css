@@ -2,14 +2,6 @@
    SECCIÓN MOSYNETI 
    ========================================= */
 .seccion-mosyneti {
-    --bg-mosyneti: #081c15;
-    --primary-mosyneti: #2d6a4f;
-    --secondary-mosyneti: #52b788;
-    --accent-mosyneti: #95d5b2;
-    --orange-mosyneti: #f39c12;
-    --glass-bg-mosyneti: rgba(45, 106, 79, 0.1);
-    --glass-border-mosyneti: rgba(82, 183, 136, 0.2);
-
     font-family: 'Outfit', sans-serif;
     color: #f0fdf4;
     position: relative;
@@ -62,7 +54,7 @@
 
 /* HERO SECTION */
 .hero-mosyneti {
-    max-width: 800px;
+    max-width: 100%;
     margin-bottom: 60px;
 }
 
@@ -107,12 +99,16 @@
 }
 
 .tarjeta-def {
-    background: var(--glass-bg-mosyneti);
-    border: 1px solid var(--glass-border-mosyneti);
+    --fondo-cristal-mosyneti: rgba(45, 106, 79, 0.1);
+    --borde-cristal-mosyneti: rgba(82, 183, 136, 0.2);
+    background: var(--fondo-cristal-mosyneti);
+    border: 1px solid var(--borde-cristal-mosyneti);
     border-radius: 16px;
     padding: 30px;
     transition: transform 0.3s ease, background 0.3s ease, border-color 0.3s ease;
     backdrop-filter: blur(10px);
+    display: flex;
+    flex-direction: column;
 }
 
 .tarjeta-def:hover {
@@ -122,8 +118,9 @@
 }
 
 .tarjeta-def h3 {
+    --secundario-mosyneti: #52b788;
     font-size: 1.3rem;
-    color: var(--secondary-mosyneti);
+    color: var(--secundario-mosyneti);
     margin-bottom: 15px;
     display: flex;
     align-items: center;
@@ -165,9 +162,10 @@
 }
 
 .tarjeta-capa {
+    --secundario-mosyneti: #52b788;
     background: rgba(45, 106, 79, 0.08);
     border: 1px solid rgba(82, 183, 136, 0.15);
-    border-left: 5px solid var(--secondary-mosyneti);
+    border-left: 5px solid var(--secundario-mosyneti);
     border-radius: 12px;
     padding: 25px 30px;
     display: grid;
@@ -191,9 +189,10 @@
 }
 
 .capa-numero {
+    --secundario-mosyneti: #52b788;
     font-size: 0.8rem;
     font-weight: bold;
-    color: var(--secondary-mosyneti);
+    color: var(--secundario-mosyneti);
     letter-spacing: 1px;
 }
 
@@ -223,8 +222,10 @@
 }
 
 .tarjeta-modulo {
-    background: var(--glass-bg-mosyneti);
-    border: 1px solid var(--glass-border-mosyneti);
+    --fondo-cristal-mosyneti: rgba(45, 106, 79, 0.1);
+    --borde-cristal-mosyneti: rgba(82, 183, 136, 0.2);
+    background: var(--fondo-cristal-mosyneti);
+    border: 1px solid var(--borde-cristal-mosyneti);
     border-radius: 20px;
     padding: 35px;
     backdrop-filter: blur(10px);
@@ -288,7 +289,8 @@
 }
 
 .item-disp strong {
-    color: var(--secondary-mosyneti);
+    --secundario-mosyneti: #52b788;
+    color: var(--secundario-mosyneti);
 }
 
 .item-disp small {
@@ -297,8 +299,9 @@
 }
 
 .puntos-claves {
+    --secundario-mosyneti: #52b788;
     background: rgba(82, 183, 136, 0.05);
-    border-left: 3px solid var(--secondary-mosyneti);
+    border-left: 3px solid var(--secundario-mosyneti);
     padding: 15px;
     border-radius: 0 8px 8px 0;
     margin-top: 15px;
@@ -320,8 +323,9 @@
 }
 
 .puntos-claves li::before {
+    --secundario-mosyneti: #52b788;
     content: "•";
-    color: var(--secondary-mosyneti);
+    color: var(--secundario-mosyneti);
     font-weight: bold;
     display: inline-block;
     width: 15px;
@@ -497,26 +501,87 @@
 }
 
 .btn-mosy.primario {
-    background: var(--secondary-mosyneti);
+    --secundario-mosyneti: #52b788;
+    background: var(--secundario-mosyneti);
+    color: #081c15;
+}
+
+.btn-mosy.primarioModulo {
+    --secundario-mosyneti: #52b788;
+    background: var(--secundario-mosyneti);
     color: #081c15;
 }
 
 .btn-mosy.primario:hover {
-    background: var(--accent-mosyneti);
+    --acento-mosyneti: #95d5b2;
+    background: var(--acento-mosyneti);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(82, 183, 136, 0.4);
+}
+
+.btn-mosy.primarioModulo:hover {
+    --acento-mosyneti: #95d5b2;
+    background: var(--acento-mosyneti);
     transform: translateY(-2px);
     box-shadow: 0 4px 15px rgba(82, 183, 136, 0.4);
 }
 
 .btn-mosy.secundario {
+    --borde-cristal-mosyneti: rgba(82, 183, 136, 0.2);
     background: transparent;
-    border: 2px solid var(--glass-border-mosyneti);
+    border: 2px solid var(--borde-cristal-mosyneti);
     color: #ffffff;
 }
 
 .btn-mosy.secundario:hover {
-    background: var(--glass-bg-mosyneti);
-    border-color: var(--secondary-mosyneti);
+    --fondo-cristal-mosyneti: rgba(45, 106, 79, 0.1);
+    --secundario-mosyneti: #52b788;
+    background: var(--fondo-cristal-mosyneti);
+    border-color: var(--secundario-mosyneti);
     transform: translateY(-2px);
+}
+
+.imagen-intravsinte,
+.imagen-ElemRed {
+    width: 100%;
+    max-width: 450px;
+    height: auto;
+    border-radius: 12px;
+    border: 1px solid rgba(82, 183, 136, 0.25);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+    display: block;
+    margin: 30px auto 0 auto;
+    margin-top: auto;
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.imagen-intravsinte:hover,
+.imagen-ElemRed:hover {
+    transform: translateY(-3px) scale(1.02);
+    border-color: rgba(82, 183, 136, 0.5);
+    box-shadow: 0 12px 25px rgba(82, 183, 136, 0.25);
+}
+
+.imagen-capa-software,
+.imagen-capa-control,
+.imagen-capa-infraestructura {
+    width: 55%;
+    max-width: 550px;
+    height: auto;
+    border-radius: 12px;
+    border: 1px solid rgba(82, 183, 136, 0.25);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+    display: block;
+    margin: 20px 0 0 150px;
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.imagen-capa-software:hover,
+.imagen-capa-control:hover,
+.imagen-capa-infraestructura:hover {
+    transform: translateY(-3px) scale(1.02);
+    border-color: rgba(82, 183, 136, 0.5);
+    box-shadow: 0 12px 25px rgba(82, 183, 136, 0.25);
 }
 
 /* RESPONSIVE DESIGN */
