@@ -97,8 +97,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 });
-
-
 // ==========================================
 // ATAJO SECRETO PARA ADMINISTRADORES
 // ==========================================
@@ -109,3 +107,110 @@ document.addEventListener('keydown', (event) => {
         window.location.href = '../vistas/login.html';
     }
 });
+
+//TABS: ¿Qué es una intranet?
+function switchTab(id, boton) {
+
+    // Quita "active" de todos los botones
+    document.querySelectorAll('.tab-btn').forEach(btn => {
+        btn.classList.remove('active');
+    });
+
+    // Quita "active" de todos los paneles
+    document.querySelectorAll('.tab-panel').forEach(panel => {
+        panel.classList.remove('active');
+    });
+
+    // Pone "active" al botón que se clickeó
+    boton.classList.add('active');
+
+    // Pone "active" al panel correspondiente
+    document.getElementById('tab-' + id).classList.add('active');
+}
+
+
+// MODAL: Leer más
+const datosModal = {
+    mesh: {
+        badge: '<span class="badge badge-redes">RED MESH</span>',
+        titulo: 'Redes Mesh Comunitarias',
+        imagen: '../recursos/imagenes/galeria/redMesh.png',
+        texto: 'Una red mesh distribuye la conectividad entre múltiples nodos que funcionan como repetidores entre sí. Si uno falla, el tráfico se redirige automáticamente por otros caminos, haciendo la red resiliente. No depende de un punto central de acceso, ideal para comunidades rurales y entornos con diferentes necesidades de conectividad.',
+        tags: ['Topología distribuida', 'Sin punto central de falla', 'Auto-organizada'],
+        youtube: 'https://www.youtube.com/watch?v=hr7SUSLHQkU&t=27s',
+        btnLabel: 'Ver cómo funciona una red Mesh'
+
+    },
+    sdr: {
+        badge: '<span class="badge badge-radio">SDR</span>',
+        titulo: 'Radio Definido por Software',
+        imagen: '../recursos/imagenes/galeria/sdr.png',
+        texto: 'A diferencia del hardware de radio convencional, el SDR implementa los protocolos de comunicación completamente en software. Permite modificar frecuencias, modulaciones y protocolos sin cambiar el hardware físico, reduciendo costos y aumentando la flexibilidad.',
+        tags: ['Procesamiento digital', 'Protocolos flexibles', 'Bajo costo'],
+        youtube:'https://www.youtube.com/watch?v=PX4AwcY-Bis',
+        btnLabel: 'SDR soluciones sostenibles',
+    },
+    mosy: {
+        badge: '<span class="badge badge-sistema">SISTEMA</span>',
+        titulo: 'MosyNetI',
+        imagen: '../recursos/imagenes/galeria/mosyneti.png',
+        texto: 'MosyNetI es el sistema de gestión desarrollado en UAM-I para administrar la intranet comunitaria. Desde una interfaz web permite monitorear el estado de los nodos, gestionar usuarios y visualizar el tráfico de la red.',
+        tags: ['Software libre', 'Interfaz web', 'Monitoreo en tiempo real'],
+        youtube:'https://www.youtube.com/watch?v=l0e_VLV88FM&t=63s',
+        btnLabel: 'Conoce el sistema MosyNetI'
+    },
+    sob: {
+        badge: '<span class="badge badge-politica">POLÍTICA</span>',
+        titulo: 'Soberanía tecnológica',
+        imagen: '../recursos/imagenes/galeria/soberania.jpg',
+        texto: 'La soberanía tecnológica plantea que las comunidades deben tener control real sobre su infraestructura digital: definiendo el acceso, la administración de los datos y qué servicios se ofrecenn.',
+        tags: ['Autonomía comunitaria', 'Control de datos', 'Sin dependencia externa']
+    }
+};
+
+function openModal(key) {
+    const d = datosModal[key];
+
+    document.getElementById('modal-badge').innerHTML = d.badge;
+    document.getElementById('modal-title').textContent = d.titulo;
+    document.getElementById('modal-body').textContent = d.texto;
+    document.getElementById('modal-img').src = d.imagen;
+    document.getElementById('modal-img').alt = d.titulo;
+    document.getElementById('modal-tags').innerHTML = d.tags
+        .map(t => `<span class="modal-tag">${t}</span>`)
+        .join('');
+
+    const videoContainer = document.getElementById('modal-video');
+
+    if (videoContainer) {
+        if (d.youtube) {
+            videoContainer.innerHTML = `
+            <a href="${d.youtube}" target="_blank" rel="noopener noreferrer" class="youtube-btn">
+                <svg width="22" height="22" viewBox="0 0 24 24">
+                    <rect width="24" height="24" rx="6" fill="#FF0000"/>
+                    <path d="M19.5 12c0 1.1-.1 2.2-.3 2.8-.3.8-.9 1.4-1.6 1.6-.8.2-3.6.3-5.6.3s-4.8-.1-5.6-.3c-.8-.2-1.4-.8-1.6-1.6C4.1 14.2 4 13.1 4 12s.1-2.2.3-2.8c.2-.8.8-1.4 1.6-1.6C6.7 7.4 9.5 7.3 11.5 7.3s4.8.1 5.6.3c.7.2 1.3.8 1.6 1.6.2.6.3 1.7.3 2.8z" fill="white"/>
+                    <path d="M10 9.5v5l4.5-2.5L10 9.5z" fill="#FF0000"/>
+                </svg>
+                ${d.btnLabel} →
+            </a>
+            `;
+        } else {
+            videoContainer.innerHTML = '';
+        }
+    }
+    document.getElementById('modal-backdrop').classList.add('open');
+    document.body.style.overflow = 'hidden';
+}
+
+function closeModal() {
+    document.getElementById('modal-backdrop').classList.remove('open');
+    document.body.style.overflow = '';
+}
+
+function closeModalOutside(event) {
+    if (event.target === document.getElementById('modal-backdrop')) {
+        closeModal();
+    }
+}
+
+
