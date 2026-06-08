@@ -104,7 +104,7 @@ document.addEventListener('keydown', (event) => {
     //si el usuario presiona Ctrl + Shift + L al mismo tiempo
     if (event.ctrlKey && event.shiftKey && (event.key === 'L' || event.key === 'l')) {
         event.preventDefault(); // Evita que el navegador haga otra cosa
-        window.location.href = '/vistas/login.html';
+        window.location.href = '../vistas/login.html';
     }
 });
 
