@@ -365,8 +365,11 @@
     inset: 0;
     background: rgba(0, 0, 0, 0.72);
     z-index: 9999;
+    align-items: flex-start; 
     align-items: center;
     justify-content: center;
+    overflow-y: auto;
+    padding: 40px 16px; 
 }
 
 #modal-backdrop.open {
@@ -382,6 +385,7 @@
     padding: 32px 34px;
     position: relative;
     animation: modalEntrada 0.2s ease;
+    margin: auto;
 }
 
 @keyframes modalEntrada {
@@ -709,6 +713,29 @@
     font-size: 0.7rem;
     font-weight: 800;
     letter-spacing: 1px;
+}
+
+.youtube-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 20px;
+    padding: 11px 20px;
+    border-radius: 10px;
+    background: #0f2d1f;
+    border: 1px solid rgba(82, 183, 136, 0.3);
+    text-decoration: none;
+    color: #f0fdf4;
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: all 0.2s ease;
+}
+
+.youtube-btn:hover {
+    border-color: #52b788;
+    background: rgba(82, 183, 136, 0.12);
+    transform: translateY(-2px);
 }
 
 /* Colores específicos de tu captura */
