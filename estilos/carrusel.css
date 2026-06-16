@@ -63,7 +63,12 @@
     top: 50%;
     left: 100px;
     transform: translateY(-50%);
-    width: 600px; 
+    
+    /* 1. CAMBIA ESTO: En lugar de 600px, ponle max-content para que se adapte al texto */
+    width: max-content; 
+    /* 2. AGREGA ESTO: Por si la pantalla es chica, que no se desborde */
+    max-width: 80%; 
+
     text-align: left;
     color: #fff;
     display: none;
@@ -79,34 +84,33 @@
 }
 
 .content .title {
-    font-size: 80px;
+    font-size: 70px !important; 
     text-transform: uppercase;
-    color: #00df9a; /* Verde más llamativo */
+    color: #00df9a; 
     font-weight: bold;
     line-height: 0.9;
     margin-bottom: 10px;
 }
 
 .content .name {
-    font-size: 80px;
+    font-size: 70px !important; 
     text-transform: uppercase;
     font-weight: bold;
     line-height: 0.9;
-    color: #fff; /* Blanco */
+    color: #fff; 
     text-shadow: 2px 2px 10px rgba(0,0,0,0.5);
 }
 
 .content .name {
-    font-size: 80px; /* Bajamos de 100 a 80 para que no se salga */
+    font-size: 70px !important; 
     text-transform: uppercase;
     font-weight: bold;
     line-height: 0.9;
-    color: #fff; /* Cambiado de negro a blanco */
+    color: #fff; 
     text-shadow: 3px 3px 15px rgba(0,0,0,0.8); 
     opacity: 0;
     animation: animate 1s ease-in-out 0.6s 1 forwards;
 }
-
 .content .des {
     margin-top: 10px;
     margin-bottom: 20px;
