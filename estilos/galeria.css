@@ -272,3 +272,58 @@ body.galeria-page::before {
         opacity: 1;
     }
 }
+
+/* =============
+   ESTILOS PARA EL BOTÓN DE REGRESAR
+   ============= */
+.contenedor-boton-regresar {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    justify-content: flex-start;
+    margin-top: 20px;
+    margin-bottom: -40px;
+}
+
+.boton-regresar {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 20px;
+    background: rgba(45, 106, 79, 0.2);
+    border: 1px solid rgba(82, 183, 136, 0.4);
+    border-radius: 30px;
+    color: #95d5b2;
+    text-decoration: none;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 0.95rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    backdrop-filter: blur(10px);
+}
+
+.boton-regresar:hover {
+    background: rgba(45, 106, 79, 0.4);
+    border-color: #52b788;
+    color: #ffffff;
+    transform: translateX(-4px);
+    box-shadow: 0 4px 15px rgba(45, 106, 79, 0.4);
+}
+
+.boton-regresar svg {
+    transition: transform 0.3s ease;
+}
+
+.boton-regresar:hover svg {
+    transform: translateX(-2px);
+}
+
+@media(max-width: 791px) {
+    .contenedor-boton-regresar {
+        padding: 0 30px;
+        margin-top: 10px;
+        margin-bottom: -20px;
+    }
+}

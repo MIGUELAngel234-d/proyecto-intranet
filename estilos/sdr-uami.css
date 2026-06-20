@@ -1,0 +1,278 @@
+
+
+.contenedor-principal {
+    font-family: 'Outfit', sans-serif;
+    color: #f0fdf4;
+    position: relative;
+    margin-top: 0;
+    margin-bottom: -40px;
+    margin-left: calc(-50vw + 50%);
+    margin-right: calc(-50vw + 50%);
+    width: auto;
+    min-height: 100vh;
+    padding: 100px 0 60px 0;
+    overflow: hidden;
+}
+
+/* Fondo degradado en tonos oscuros y verdes */
+.fondo-degradado {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at 50% 50%, #1b4332 0%, #081c15 100%);
+    z-index: 0;
+}
+
+/* Contenedor de contenido */
+.area-contenido {
+    position: relative;
+    z-index: 1;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* cabecera de la página */
+.seccion-cabecera {
+    max-width: 100%;
+    margin-bottom: 60px;
+    text-align: center;
+}
+
+.logo-cabecera {
+    display: inline-block;
+    height: 120px;
+    width: auto;
+    object-fit: contain;
+    margin-bottom: 20px;
+    opacity: 0.95;
+    filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.4));
+    transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1), filter 0.4s ease, opacity 0.4s ease;
+    -webkit-transition: -webkit-transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1), filter 0.4s ease, opacity 0.4s ease;
+}
+
+.logo-cabecera:hover {
+    transform: scale(1.06);
+    -webkit-transform: scale(1.06);
+    opacity: 1;
+    filter: drop-shadow(0 10px 20px rgba(82, 183, 136, 0.45));
+}
+
+.titulo-principal {
+    font-size: 3.5rem;
+    line-height: 1.1;
+    margin-bottom: 20px;
+    color: #ffffff;
+    font-weight: 700;
+}
+
+.texto-degradado {
+    background: linear-gradient(135deg, #49b3a2, #95d5b2);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent !important;
+}
+
+.subtitulo {
+    font-size: 1.25rem;
+    color: #ffd166;
+    font-weight: 500;
+    letter-spacing: 1px;
+}
+
+/* bloque de tarjeta informacion */
+.bloque-tarjetas {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 30px;
+    margin-bottom: 60px;
+}
+
+/* Targeta efecto de cristal (GLASSMORPHISM) */
+.tarjeta-informacion {
+    background: rgba(45, 106, 79, 0.1);
+    border: 1px solid rgba(82, 183, 136, 0.2);
+    border-radius: 16px;
+    padding: 35px;
+    transition: transform 0.3s ease, background 0.3s ease, border-color 0.3s ease;
+    backdrop-filter: blur(10px);
+}
+
+.tarjeta-informacion:hover {
+    transform: translateY(-5px);
+    background: rgba(45, 106, 79, 0.16);
+    border-color: rgba(82, 183, 136, 0.35);
+    box-shadow: 0 10px 30px rgba(45, 106, 79, 0.15);
+}
+
+.tarjeta-titulo {
+    font-size: 1.6rem;
+    color: #52b788;
+    margin-bottom: 15px;
+    font-weight: 600;
+    border-bottom: 1px solid rgba(82, 183, 136, 0.15);
+    padding-bottom: 10px;
+}
+
+.tarjeta-texto {
+    font-size: 1.05rem;
+    color: #cbd5e1;
+    line-height: 1.7;
+    text-align: justify;
+    margin: 0;
+}
+
+/* SECCIÓN DE ENLACE (YOUTUBE) */
+.seccion-enlace {
+    background: rgba(45, 106, 79, 0.12);
+    border: 1px solid rgba(82, 183, 136, 0.25);
+    border-radius: 16px;
+    padding: 40px;
+    text-align: center;
+    margin-top: 40px;
+    margin-bottom: 60px;
+    backdrop-filter: blur(10px);
+    transition: border-color 0.3s ease, background 0.3s ease;
+}
+
+.seccion-enlace:hover {
+    background: rgba(45, 106, 79, 0.18);
+    border-color: rgba(82, 183, 136, 0.4);
+}
+
+.titulo-enlace {
+    font-size: 1.8rem;
+    color: #ffffff;
+    margin-bottom: 12px;
+    font-weight: 600;
+}
+
+.texto-enlace {
+    font-size: 1.05rem;
+    color: #cbd5e1;
+    margin-bottom: 25px;
+    line-height: 1.6;
+}
+
+.contenedor-boton {
+    display: flex;
+    justify-content: center;
+}
+
+/* --- Tarjeta YouTube --- */
+.tarjeta-youtube {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 250px;
+    height: 150px;
+    background: linear-gradient(135deg, rgba(45, 106, 79, 0.2), rgba(82, 183, 136, 0.15));
+    border: 1px solid rgba(82, 183, 136, 0.3);
+    border-radius: 20px;
+    text-decoration: none;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+.tarjeta-youtube::before {
+    content: '';
+    position: absolute;
+    top: 25px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 275px;
+    height: 80px;
+    background: url('../recursos/imagenes/logos/logoIntranet.png') no-repeat center;
+    background-size: contain;
+    opacity: 1;
+    filter: blur(0px);
+    transition: opacity 0.4s ease, filter 0.4s ease, transform 0.4s ease;
+}
+
+.tarjeta-youtube:hover {
+    transform: scale(1.05) translateY(-10px);
+    box-shadow: 0 15px 30px rgba(82, 183, 136, 0.25);
+    border-color: rgba(82, 183, 136, 0.7);
+    background: linear-gradient(135deg, rgba(45, 106, 79, 0.3), rgba(82, 183, 136, 0.25));
+}
+
+.tarjeta-youtube:hover::before {
+    opacity: 0.35;
+    filter: blur(3px);
+    transform: translateX(-50%) scale(0.95);
+}
+
+.tarjeta-youtube span {
+    position: absolute;
+    bottom: 20px;
+    color: white;
+    font-weight: 700;
+    font-size: 0.9rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    opacity: 0.8;
+    transition: all 0.3s ease;
+    z-index: 2;
+}
+
+.tarjeta-youtube:hover span {
+    opacity: 1;
+    transform: translateY(-5px);
+    color: #95d5b2;
+}
+
+/* Responsivo  */
+@media (max-width: 768px) {
+    .contenedor-principal {
+        padding: 80px 0 40px 0;
+    }
+
+    .logo-cabecera {
+        height: 90px;
+        margin-bottom: 15px;
+    }
+
+    .titulo-principal {
+        font-size: 2.8rem;
+    }
+
+    .subtitulo {
+        font-size: 1.1rem;
+    }
+
+    .tarjeta-informacion {
+        padding: 25px;
+    }
+
+    .tarjeta-titulo {
+        font-size: 1.4rem;
+    }
+
+    .tarjeta-texto {
+        font-size: 0.98rem;
+    }
+
+    .seccion-enlace {
+        padding: 30px 20px;
+        margin-top: 30px;
+    }
+
+    .titulo-enlace {
+        font-size: 1.5rem;
+    }
+
+    .texto-enlace {
+        font-size: 0.95rem;
+    }
+
+    .tarjeta-youtube {
+        width: 220px;
+        height: 132px;
+    }
+}
