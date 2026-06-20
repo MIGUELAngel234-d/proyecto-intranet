@@ -1,0 +1,174 @@
+/* SECCIÓN DE ENLACE (YOUTUBE) */
+.seccion-enlace {
+    background: rgba(45, 106, 79, 0.12);
+    border: 3px solid rgba(82, 183, 136, 0.25);
+    border-radius: 16px;
+    padding: 30px;
+    text-align: center;
+    max-width: 1000px;
+    width: calc(100% - 100px);
+    margin: 40px auto 60px auto;
+    backdrop-filter: blur(10px);
+    transition: border-color 0.3s ease, background 0.3s ease;
+}
+
+.seccion-enlace:hover {
+    background: rgba(45, 106, 79, 0.18);
+    border-color: rgba(82, 183, 136, 0.4);
+}
+
+.titulo-enlace {
+    font-size: 1.8rem;
+    color: #ffffff;
+    margin-bottom: 12px;
+    font-weight: 600;
+}
+
+.texto-enlace {
+    font-size: 1.05rem;
+    color: #cbd5e1;
+    margin-bottom: 25px;
+    line-height: 1.6;
+}
+
+.contenedor-boton {
+    display: flex;
+    justify-content: center;
+}
+
+/* --- Tarjeta YouTube y Facebook --- */
+.tarjeta-youtube,
+.tarjeta-facebook {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 250px;
+    height: 150px;
+    background: linear-gradient(135deg, rgba(45, 106, 79, 0.2), rgba(82, 183, 136, 0.15));
+    border: 1px solid rgba(82, 183, 136, 0.3);
+    border-radius: 20px;
+    text-decoration: none;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+.tarjeta-youtube::before {
+    content: '';
+    position: absolute;
+    top: 25px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 275px;
+    height: 80px;
+    background: url('../recursos/imagenes/logos/logoIntranet.png') no-repeat center;
+    background-size: contain;
+    opacity: 1;
+    filter: blur(0px);
+    transition: opacity 0.4s ease, filter 0.4s ease, transform 0.4s ease;
+}
+
+.tarjeta-facebook::before {
+    content: '';
+    position: absolute;
+    top: 25px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 275px;
+    height: 80px;
+    background: url('../recursos/imagenes/logos/logoFace.png') no-repeat center;
+    background-size: contain;
+    opacity: 1;
+    filter: blur(0px);
+    transition: opacity 0.4s ease, filter 0.4s ease, transform 0.4s ease;
+}
+
+.tarjeta-youtube:hover,
+.tarjeta-facebook:hover {
+    transform: scale(1.05) translateY(-10px);
+    box-shadow: 0 15px 30px rgba(82, 183, 136, 0.25);
+    border-color: rgba(82, 183, 136, 0.7);
+    background: linear-gradient(135deg, rgba(45, 106, 79, 0.3), rgba(82, 183, 136, 0.25));
+}
+
+.tarjeta-youtube:hover::before,
+.tarjeta-facebook:hover::before {
+    opacity: 0.35;
+    filter: blur(3px);
+    transform: translateX(-50%) scale(0.95);
+}
+
+.tarjeta-youtube span,
+.tarjeta-facebook span {
+    position: absolute;
+    bottom: 20px;
+    color: white;
+    font-weight: 700;
+    font-size: 0.9rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    opacity: 0.8;
+    transition: all 0.3s ease;
+    z-index: 2;
+}
+
+.tarjeta-youtube:hover span,
+.tarjeta-facebook:hover span {
+    opacity: 1;
+    transform: translateY(-5px);
+    color: #95d5b2;
+}
+
+/* Responsivo  */
+@media (max-width: 768px) {
+    .contenedor-principal {
+        padding: 80px 0 40px 0;
+    }
+
+    .logo-cabecera {
+        height: 90px;
+        margin-bottom: 15px;
+    }
+
+    .titulo-principal {
+        font-size: 2.8rem;
+    }
+
+    .subtitulo {
+        font-size: 1.1rem;
+    }
+
+    .tarjeta-informacion {
+        padding: 25px;
+    }
+
+    .tarjeta-titulo {
+        font-size: 1.4rem;
+    }
+
+    .tarjeta-texto {
+        font-size: 0.98rem;
+    }
+
+    .seccion-enlace {
+        padding: 30px 20px;
+        margin-top: 30px;
+    }
+
+    .titulo-enlace {
+        font-size: 1.5rem;
+    }
+
+    .texto-enlace {
+        font-size: 0.95rem;
+    }
+
+    .tarjeta-youtube,
+    .tarjeta-facebook {
+        width: 220px;
+        height: 132px;
+    }
+}
